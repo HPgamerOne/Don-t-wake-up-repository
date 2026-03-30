@@ -1,4 +1,3 @@
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +12,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float xRotation;
     [SerializeField] private Vector2 mouseInput;
 
+    [Header("GizmosRay")]
+    [SerializeField] private float gizmosRayLength = 2f;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -35,5 +36,12 @@ public class CameraController : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         transform.parent.Rotate(0, mouseX, 0);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+
+        Gizmos.DrawRay(transform.position, transform.forward * gizmosRayLength);
     }
 }
