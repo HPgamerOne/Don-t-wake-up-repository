@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private InputActionReference lookAction;
 
     [Header("Camera")]
-    [SerializeField] private float sensitivity = 1f;
+    [SerializeField] private float sensitivity = 0.2f;
     [SerializeField] private float mouseX;
     [SerializeField] private float mouseY;
     [SerializeField] private float xRotation;
