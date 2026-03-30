@@ -7,13 +7,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionReference moveAction, jumpAction, sprintAction;
 
     [Header("Movement")]
+    [SerializeField] private bool isSprinting = false;
     [SerializeField] private float baseMoveSpeed = 10;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float sprintMultiplier = 1.5f;
     [SerializeField] private float jumpVelocity = 10f;
-    [SerializeField] Vector2 moveInput;
-    [SerializeField] Vector3 velocity;
-    [SerializeField] Vector3 horizontalVelocity;
+    [SerializeField] private float currentHorizontalSpeed;
+    [SerializeField] private Vector2 moveInput;
+    [SerializeField] private Vector3 velocity;
+    [SerializeField] private Vector3 horizontalVelocity;
 
     [Header("Gravity")]
     [SerializeField] private float gravity = -9.82f;
@@ -37,10 +39,12 @@ public class PlayerController : MonoBehaviour
         if (sprintAction.action.ReadValue<float>() != 0)
         {
             moveSpeed = baseMoveSpeed * sprintMultiplier;
+            isSprinting = true;
         }
         else
         {
             moveSpeed = baseMoveSpeed;
+            isSprinting = false;
         }
 
         // Movement Input
@@ -67,6 +71,18 @@ public class PlayerController : MonoBehaviour
         velocity.x = horizontalVelocity.x;
         velocity.z = horizontalVelocity.z;
 
+        currentHorizontalSpeed = horizontalVelocity.magnitude;
+
         characterController.Move(velocity * Time.deltaTime);
+    }
+
+    public float CurrentHorizontalSpeed()
+    {
+        return currentHorizontalSpeed;
+    }
+
+    public bool IsSprinting()
+    {
+        return isSprinting;
     }
 }
