@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+
+        moveSpeed = baseMoveSpeed;
     }
 
     void Update()
@@ -33,8 +35,6 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        moveSpeed = baseMoveSpeed;
-
         // Sprint
         if (sprintAction.action.ReadValue<float>() != 0)
         {
