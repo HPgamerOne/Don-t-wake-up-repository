@@ -8,7 +8,7 @@ public class ObstaclePush : MonoBehaviour
     {
         Rigidbody rigidbody = hit.collider.attachedRigidbody;
 
-        if (rigidbody != null && playerController.CurrentHorizontalSpeed() != 0)
+        if (rigidbody != null && playerController.CurrentHorizontalSpeed() != 0 && hit.normal.y < 0.5)
         {
             Vector3 forceDirection = hit.gameObject.transform.position - transform.position;
             forceDirection.y = 0;
