@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2840002738154598093}
   - component: {fileID: 7751618679432655673}
   - component: {fileID: 2765941615646539561}
-  - component: {fileID: 3984366651009416265}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -103,20 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObstaclePush
   forceMagnitude: 1
   playerController: {fileID: 7751618679432655673}
---- !u!114 &3984366651009416265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1966779931291887346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fe30ed01f8c85a42abc1157e98181a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  tracker: {fileID: 1966779931291887346}
-  grass: {fileID: -876546973899608171, guid: 9af7d335795b5df41b567e826dba68e2, type: 3}
 --- !u!1 &2613916859258586584
 GameObject:
   m_ObjectHideFlags: 0
