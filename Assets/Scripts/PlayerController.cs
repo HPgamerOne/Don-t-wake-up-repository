@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
             velocity.y = -1;
 
             // Jump
-            if (jumpAction.action.WasPressedThisFrame())
+            if (jumpAction.action.ReadValue<float>() != 0)
             {
                 velocity.y = jumpVelocity;
             }
