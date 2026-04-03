@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class ObstaclePush : MonoBehaviour
 {
-    [SerializeField] private float forceMagnitude = 1;
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private float forceMagnitude = 1;
+    [SerializeField] private Vector3 forceDirection;
+    [SerializeField] private float hitNormal = 0.5f;
+
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Rigidbody rigidbody = hit.collider.attachedRigidbody;
 
-        if (rigidbody != null && playerController.CurrentHorizontalSpeed() != 0 && hit.normal.y < 0.5)
+        if (rigidbody != null && playerController.CurrentHorizontalSpeed() != 0 && hit.normal.y < hitNormal)
         {
-            Vector3 forceDirection = hit.gameObject.transform.position - transform.position;
+            forceDirection = hit.gameObject.transform.position - transform.position;
+
             forceDirection.y = 0;
             forceDirection.Normalize();
 
@@ -18,3 +22,4 @@ public class ObstaclePush : MonoBehaviour
         }
     }
 }
+

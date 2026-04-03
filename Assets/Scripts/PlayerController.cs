@@ -19,11 +19,17 @@ public class PlayerController : MonoBehaviour
 
     [Header("Gravity")]
     [SerializeField] private float gravity = -9.82f;
-    [SerializeField] private float gravityMultiplier = 3f;
+    [SerializeField] private float gravityMultiplier = 3;
+
+    [Header("Water")]
+    [SerializeField] GameObject water;
+    [SerializeField] private float difference;
+    [SerializeField] private float waterHeight = 0.5f;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        water = GameObject.Find("Water");
 
         moveSpeed = baseMoveSpeed;
     }
@@ -36,6 +42,29 @@ public class PlayerController : MonoBehaviour
     private void HandleMovement()
     {
         // Sprint
+        onSprint();
+
+        // Movement Input
+        moveInput = moveAction.action.ReadValue<Vector2>();
+        horizontalVelocity = new Vector3(moveInput.x * moveSpeed, 0, moveInput.y * moveSpeed);
+        horizontalVelocity = transform.rotation * horizontalVelocity;
+
+        // Gravity, jump
+        Gravity();
+
+        // Buoyancy
+        Buoyancy();
+
+        velocity.x = horizontalVelocity.x;
+        velocity.z = horizontalVelocity.z;
+
+        currentHorizontalSpeed = horizontalVelocity.magnitude;
+
+        characterController.Move(velocity * Time.deltaTime);
+    }
+
+    private void onSprint()
+    {
         if (sprintAction.action.ReadValue<float>() != 0)
         {
             moveSpeed = baseMoveSpeed * sprintMultiplier;
@@ -46,18 +75,14 @@ public class PlayerController : MonoBehaviour
             moveSpeed = baseMoveSpeed;
             isSprinting = false;
         }
+    }
 
-        // Movement Input
-        moveInput = moveAction.action.ReadValue<Vector2>();
-        horizontalVelocity = new Vector3(moveInput.x * moveSpeed, 0, moveInput.y * moveSpeed);
-        horizontalVelocity = transform.rotation * horizontalVelocity;
-
-        // Gravity
+    private void Gravity()
+    {
         if (characterController.isGrounded)
         {
             velocity.y = -1;
 
-            // Jump
             if (jumpAction.action.ReadValue<float>() != 0)
             {
                 velocity.y = jumpVelocity;
@@ -67,13 +92,21 @@ public class PlayerController : MonoBehaviour
         {
             velocity.y += gravity * gravityMultiplier * Time.deltaTime;
         }
+    }
 
-        velocity.x = horizontalVelocity.x;
-        velocity.z = horizontalVelocity.z;
+    private void Buoyancy()
+    {
+        if (water == null)
+        {
+            return;
+        }
 
-        currentHorizontalSpeed = horizontalVelocity.magnitude;
+        difference = transform.position.y - water.transform.position.y;
 
-        characterController.Move(velocity * Time.deltaTime);
+        if (difference < waterHeight)
+        {
+            velocity.y = 0;
+        }
     }
 
     public float CurrentHorizontalSpeed()
@@ -82,6 +115,11 @@ public class PlayerController : MonoBehaviour
     }
 
     public bool IsSprinting()
+    {
+        return isSprinting;
+    }
+
+    public bool IsSwimming()
     {
         return isSprinting;
     }

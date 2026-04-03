@@ -88,6 +88,9 @@ MonoBehaviour:
   horizontalVelocity: {x: 0, y: 0, z: 0}
   gravity: -9.82
   gravityMultiplier: 3
+  water: {fileID: 0}
+  difference: 0
+  waterHeight: 0.3
 --- !u!114 &2765941615646539561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,8 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79a4150b0f62fc4fbe1c7bc7a065284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObstaclePush
-  forceMagnitude: 1
   playerController: {fileID: 7751618679432655673}
+  forceMagnitude: 1
+  forceDirection: {x: 0, y: 0, z: 0}
+  hitNormal: 0.7
 --- !u!1 &2613916859258586584
 GameObject:
   m_ObjectHideFlags: 0

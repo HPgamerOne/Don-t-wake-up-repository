@@ -137,4 +137,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Buoyancy
   rb: {fileID: 5769268427772933256}
   water: {fileID: 0}
-  upforce: 15
+  upforce: 200
+  airLinearDrag: 0
+  airAngularDrag: 0.05
+  waterLinearDrag: 3
+  waterAngularDrag: 1
+  difference: 0
