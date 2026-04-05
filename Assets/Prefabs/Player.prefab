@@ -89,8 +89,10 @@ MonoBehaviour:
   gravity: -9.82
   gravityMultiplier: 3
   water: {fileID: 0}
-  difference: 0
-  waterHeight: 0.3
+  depth: 0
+  waterDrag: 0.9
+  upforce: 40
+  inWater: 0
 --- !u!114 &2765941615646539561
 MonoBehaviour:
   m_ObjectHideFlags: 0

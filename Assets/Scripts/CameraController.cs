@@ -14,6 +14,7 @@ public class CameraController : MonoBehaviour
 
     [Header("GizmosRay")]
     [SerializeField] private float gizmosRayLength = 2f;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;

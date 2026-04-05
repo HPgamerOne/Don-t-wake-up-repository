@@ -23,8 +23,10 @@ public class PlayerController : MonoBehaviour
 
     [Header("Water")]
     [SerializeField] GameObject water;
-    [SerializeField] private float difference;
-    [SerializeField] private float waterHeight = 0.5f;
+    [SerializeField] private float depth;
+    [SerializeField] private float waterDrag = 0.9f;
+    [SerializeField] private float upforce = 35;
+    [SerializeField] private bool inWater = false;
 
     void Start()
     {
@@ -42,18 +44,27 @@ public class PlayerController : MonoBehaviour
     private void HandleMovement()
     {
         // Sprint
-        onSprint();
+        OnSprint();
 
         // Movement Input
         moveInput = moveAction.action.ReadValue<Vector2>();
         horizontalVelocity = new Vector3(moveInput.x * moveSpeed, 0, moveInput.y * moveSpeed);
         horizontalVelocity = transform.rotation * horizontalVelocity;
 
+        // Buoyancy
+
+        if (water != null)
+        {
+            InWater();
+
+            if (inWater == true)
+            {
+                Buoyancy();
+            }
+        }
+
         // Gravity, jump
         Gravity();
-
-        // Buoyancy
-        Buoyancy();
 
         velocity.x = horizontalVelocity.x;
         velocity.z = horizontalVelocity.z;
@@ -63,7 +74,7 @@ public class PlayerController : MonoBehaviour
         characterController.Move(velocity * Time.deltaTime);
     }
 
-    private void onSprint()
+    private void OnSprint()
     {
         if (sprintAction.action.ReadValue<float>() != 0)
         {
@@ -79,34 +90,61 @@ public class PlayerController : MonoBehaviour
 
     private void Gravity()
     {
-        if (characterController.isGrounded)
+        if (inWater == true)
         {
-            velocity.y = -1;
-
             if (jumpAction.action.ReadValue<float>() != 0)
             {
                 velocity.y = jumpVelocity;
             }
+            velocity.y += gravity * gravityMultiplier * Time.deltaTime * waterDrag;
         }
         else
         {
-            velocity.y += gravity * gravityMultiplier * Time.deltaTime;
+            if (characterController.isGrounded)
+            {
+                velocity.y = -1;
+
+                if (jumpAction.action.ReadValue<float>() != 0)
+                {
+                    velocity.y = jumpVelocity;
+                }
+            }
+            else
+            {
+                velocity.y += gravity * gravityMultiplier * Time.deltaTime;
+            }
         }
     }
 
     private void Buoyancy()
     {
-        if (water == null)
+        velocity.y += upforce * Time.deltaTime;
+        velocity.y *=  waterDrag;
+    }
+
+    private void InWater()
+    {
+        depth = transform.position.y - water.transform.position.y;
+
+        if (depth < 0)
         {
-            return;
+            inWater = true;
+        }
+        else
+        {
+            inWater = false;
         }
 
-        difference = transform.position.y - water.transform.position.y;
-
-        if (difference < waterHeight)
+        /*
+        if (difference < waterHeight - inWaterOffset)
         {
-            velocity.y = 0;
+            inWater = true;
         }
+        else if (difference < waterHeight - outWaterOffset)
+        {
+            inWater = false;
+        }
+        */
     }
 
     public float CurrentHorizontalSpeed()
