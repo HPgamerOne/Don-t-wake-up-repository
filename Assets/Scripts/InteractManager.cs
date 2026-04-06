@@ -12,7 +12,7 @@ TLDR: Skicka raycast, säg till objekt att de är upp plockade/interagerade med
 
 public class InteractManager : MonoBehaviour
 {
-    LayerMask interactMask;
+    LayerMask interactableMask;
 
     [Header("Camera Info")]
     [SerializeField] Transform cameraTransform;
@@ -22,12 +22,22 @@ public class InteractManager : MonoBehaviour
 
     void Start()
     {
-        interactMask = LayerMask.GetMask("Interactable");
+        interactableMask = LayerMask.GetMask("Interactable");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        cameraPosition = cameraTransform.position;
+        cameraDirection = cameraTransform.TransformDirection(Vector3.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(cameraPosition, cameraDirection, out hit, rayDistance, interactableMask, QueryTriggerInteraction.Collide))
+        {
+            Debug.DrawRay(cameraPosition, cameraDirection * rayDistance, Color.yellow);
+        }
+        else
+        {
+            Debug.DrawRay(cameraPosition, cameraDirection * rayDistance, Color.red);
+        }
     }
 }
