@@ -22,7 +22,7 @@ public class InteractManager : MonoBehaviour
 
     void Start()
     {
-        
+        interactMask = LayerMask.GetMask("Interactable");
     }
 
     // Update is called once per frame
