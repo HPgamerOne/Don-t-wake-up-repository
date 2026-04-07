@@ -3432,6 +3432,10 @@ PrefabInstance:
       propertyPath: forceMagnitude
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2779044442094501288, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
+      propertyPath: gizmosRayLength
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2925092492124736960, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.62106

@@ -33,6 +33,9 @@ public class InteractManager : MonoBehaviour
 
         if (Physics.Raycast(cameraPosition, cameraDirection, out hit, rayDistance, interactableMask, QueryTriggerInteraction.Collide))
         {
+            InteractObject interactObject = hit.collider.gameObject.GetComponentInParent<InteractObject>();
+
+
             Debug.DrawRay(cameraPosition, cameraDirection * rayDistance, Color.yellow);
         }
         else
