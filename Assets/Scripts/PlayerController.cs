@@ -13,30 +13,29 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private bool isSprinting = false;
     [SerializeField] private float baseMoveSpeed = 10;
-    [SerializeField] private float moveSpeed;
+
     [SerializeField] private float sprintMultiplier = 1.5f;
     [SerializeField] private float jumpVelocity = 10f;
-    [SerializeField] private float currentHorizontalSpeed;
-    [SerializeField] private Vector2 moveInput;
-    [SerializeField] private Vector3 velocity;
-    [SerializeField] private Vector3 horizontalVelocity;
+    private float moveSpeed;
+    private float currentHorizontalSpeed;
+    private Vector2 moveInput;
+    private Vector3 velocity;
+    private Vector3 horizontalVelocity;
 
     [Header("Gravity")]
     [SerializeField] private float gravity = -9.82f;
     [SerializeField] private float gravityMultiplier = 3;
 
     [Header("Water")]
-    [SerializeField] GameObject water;
-    [SerializeField] private float depth;
+    [SerializeField] private GameObject water;
     [SerializeField] private float waterDrag = 0.9f;
     [SerializeField] private float upforce = 35;
-    [SerializeField] private bool inWater = false;
+    private bool inWater;
+    private float depth;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        water = GameObject.Find("Water");
-
         moveSpeed = baseMoveSpeed;
     }
 
@@ -61,7 +60,7 @@ public class PlayerController : MonoBehaviour
         {
             InWater();
 
-            if (inWater == true)
+            if (inWater)
             {
                 Buoyancy();
             }
@@ -146,11 +145,6 @@ public class PlayerController : MonoBehaviour
     }
 
     public bool IsSprinting()
-    {
-        return isSprinting;
-    }
-
-    public bool IsSwimming()
     {
         return isSprinting;
     }

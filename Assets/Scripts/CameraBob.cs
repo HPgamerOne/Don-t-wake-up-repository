@@ -7,17 +7,19 @@ Hantera kamera position med spelare-rörelse.
 public class CameraBob : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
-    [SerializeField] private float newPosition;
-    [SerializeField] private float originalPosition;
-    [SerializeField] private float timer = 0;
     [SerializeField] private float baseBobSpeed = 10f;
     [SerializeField] private float bobSpeed = 10f;
     [SerializeField] private float bobSpeedMultiplier = 1.5f;
     [SerializeField] private float bobAmount = 0.05f;
+    private float newPosition;
+    private float originalPosition;
+    private float timer = 0;
+    private Vector3 localPosition;
 
     void Start()
     {
         originalPosition = transform.localPosition.y;
+        localPosition = transform.localPosition;
     }
 
     void Update()
@@ -39,14 +41,14 @@ public class CameraBob : MonoBehaviour
         timer += Time.deltaTime * bobSpeed;
         newPosition = originalPosition + Mathf.Sin(timer) * bobAmount;
 
-        if (playerController.CurrentHorizontalSpeed() > 0.1f) // Bob when moving
+        if (playerController.CurrentHorizontalSpeed() > 0.1f)
         {
-            transform.localPosition = new Vector3(transform.localPosition.x, newPosition, transform.localPosition.z);
+            localPosition = new Vector3(localPosition.x, newPosition, localPosition.z);
         }
-        else // Return cam to original position
+        else
         {
             timer = 0;
-            transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, originalPosition, Time.deltaTime * bobSpeed), transform.localPosition.z);
+            localPosition = new Vector3(localPosition.x, Mathf.Lerp(localPosition.y, originalPosition, Time.deltaTime * bobSpeed), localPosition.z);
         }
     }
 }

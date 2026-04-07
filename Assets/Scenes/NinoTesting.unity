@@ -1783,12 +1783,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LiquidWobble
   rend: {fileID: 0}
-  lastPosition: {x: 0, y: 0, z: 0}
-  lastRotation: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
-  angularVelocity: {x: 0, y: 0, z: 0}
-  wobbleX: 0
-  wobbleZ: 0
 --- !u!1001 &781896252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2289,7 +2283,6 @@ MonoBehaviour:
   airAngularDramping: 0.05
   waterLinearDamping: 3
   waterAngularDamping: 1
-  difference: 0
 --- !u!1 &1000155308
 GameObject:
   m_ObjectHideFlags: 0
@@ -3603,6 +3596,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7751618679432655673, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
+      propertyPath: water
+      value: 
+      objectReference: {fileID: 1862093394}
+    - target: {fileID: 7751618679432655673, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
       propertyPath: upforce
       value: 40
       objectReference: {fileID: 0}
@@ -4100,7 +4097,7 @@ Transform:
   m_GameObject: {fileID: 1862093394}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 1.5, z: -13.3}
+  m_LocalPosition: {x: 3, y: 1.55, z: -13.3}
   m_LocalScale: {x: 69.489815, y: 69.489815, z: 69.489815}
   m_ConstrainProportionsScale: 0
   m_Children: []

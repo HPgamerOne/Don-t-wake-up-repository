@@ -7,19 +7,18 @@ Hantera knuff uppåt på objekt med rigidbody i vatten.
 
 public class Buoyancy : MonoBehaviour
 {
-    [SerializeField] Rigidbody rigidBody;
-    [SerializeField] GameObject water;
-    [SerializeField] float upforce = 15;
-    [SerializeField] float airLinearDamping = 0f;
-    [SerializeField] float airAngularDramping = 0.05f;
-    [SerializeField] float waterLinearDamping = 3f;
-    [SerializeField] float waterAngularDamping = 1f;
-    [SerializeField] float difference;
+    [SerializeField] private Rigidbody rigidBody;
+    [SerializeField] private GameObject water;
+    [SerializeField] private float upforce = 15;
+    [SerializeField] private float airLinearDamping = 0f;
+    [SerializeField] private float airAngularDramping = 0.05f;
+    [SerializeField] private float waterLinearDamping = 3f;
+    [SerializeField] private float waterAngularDamping = 1f;
+    private float difference;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        water = GameObject.Find("Water");
     }
 
     private void FixedUpdate()

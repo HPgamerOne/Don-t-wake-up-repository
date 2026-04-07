@@ -11,13 +11,15 @@ public class CameraController : MonoBehaviour
 
     [Header("Camera")]
     [SerializeField] private float sensitivity = 0.2f;
-    [SerializeField] private float mouseX;
-    [SerializeField] private float mouseY;
-    [SerializeField] private float xRotation;
-    [SerializeField] private Vector2 mouseInput;
+    private float mouseX;
+    private float mouseY;
+    private float xRotation;
+    private Vector2 mouseInput;
 
+    /*
     [Header("GizmosRay")]
     [SerializeField] private float gizmosRayLength = 2f;
+    */
 
     void Start()
     {
@@ -43,10 +45,12 @@ public class CameraController : MonoBehaviour
         transform.parent.Rotate(0, mouseX, 0);
     }
 
+    /*
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
 
         Gizmos.DrawRay(transform.position, transform.forward * gizmosRayLength);
     }
+    */
 }
