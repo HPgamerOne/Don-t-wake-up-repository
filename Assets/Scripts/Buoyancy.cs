@@ -17,16 +17,10 @@ public class Buoyancy : MonoBehaviour
     [SerializeField] private float displacementMultiplier;
     */
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         water = GameObject.Find("Water");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void FixedUpdate()
@@ -35,6 +29,7 @@ public class Buoyancy : MonoBehaviour
         {
             return;
         }
+
         difference = transform.position.y - water.transform.position.y;
 
         if (difference < 0)

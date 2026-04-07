@@ -107,7 +107,7 @@ MonoBehaviour:
   water: {fileID: 0}
   depth: 0
   waterDrag: 0.9
-  upforce: 40
+  upforce: 50
   inWater: 0
 --- !u!114 &2765941615646539561
 MonoBehaviour:

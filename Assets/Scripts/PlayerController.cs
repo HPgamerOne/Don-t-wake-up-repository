@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
             {
                 velocity.y = jumpVelocity;
             }
-            velocity.y += gravity * gravityMultiplier * Time.deltaTime * waterDrag;
+            velocity.y += gravity * gravityMultiplier * Time.deltaTime;
         }
         else
         {
