@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObstaclePush
   playerController: {fileID: 7751618679432655673}
-  forceMagnitude: 1
+  forceMagnitude: 0.5
   forceDirection: {x: 0, y: 0, z: 0}
   hitNormal: 0.7
 --- !u!1 &2613916859258586584
