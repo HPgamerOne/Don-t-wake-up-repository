@@ -121,7 +121,11 @@
             "m_Id": "54c8bca3c26f41c19aa2d6abab82d7dd"
         }
     ],
-    "m_GroupDatas": [],
+    "m_GroupDatas": [
+        {
+            "m_Id": "035e09b904ad4b3d9ec6e0f704334960"
+        }
+    ],
     "m_StickyNoteDatas": [],
     "m_Edges": [
         {
@@ -487,6 +491,17 @@
             "m_Id": "5f08462a8c0b4a0fb88ce7b93ff0a4de"
         }
     ]
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.GroupData",
+    "m_ObjectId": "035e09b904ad4b3d9ec6e0f704334960",
+    "m_Title": "Wobble",
+    "m_Position": {
+        "x": -2778.0,
+        "y": -548.0
+    }
 }
 
 {
@@ -982,7 +997,7 @@
     "m_Type": "UnityEditor.ShaderGraph.MultiplyNode",
     "m_ObjectId": "2390fc4cd1ad434391504b363adcf680",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "035e09b904ad4b3d9ec6e0f704334960"
     },
     "m_Name": "Multiply",
     "m_DrawState": {
@@ -1122,7 +1137,7 @@
     "m_Type": "UnityEditor.ShaderGraph.MultiplyNode",
     "m_ObjectId": "2e077a7ddcc448208318fe491c717d54",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "035e09b904ad4b3d9ec6e0f704334960"
     },
     "m_Name": "Multiply",
     "m_DrawState": {
@@ -1593,7 +1608,7 @@
     "m_Type": "UnityEditor.ShaderGraph.RotateAboutAxisNode",
     "m_ObjectId": "43c352a6442e485b813154bc8eb91c4a",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "035e09b904ad4b3d9ec6e0f704334960"
     },
     "m_Name": "Rotate About Axis",
     "m_DrawState": {
@@ -1713,7 +1728,7 @@
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "54c8bca3c26f41c19aa2d6abab82d7dd",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "035e09b904ad4b3d9ec6e0f704334960"
     },
     "m_Name": "Property",
     "m_DrawState": {
@@ -2009,7 +2024,7 @@
     "m_Type": "UnityEditor.ShaderGraph.AddNode",
     "m_ObjectId": "6fdd44e24529471b82a494ada3596c35",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "035e09b904ad4b3d9ec6e0f704334960"
     },
     "m_Name": "Add",
     "m_DrawState": {
@@ -2313,7 +2328,7 @@
     "m_Type": "UnityEditor.ShaderGraph.RotateAboutAxisNode",
     "m_ObjectId": "988af6a1b4e54e028b06fa40f44aa18e",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "035e09b904ad4b3d9ec6e0f704334960"
     },
     "m_Name": "Rotate About Axis",
     "m_DrawState": {
@@ -3009,7 +3024,7 @@
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "da5c1aab7fcb47a49fca1525abcb8e24",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "035e09b904ad4b3d9ec6e0f704334960"
     },
     "m_Name": "Property",
     "m_DrawState": {
@@ -3128,7 +3143,7 @@
     "m_Type": "UnityEditor.ShaderGraph.PositionNode",
     "m_ObjectId": "e142566f29954857bfb80807e775242f",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "035e09b904ad4b3d9ec6e0f704334960"
     },
     "m_Name": "Position",
     "m_DrawState": {

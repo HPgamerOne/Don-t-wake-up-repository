@@ -1,25 +1,24 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
+/*
+Hantera knuff uppåt på objekt med rigidbody i vatten.
+*/
+
 public class Buoyancy : MonoBehaviour
 {
-    [SerializeField] Rigidbody rb;
+    [SerializeField] Rigidbody rigidBody;
     [SerializeField] GameObject water;
     [SerializeField] float upforce = 15;
-    [SerializeField] float airLinearDrag = 0f;
-    [SerializeField] float airAngularDrag = 0.05f;
-    [SerializeField] float waterLinearDrag = 3f;
-    [SerializeField] float waterAngularDrag = 1f;
+    [SerializeField] float airLinearDamping = 0f;
+    [SerializeField] float airAngularDramping = 0.05f;
+    [SerializeField] float waterLinearDamping = 3f;
+    [SerializeField] float waterAngularDamping = 1f;
     [SerializeField] float difference;
-    /*
-    [SerializeField] private float depthBeforeSubmerged = 1f;
-    [SerializeField] private float displacementAmount = 1f;
-    [SerializeField] private float displacementMultiplier;
-    */
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rigidBody = GetComponent<Rigidbody>();
         water = GameObject.Find("Water");
     }
 
@@ -34,19 +33,15 @@ public class Buoyancy : MonoBehaviour
 
         if (difference < 0)
         {
-            rb.linearDamping = waterLinearDrag;
-            rb.angularDamping = waterAngularDrag;
+            rigidBody.linearDamping = waterLinearDamping;
+            rigidBody.angularDamping = waterAngularDamping;
 
-            rb.AddForceAtPosition(Vector3.up * upforce * Mathf.Abs(difference), transform.position, ForceMode.Force);
-            /*
-            displacementMultiplier = Mathf.Clamp01(-transform.position.y / depthBeforeSubmerged) * displacementAmount;
-            rb.AddForce(new Vector3(0f, Mathf.Abs(Physics.gravity.y) * displacementMultiplier, 0f), ForceMode.Acceleration);
-            */
+            rigidBody.AddForceAtPosition(Vector3.up * upforce * Mathf.Abs(difference), transform.position, ForceMode.Force);
         }
         else
         {
-            rb.linearDamping = airLinearDrag;
-            rb.angularDamping = airAngularDrag;
+            rigidBody.linearDamping = airLinearDamping;
+            rigidBody.angularDamping = airAngularDramping;
         }
     }
 }

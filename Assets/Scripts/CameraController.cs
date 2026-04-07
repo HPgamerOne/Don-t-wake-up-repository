@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/*
+Hantera spelare-kamera
+*/
+
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private InputActionReference lookAction;

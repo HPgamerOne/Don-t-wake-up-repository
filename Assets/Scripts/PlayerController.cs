@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/*
+Hantera spelare-rörelse med CharacterController. Hoppa, springa, tyngdkraften, flyta på vatten(ish).
+*/
+
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private CharacterController characterController;
@@ -76,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnSprint()
     {
-        if (sprintAction.action.ReadValue<float>() != 0)
+        if (sprintAction.action.IsPressed())
         {
             moveSpeed = baseMoveSpeed * sprintMultiplier;
             isSprinting = true;
@@ -92,7 +96,7 @@ public class PlayerController : MonoBehaviour
     {
         if (inWater == true)
         {
-            if (jumpAction.action.ReadValue<float>() != 0)
+            if (jumpAction.action.IsPressed())
             {
                 velocity.y = jumpVelocity;
             }
@@ -104,7 +108,7 @@ public class PlayerController : MonoBehaviour
             {
                 velocity.y = -1;
 
-                if (jumpAction.action.ReadValue<float>() != 0)
+                if (jumpAction.action.IsPressed())
                 {
                     velocity.y = jumpVelocity;
                 }
@@ -134,17 +138,6 @@ public class PlayerController : MonoBehaviour
         {
             inWater = false;
         }
-
-        /*
-        if (difference < waterHeight - inWaterOffset)
-        {
-            inWater = true;
-        }
-        else if (difference < waterHeight - outWaterOffset)
-        {
-            inWater = false;
-        }
-        */
     }
 
     public float CurrentHorizontalSpeed()

@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/*
+Hantera kamera position med spelare-rörelse.
+*/
+
 public class CameraBob : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
