@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /*
 Denna skript har som huvudsyfte att sitta på spelaren och skicka ut raycast.
@@ -12,6 +14,9 @@ TLDR: Skicka raycast, säg till objekt att de är upp plockade/interagerade med
 
 public class InteractManager : MonoBehaviour
 {
+    [SerializeField] private InputActionReference interactAction;
+    
+
     LayerMask interactableMask;
 
     [Header("Camera Info")]
@@ -19,6 +24,9 @@ public class InteractManager : MonoBehaviour
     [SerializeField] float rayDistance = 3f;
     Vector3 cameraPosition;
     Vector3 cameraDirection;
+
+    InteractObject interactObject;
+    private bool currentlyHolding = false;
 
     void Start()
     {
@@ -31,10 +39,27 @@ public class InteractManager : MonoBehaviour
         cameraDirection = cameraTransform.TransformDirection(Vector3.forward);
         RaycastHit hit;
 
+        
         if (Physics.Raycast(cameraPosition, cameraDirection, out hit, rayDistance, interactableMask, QueryTriggerInteraction.Collide))
-        {
-            InteractObject interactObject = hit.collider.gameObject.GetComponentInParent<InteractObject>();
+        {   
+            if (!currentlyHolding)
+            {
+                interactObject = hit.collider.gameObject.GetComponentInParent<InteractObject>();
+            }
 
+            if (interactAction.action.IsPressed())
+            {
+                if (interactObject.interactable && interactObject.dynamic)
+                {
+                    interactObject.attractForceActive = true;
+                    currentlyHolding = true;
+                }
+            }
+            else
+            {
+                interactObject.attractForceActive = false;
+                currentlyHolding = false;
+            }
 
             Debug.DrawRay(cameraPosition, cameraDirection * rayDistance, Color.yellow);
         }
