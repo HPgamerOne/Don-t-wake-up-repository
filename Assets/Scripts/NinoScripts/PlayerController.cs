@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        characterController.detectCollisions = false;
         moveSpeed = baseMoveSpeed;
     }
 

@@ -3136,6 +3136,10 @@ PrefabInstance:
       propertyPath: upforce
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 5769268427772933256, guid: 0eda1ff47fefb2445983f8fdca044858, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6994942979194113325, guid: 0eda1ff47fefb2445983f8fdca044858, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.632561
