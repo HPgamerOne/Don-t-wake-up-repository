@@ -26,10 +26,12 @@ public class InteractObject : MonoBehaviour
     [SerializeField] float defaultAngularDamping = 0.05f;
 
     Rigidbody rigidBody;
+    LayerMask playerMask;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        playerMask = LayerMask.GetMask("Player");
         targetPositionTransform = GameObject.Find("PickUpPosition").transform;
 
         currentPositionTransform = transform.Find("HoldPosition");
@@ -47,6 +49,8 @@ public class InteractObject : MonoBehaviour
 
         if (attractForceActive)
         {
+            rigidBody.excludeLayers = playerMask;
+
             rigidBody.linearDamping = pickedUpLinearDamping;
             rigidBody.angularDamping = pickedUpAngularDamping;
 
@@ -65,6 +69,7 @@ public class InteractObject : MonoBehaviour
         }
         else
         {
+            rigidBody.excludeLayers = 0;
             rigidBody.linearDamping = defaultLinearDamping;
             rigidBody.angularDamping = defaultAngularDamping;
         }
