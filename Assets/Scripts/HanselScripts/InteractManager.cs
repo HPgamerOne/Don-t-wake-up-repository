@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -27,9 +28,14 @@ public class InteractManager : MonoBehaviour
     InteractObject interactObject;
     private bool currentlyHolding = false;
 
+    GameObject grabHand;
+    GameObject grabbingHand;
+
     void Start()
     {
         interactableMask = LayerMask.GetMask("Interactable");
+        grabHand = GameObject.Find("GrabHand");
+        grabbingHand = GameObject.Find("GrabbingHand");
     }
 
     void Update()
@@ -38,18 +44,43 @@ public class InteractManager : MonoBehaviour
         cameraDirection = cameraTransform.TransformDirection(Vector3.forward);
         RaycastHit hit;
 
-        
+
         if (Physics.Raycast(cameraPosition, cameraDirection, out hit, rayDistance, interactableMask, QueryTriggerInteraction.Collide))
-        {   
+        {
             if (!currentlyHolding)
             {
                 interactObject = hit.collider.gameObject.GetComponentInParent<InteractObject>();
+
+                if (interactObject.interactable) {
+                    grabHand.SetActive(true);
+                }
+            }
+            Debug.DrawRay(cameraPosition, cameraDirection * rayDistance, Color.yellow);
+        }
+        else
+        {
+            if (interactObject == null)
+            {
+                grabHand.SetActive(false);
+                grabbingHand.SetActive(false);
+            }
+            else if (interactObject.interacted == false)
+            {
+                grabHand.SetActive(false);
             }
 
-            if (interactAction.action.IsPressed())
+            Debug.DrawRay(cameraPosition, cameraDirection * rayDistance, Color.red);
+        }
+
+        if (interactObject != null)
+        {
+            if (interactAction.action.IsPressed() && interactObject.interactable)
             {
+                grabHand.SetActive(false);
+                grabbingHand.SetActive(true);
+
                 interactObject.interacted = true;
-                if (interactObject.interactable && interactObject.dynamic)
+                if (interactObject.dynamic)
                 {
                     interactObject.attractForceActive = true;
                     currentlyHolding = true;
@@ -57,16 +88,12 @@ public class InteractManager : MonoBehaviour
             }
             else
             {
+                grabbingHand.SetActive(false);
+
                 interactObject.interacted = false;
                 interactObject.attractForceActive = false;
                 currentlyHolding = false;
             }
-
-            Debug.DrawRay(cameraPosition, cameraDirection * rayDistance, Color.yellow);
-        }
-        else
-        {
-            Debug.DrawRay(cameraPosition, cameraDirection * rayDistance, Color.red);
         }
     }
 }
