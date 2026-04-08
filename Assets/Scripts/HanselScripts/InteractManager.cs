@@ -48,6 +48,7 @@ public class InteractManager : MonoBehaviour
 
             if (interactAction.action.IsPressed())
             {
+                interactObject.interacted = true;
                 if (interactObject.interactable && interactObject.dynamic)
                 {
                     interactObject.attractForceActive = true;
@@ -56,6 +57,7 @@ public class InteractManager : MonoBehaviour
             }
             else
             {
+                interactObject.interacted = false;
                 interactObject.attractForceActive = false;
                 currentlyHolding = false;
             }

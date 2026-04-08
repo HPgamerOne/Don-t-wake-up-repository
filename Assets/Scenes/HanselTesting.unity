@@ -3435,6 +3435,7 @@ MonoBehaviour:
   interactable: 1
   dynamic: 1
   attractForceActive: 0
+  interacted: 0
   pickedUpForce: 100
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
@@ -3508,6 +3509,10 @@ PrefabInstance:
     - target: {fileID: 7751618679432655673, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
       propertyPath: upforce
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045472610693527982, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3984366651009416265, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
