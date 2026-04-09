@@ -59,19 +59,22 @@ public class InteractManager : MonoBehaviour
         }
         else
         {
+            if (interactObject != null && !currentlyHolding)
+            {
+                interactObject = null;
+                grabHand.SetActive(false);
+                grabbingHand.SetActive(false);
+            }
             if (interactObject == null)
             {
                 grabHand.SetActive(false);
                 grabbingHand.SetActive(false);
             }
-            else if (interactObject.interacted == false)
-            {
-                grabHand.SetActive(false);
-            }
 
             Debug.DrawRay(cameraPosition, cameraDirection * rayDistance, Color.red);
         }
 
+        // If currently holding
         if (interactObject != null)
         {
             if (interactAction.action.IsPressed() && interactObject.interactable)
