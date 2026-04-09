@@ -9,6 +9,7 @@ public class Buoyancy : MonoBehaviour
 {
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private GameObject water;
+    [SerializeField] private InteractObject interactObject;
     [SerializeField] private float upforce = 15;
     [SerializeField] private float airLinearDamping = 0f;
     [SerializeField] private float airAngularDramping = 0.05f;
@@ -19,6 +20,7 @@ public class Buoyancy : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        interactObject = GetComponent<InteractObject>();
     }
 
     private void FixedUpdate()
@@ -26,6 +28,14 @@ public class Buoyancy : MonoBehaviour
         if (water == null)
         {
             return;
+        }
+        
+        if (interactObject != null)
+        {
+            if (interactObject.interacted)
+            {
+                return;
+            }
         }
 
         difference = transform.position.y - water.transform.position.y;
