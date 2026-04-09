@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-
+// Nino - har kommenterat bort för kompatibilitet mellan InteractObject skript och Bouyancy skript
 public class InteractObject : MonoBehaviour
 {
     public bool interactable = true;
@@ -22,8 +22,8 @@ public class InteractObject : MonoBehaviour
     [Header("Damping")]
     [SerializeField] float pickedUpLinearDamping = 10;
     [SerializeField] float pickedUpAngularDamping = 5;
-    [SerializeField] float defaultLinearDamping = 0;
-    [SerializeField] float defaultAngularDamping = 0.05f;
+    // [SerializeField] float defaultLinearDamping = 0;
+    // [SerializeField] float defaultAngularDamping = 0.05f;
 
     Rigidbody rigidBody;
     LayerMask playerMask;
@@ -76,8 +76,10 @@ public class InteractObject : MonoBehaviour
         else
         {
             rigidBody.excludeLayers = 0;
+            /*
             rigidBody.linearDamping = defaultLinearDamping;
             rigidBody.angularDamping = defaultAngularDamping;
+            */
         }
     }
 }
