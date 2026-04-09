@@ -1,16 +1,34 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Timer : MonoBehaviour
 {
     [SerializeField] float startTime;
+
+    [Header("Images")]
+    public Image fillImage;
+    [SerializeField] GameObject openEye;
+    [SerializeField] GameObject halfOpenEye1;
+    [SerializeField] GameObject halfOpenEye2;
+    [SerializeField] GameObject closedEye;
+
+    [Header("Text")]
+    [SerializeField] TextMeshProUGUI timeText;
+
+
     float remainingTime;
     float multiplier = 1;
 
-    bool timerRunning = false;
-    bool threshold1, threshold2 = false;
+    bool timerRunning = true;
+    bool threshold1, threshold2, threshold3 = false;
     void Start()
     {
         remainingTime = startTime;
+        closedEye.gameObject.SetActive(true);
+        halfOpenEye1.gameObject.SetActive(false);
+        openEye.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -22,22 +40,47 @@ public class Timer : MonoBehaviour
             if(remainingTime <= startTime/2 && !threshold1)
             {
                 threshold1 = true;
+                closedEye.gameObject.SetActive(false);
+                halfOpenEye1.gameObject.SetActive(true);
+
             }
             else if(remainingTime <= 60 && !threshold2)
             {
                 threshold2 = true;
+                halfOpenEye1.gameObject.SetActive(false);
+                halfOpenEye2.gameObject.SetActive(true);
+            }
+            else if(remainingTime <= 30 && !threshold3)
+            {
+                threshold3 = true;
+                halfOpenEye2.gameObject.SetActive(false);
+                openEye.gameObject.SetActive (true);
             }
 
-            if(remainingTime <= 0)
+            if (remainingTime <= 0)
             {
-                Debug.Log("u lose lmao");
+                //Debug.Log("u lose lmao");
+                StopTimer();
+                fillImage.fillAmount = 0;
+                //lose scene
             }
         }
     }
-
+    /// <summary>
+    /// Decrease the remaining time value
+    /// </summary>
     private void DecreaseTime()
     {
         remainingTime -= Time.deltaTime * multiplier;
+        timeText.text = Mathf.RoundToInt(remainingTime).ToString();
+        UpdateProgressValue();
+    }
+    /// <summary>
+    /// Progress bar rörelse shuma shuma
+    /// </summary>
+    private void UpdateProgressValue()
+    {
+        fillImage.fillAmount = remainingTime / startTime;
     }
     /// <summary>
     /// Change how fast the timer runs out
@@ -73,6 +116,9 @@ public class Timer : MonoBehaviour
         timerRunning = false;
         threshold1 = false;
         threshold2 = false;
+        openEye.gameObject.SetActive(false);
+        halfOpenEye1.gameObject.SetActive(false);
+        closedEye.gameObject.SetActive(true);
         remainingTime = startTime;
     }
     /// <summary>
@@ -82,4 +128,6 @@ public class Timer : MonoBehaviour
     {
         get { return remainingTime; }
     }
+
+    
 }
