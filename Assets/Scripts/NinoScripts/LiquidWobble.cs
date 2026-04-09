@@ -19,6 +19,7 @@ public class LiquidWobble : MonoBehaviour
     private float wobbleZ;
     private float wobbleVelocityX;
     private float wobbleVelocityZ;
+    private float dt;
 
     private Vector3 lastPosition;
     private Quaternion lastRotation;
@@ -30,10 +31,22 @@ public class LiquidWobble : MonoBehaviour
         lastPosition = transform.position;
         lastRotation = transform.rotation;
     }
-
     private void Update()
     {
-        Vector3 linearVelocity = (transform.position - lastPosition) / Time.deltaTime;
+        rend.GetPropertyBlock(propertyBlock);
+        propertyBlock.SetFloat(WobbleXId, wobbleX);
+        propertyBlock.SetFloat(WobbleZId, wobbleZ);
+        rend.SetPropertyBlock(propertyBlock);
+    }
+
+    private void FixedUpdate()
+    {
+        dt = Time.fixedDeltaTime;
+
+        if (dt < 0.01f) return;
+
+        Vector3 linearVelocity = (transform.position - lastPosition) / dt;
+        Vector3 linearLocalVelocity = transform.InverseTransformDirection(linearVelocity);
 
         Quaternion deltaRot = transform.rotation * Quaternion.Inverse(lastRotation);
         deltaRot.ToAngleAxis(out float angle, out Vector3 axis);
@@ -44,24 +57,25 @@ public class LiquidWobble : MonoBehaviour
         }
 
         Vector3 angularVelocityDegrees = axis * (angle / Time.deltaTime);
+        Vector3 angularLocalVelocityDegrees = transform.InverseTransformDirection(angularVelocityDegrees);
 
         lastPosition = transform.position;
         lastRotation = transform.rotation;
 
         // Linjär rörelse i X-axeln roterar Z-axeln, rörelse i Z-axeln roterar X-axeln
         // Vinkel rotation i X-axeln roterar Z-planet, rotation i Z-axeln roterar X-planet
-        float impulseX = -linearVelocity.z * wobbleStrength + angularVelocityDegrees.x * wobbleStrength * 0.01f;
-        float impulseZ = -linearVelocity.x * wobbleStrength + angularVelocityDegrees.z * wobbleStrength * 0.01f; 
+        float impulseX = -linearLocalVelocity.z * wobbleStrength + angularLocalVelocityDegrees.x * wobbleStrength * 0.01f;
+        float impulseZ = -linearLocalVelocity.x * wobbleStrength + angularLocalVelocityDegrees.z * wobbleStrength * 0.01f; 
 
         // Wobble går mot 0, ska typ "splasha runt/studsa runt" effekt, dämpningen sänker velocitet
         float springX = -(wobbleFrequency * wobbleFrequency) * wobbleX - wobbleDamping * wobbleVelocityX;
         float springZ = -(wobbleFrequency * wobbleFrequency) * wobbleZ - wobbleDamping * wobbleVelocityZ;
 
         // Lägger ihop impuls-wobble och spring-wobble, lägger in det i WobbleX för mängd rotation i X-axeln och WobbleZ för mängd rotation i Z-axeln
-        wobbleVelocityX += (springX + impulseX) * Time.deltaTime;
-        wobbleVelocityZ += (springZ + impulseZ) * Time.deltaTime;
-        wobbleX += wobbleVelocityX * Time.deltaTime;
-        wobbleZ += wobbleVelocityZ * Time.deltaTime;
+        wobbleVelocityX += (springX + impulseX) * dt;
+        wobbleVelocityZ += (springZ + impulseZ) * dt;
+        wobbleX += wobbleVelocityX * dt;
+        wobbleZ += wobbleVelocityZ * dt;
 
         wobbleX = Mathf.Clamp(wobbleX, -maxWobble, maxWobble);
         wobbleZ = Mathf.Clamp(wobbleZ, -maxWobble, maxWobble);
