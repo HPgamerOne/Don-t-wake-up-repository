@@ -15,7 +15,13 @@ TLDR: Skicka raycast, säg till objekt att de är upp plockade/interagerade med
 public class InteractManager : MonoBehaviour
 {
     [SerializeField] private InputActionReference interactAction;
-    
+
+    // Nino
+    [SerializeField] private float objectHighlightStrength = 1f;
+    private static readonly int highlightStrengthId = Shader.PropertyToID("_HighlightStrength");
+    private MaterialPropertyBlock propertyBlock;
+    private Renderer rend;
+    // -------------------------------------
 
     LayerMask interactableMask;
 
@@ -36,6 +42,8 @@ public class InteractManager : MonoBehaviour
         interactableMask = LayerMask.GetMask("Interactable");
         grabHand = GameObject.Find("GrabHand");
         grabbingHand = GameObject.Find("GrabbingHand");
+
+        propertyBlock = new MaterialPropertyBlock(); // Nino
     }
 
     void Update()
@@ -47,6 +55,17 @@ public class InteractManager : MonoBehaviour
 
         if (Physics.Raycast(cameraPosition, cameraDirection, out hit, rayDistance, interactableMask, QueryTriggerInteraction.Collide))
         {
+            // Nino - Highlight på
+            rend = hit.transform.root.GetComponent<Renderer>();
+
+            if (rend != null)
+            {
+                rend.GetPropertyBlock(propertyBlock);
+                propertyBlock.SetFloat(highlightStrengthId, objectHighlightStrength);
+                rend.SetPropertyBlock(propertyBlock);
+            }
+            // -------------------------
+
             if (!currentlyHolding)
             {
                 interactObject = hit.collider.gameObject.GetComponentInParent<InteractObject>();
@@ -59,6 +78,15 @@ public class InteractManager : MonoBehaviour
         }
         else
         {
+            // Nino - Highlight av
+            if (rend != null)
+            {
+                rend.GetPropertyBlock(propertyBlock);
+                propertyBlock.SetFloat(highlightStrengthId, 0);
+                rend.SetPropertyBlock(propertyBlock);
+            }
+            // -----------------------------------
+
             if (interactObject != null && !currentlyHolding)
             {
                 interactObject = null;
@@ -79,6 +107,15 @@ public class InteractManager : MonoBehaviour
         {
             if (interactAction.action.IsPressed() && interactObject.interactable)
             {
+                // Nino - Highlight av
+                if (rend != null)
+                {
+                    rend.GetPropertyBlock(propertyBlock);
+                    propertyBlock.SetFloat(highlightStrengthId, 0);
+                    rend.SetPropertyBlock(propertyBlock);
+                }
+                // -----------------------------------
+
                 grabHand.SetActive(false);
                 grabbingHand.SetActive(true);
 
