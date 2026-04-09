@@ -31,6 +31,12 @@ public class InteractObject : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        if (rigidBody == null)
+        {
+            rigidBody = gameObject.AddComponent<Rigidbody>();
+            rigidBody.isKinematic = true;
+        }
+
         playerMask = LayerMask.GetMask("Player");
         targetPositionTransform = GameObject.Find("PickUpPosition").transform;
 
