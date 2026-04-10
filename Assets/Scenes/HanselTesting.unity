@@ -3402,6 +3402,8 @@ MonoBehaviour:
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
   pickedUpAngularDamping: 5
+  defaultLinearDamping: 0
+  defaultAngularDamping: 0.05
 --- !u!1001 &1603796705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3466,6 +3468,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7069760007806983895, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
+      propertyPath: grabHand
+      value: 
+      objectReference: {fileID: 8644969501142379135}
+    - target: {fileID: 7069760007806983895, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
+      propertyPath: grabbingHand
+      value: 
+      objectReference: {fileID: 8644969501142379134}
     - target: {fileID: 7751618679432655673, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
       propertyPath: upforce
       value: 40
@@ -3509,6 +3519,8 @@ MonoBehaviour:
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 30
   pickedUpAngularDamping: 15
+  defaultLinearDamping: 0
+  defaultAngularDamping: 0.05
 --- !u!1001 &1707094057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4793,6 +4805,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
+--- !u!1 &8644969501142379134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3683940580913322768, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
+  m_PrefabInstance: {fileID: 8644969501142379133}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8644969501142379135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7452947147922472133, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
+  m_PrefabInstance: {fileID: 8644969501142379133}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

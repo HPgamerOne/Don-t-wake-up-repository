@@ -50,5 +50,7 @@ public class CameraBob : MonoBehaviour
             timer = 0;
             localPosition = new Vector3(localPosition.x, Mathf.Lerp(localPosition.y, originalPosition, Time.deltaTime * bobSpeed), localPosition.z);
         }
+
+        transform.localPosition = localPosition;
     }
 }
