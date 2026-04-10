@@ -90,13 +90,20 @@ public class InteractManager : MonoBehaviour
             if (interactObject != null && !currentlyHolding)
             {
                 interactObject = null;
-                grabHand.SetActive(false);
-                grabbingHand.SetActive(false);
+
+                if (grabHand  != null) // Nino - Saknas referens
+                {
+                    grabHand.SetActive(false);
+                    grabbingHand.SetActive(false);
+                }
             }
             if (interactObject == null)
             {
-                grabHand.SetActive(false);
-                grabbingHand.SetActive(false);
+                if (grabHand != null) // Nino - Saknas referens
+                {
+                    grabHand.SetActive(false);
+                    grabbingHand.SetActive(false);
+                }
             }
 
             Debug.DrawRay(cameraPosition, cameraDirection * rayDistance, Color.red);
