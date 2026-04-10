@@ -17,7 +17,6 @@ public class Timer : MonoBehaviour
     [Header("Text")]
     [SerializeField] TextMeshProUGUI timeText;
 
-
     float remainingTime;
     float multiplier = 1;
 
