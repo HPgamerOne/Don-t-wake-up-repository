@@ -17,7 +17,6 @@ public class Timer : MonoBehaviour
     [Header("Text")]
     [SerializeField] TextMeshProUGUI timeText;
 
-
     float remainingTime;
     float multiplier = 1;
 
@@ -37,6 +36,11 @@ public class Timer : MonoBehaviour
         if (timerRunning)
         {
             DecreaseTime();
+            if (remainingTime % 2 < 1)
+            {
+                FadeManager.FadeToBlackScreen(1f);
+            }
+
             if(remainingTime <= startTime/2 && !threshold1)
             {
                 threshold1 = true;

@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 254423001864616095}
   - component: {fileID: 6101376852487940897}
   - component: {fileID: 7032928014584628654}
+  - component: {fileID: -8207548125033757261}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -214,7 +215,7 @@ Transform:
   m_GameObject: {fileID: 7820753991665303115}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.75, y: 6.23, z: 5.37932}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.3712, y: 1.3712, z: 1.3712}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -320,8 +321,6 @@ MonoBehaviour:
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
   pickedUpAngularDamping: 5
-  defaultLinearDamping: 0
-  defaultAngularDamping: 0.05
 --- !u!54 &6101376852487940897
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -369,3 +368,15 @@ MonoBehaviour:
   airAngularDramping: 0.05
   waterLinearDamping: 3
   waterAngularDamping: 1
+--- !u!114 &-8207548125033757261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7820753991665303115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3a03a3be0a15441832227c498e9a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectHighlight
