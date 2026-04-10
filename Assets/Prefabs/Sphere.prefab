@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 254423001864616095}
   - component: {fileID: 6101376852487940897}
   - component: {fileID: 7032928014584628654}
+  - component: {fileID: -8207548125033757261}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -367,3 +368,15 @@ MonoBehaviour:
   airAngularDramping: 0.05
   waterLinearDamping: 3
   waterAngularDamping: 1
+--- !u!114 &-8207548125033757261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7820753991665303115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3a03a3be0a15441832227c498e9a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectHighlight
