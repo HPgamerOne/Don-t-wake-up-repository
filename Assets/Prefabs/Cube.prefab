@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2657318787961620046}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.20013, y: 12.49, z: 12.63921}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.3362542, y: 1.3362542, z: 1.3362542}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -164,8 +164,6 @@ MonoBehaviour:
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
   pickedUpAngularDamping: 5
-  defaultLinearDamping: 0
-  defaultAngularDamping: 0.05
 --- !u!114 &8504096398148763088
 MonoBehaviour:
   m_ObjectHideFlags: 0
