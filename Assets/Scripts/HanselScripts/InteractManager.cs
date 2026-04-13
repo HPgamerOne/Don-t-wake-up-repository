@@ -1,4 +1,3 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,34 +15,34 @@ public class InteractManager : MonoBehaviour
 {
     [SerializeField] private InputActionReference interactAction;
 
-    // Nino
-    [SerializeField] private float objectHighlightStrength = 1f;
-    private static readonly int highlightStrengthId = Shader.PropertyToID("_HighlightStrength");
-    private MaterialPropertyBlock propertyBlock;
-    private Renderer rend;
-    // -------------------------------------
+    private IHighlightable currentObject; // Nino
 
-    LayerMask interactableMask;
+    private LayerMask interactableMask;
 
     [Header("Camera Info")]
-    [SerializeField] Transform cameraTransform;
-    [SerializeField] float rayDistance = 3f;
-    Vector3 cameraPosition;
-    Vector3 cameraDirection;
+    [SerializeField] private Transform cameraTransform;
+    [SerializeField] private float rayDistance = 3f;
+    private Vector3 cameraPosition;
+    private Vector3 cameraDirection;
 
-    InteractObject interactObject;
+    private InteractObject interactObject;
     private bool currentlyHolding = false;
 
-    GameObject grabHand;
-    GameObject grabbingHand;
+    [SerializeField] private GameObject grabHand;
+    [SerializeField] private GameObject grabbingHand;
 
     void Start()
     {
         interactableMask = LayerMask.GetMask("Interactable");
-        grabHand = GameObject.Find("GrabHand");
-        grabbingHand = GameObject.Find("GrabbingHand");
 
-        propertyBlock = new MaterialPropertyBlock(); // Nino
+        if (grabHand  == null)
+        {
+            grabHand = GameObject.Find("GrabHand");
+        }
+        if (grabbingHand == null)
+        {
+            grabbingHand = GameObject.Find("GrabbingHand");
+        }
     }
 
     void Update()
@@ -55,22 +54,26 @@ public class InteractManager : MonoBehaviour
 
         if (Physics.Raycast(cameraPosition, cameraDirection, out hit, rayDistance, interactableMask, QueryTriggerInteraction.Collide))
         {
-            // Nino - Highlight på
-            rend = hit.transform.root.GetComponent<Renderer>();
-
-            if (rend != null)
-            {
-                rend.GetPropertyBlock(propertyBlock);
-                propertyBlock.SetFloat(highlightStrengthId, objectHighlightStrength);
-                rend.SetPropertyBlock(propertyBlock);
-            }
-            // -------------------------
-
             if (!currentlyHolding)
             {
                 interactObject = hit.collider.gameObject.GetComponentInParent<InteractObject>();
 
-                if (interactObject.interactable) {
+                IHighlightable hitObject = hit.collider.GetComponentInParent<IHighlightable>(); // Nino
+
+                if (hitObject != currentObject) // Nino
+                {
+                    ClearCurrent();
+
+                    currentObject = hitObject;
+
+                    if (currentObject != null)
+                    {
+                        currentObject.SetHighlight(0.3f); // Highlight på
+                    }
+                }
+
+                if (interactObject.interactable)
+                {
                     grabHand.SetActive(true);
                 }
             }
@@ -78,32 +81,19 @@ public class InteractManager : MonoBehaviour
         }
         else
         {
-            // Nino - Highlight av
-            if (rend != null)
-            {
-                rend.GetPropertyBlock(propertyBlock);
-                propertyBlock.SetFloat(highlightStrengthId, 0);
-                rend.SetPropertyBlock(propertyBlock);
-            }
-            // -----------------------------------
+            ClearCurrent(); // Nino
 
             if (interactObject != null && !currentlyHolding)
             {
                 interactObject = null;
 
-                if (grabHand  != null) // Nino - Saknas referens
-                {
-                    grabHand.SetActive(false);
-                    grabbingHand.SetActive(false);
-                }
+                grabHand.SetActive(false);
+                grabbingHand.SetActive(false);
             }
             if (interactObject == null)
             {
-                if (grabHand != null) // Nino - Saknas referens
-                {
-                    grabHand.SetActive(false);
-                    grabbingHand.SetActive(false);
-                }
+                grabHand.SetActive(false);
+                grabbingHand.SetActive(false);
             }
 
             Debug.DrawRay(cameraPosition, cameraDirection * rayDistance, Color.red);
@@ -114,14 +104,7 @@ public class InteractManager : MonoBehaviour
         {
             if (interactAction.action.IsPressed() && interactObject.interactable)
             {
-                // Nino - Highlight av
-                if (rend != null)
-                {
-                    rend.GetPropertyBlock(propertyBlock);
-                    propertyBlock.SetFloat(highlightStrengthId, 0);
-                    rend.SetPropertyBlock(propertyBlock);
-                }
-                // -----------------------------------
+                ClearCurrent(); // Nino
 
                 grabHand.SetActive(false);
                 grabbingHand.SetActive(true);
@@ -141,6 +124,15 @@ public class InteractManager : MonoBehaviour
                 interactObject.attractForceActive = false;
                 currentlyHolding = false;
             }
+        }
+    }
+
+    void ClearCurrent() // Nino
+    {
+        if (currentObject != null)
+        {
+            currentObject.SetHighlight(0f); // Highlight av
+            currentObject = null;
         }
     }
 }
