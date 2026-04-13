@@ -38,7 +38,8 @@ public class Timer : MonoBehaviour
             DecreaseTime();
             if (remainingTime % 2 < 1)
             {
-                FadeManager.FadeToBlackScreen(1f);
+                FadeManager fadeManager = new FadeManager(); // placeholder så att det inte blir error, gör något mer konkret senare
+                fadeManager.FadeToBlackScreen(1f);
             }
 
             if(remainingTime <= startTime/2 && !threshold1)
