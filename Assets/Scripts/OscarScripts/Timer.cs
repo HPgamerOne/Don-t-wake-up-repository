@@ -38,8 +38,9 @@ public class Timer : MonoBehaviour
             DecreaseTime();
             if (remainingTime % 2 < 1)
             {
-                FadeManager fadeManager = new FadeManager(); // placeholder så att det inte blir error, gör något mer konkret senare
-                fadeManager.FadeToBlackScreen(1f);
+                // Du kan inte göra en direkt referens till "FadeManger" klassen, du måste först skapa ett objekt som använder klassen t.ex:
+                // FadeManager fadeManager = någonting, eller [SerializeField] FadeManager fadeManager, typa shi. Tänk den som en int, float, string, etc. 
+                //FadeManager.FadeToBlackScreen(1f);
             }
 
             if(remainingTime <= startTime/2 && !threshold1)
