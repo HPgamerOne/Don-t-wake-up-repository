@@ -1009,7 +1009,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7663111404446685079, guid: 0eda1ff47fefb2445983f8fdca044858, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 635252939}
   m_SourcePrefab: {fileID: 100100000, guid: 0eda1ff47fefb2445983f8fdca044858, type: 3}
 --- !u!4 &347666540 stripped
 Transform:
@@ -1319,7 +1322,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6994942979194113325, guid: 0eda1ff47fefb2445983f8fdca044858, type: 3}
   m_PrefabInstance: {fileID: 446033309}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &450538458
+--- !u!1 &468371730
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1327,38 +1330,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 450538460}
-  - component: {fileID: 450538459}
+  - component: {fileID: 468371732}
+  - component: {fileID: 468371731}
   m_Layer: 0
-  m_Name: Fade Manager
+  m_Name: FadeManagerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &450538459
+--- !u!114 &468371731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450538458}
+  m_GameObject: {fileID: 468371730}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 456bb4a9083d64749aaa67c6fc5bee52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FadeManager
-  fadeScreen: {fileID: 0}
---- !u!4 &450538460
+  fadeScreen: {fileID: 1945159821}
+--- !u!4 &468371732
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450538458}
+  m_GameObject: {fileID: 468371730}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.47405, y: 17.98359, z: -14.93939}
+  m_LocalPosition: {x: 0.61294, y: 3.25771, z: 5.45936}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1443,6 +1446,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &635252933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7663111404446685079, guid: 0eda1ff47fefb2445983f8fdca044858, type: 3}
+  m_PrefabInstance: {fileID: 347666539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &635252939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635252933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4bed9204450d4044b2281b98778fea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  timer: {fileID: 0}
+  fadeManager: {fileID: 0}
 --- !u!1001 &647178251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2269,6 +2291,8 @@ MonoBehaviour:
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
   pickedUpAngularDamping: 5
+  defaultLinearDamping: 0
+  defaultAngularDamping: 0.05
 --- !u!54 &969956159
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4998,4 +5022,4 @@ SceneRoots:
   - {fileID: 969956163}
   - {fileID: 563098919}
   - {fileID: 2281628600101143746}
-  - {fileID: 450538460}
+  - {fileID: 468371732}
