@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] float startTime;
+    
 
     [Header("Images")]
-    public Image fillImage;
+    [SerializeField] Image fillImage;
     [SerializeField] GameObject openEye;
     [SerializeField] GameObject halfOpenEye1;
     [SerializeField] GameObject halfOpenEye2;
@@ -19,8 +19,10 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI timeText;
     FadeManager fadeManager;
 
+    [Header("Values")]
     float remainingTime;
     float multiplier = 1;
+    [SerializeField] float startTime;
 
     bool timerRunning = true;
     bool threshold1, threshold2, threshold3 = false;
@@ -32,28 +34,12 @@ public class Timer : MonoBehaviour
         openEye.gameObject.SetActive(false);
 
         fadeManager = GameObject.Find("FadeManagerObject").GetComponent<FadeManager>();
-
-
     }
-
-    // Update is called once per frame
     void Update()
     {
-
         if (timerRunning)
         {
             DecreaseTime();
-
-            //if(Mathf.RoundToInt(remainingTime) == 175)
-            //{
-            //    StartCoroutine(fadeManager.FadeToBlack(2f));
-            //}
-
-            //if (Mathf.RoundToInt(remainingTime) == 165)
-            //{
-            //    StartCoroutine(fadeManager.FadeFromBlack(1.0f));
-            //}
-
             if (remainingTime <= startTime / 2 && !threshold1)
             {
                 threshold1 = true;
@@ -107,7 +93,6 @@ public class Timer : MonoBehaviour
     {
         multiplier = changeRate;
     }
-
     /// <summary>
     /// Stop the timer
     /// </summary>
@@ -115,7 +100,6 @@ public class Timer : MonoBehaviour
     {
         timerRunning = false;
     }
-
     /// <summary>
     /// Start the timer
     /// </summary>
@@ -123,7 +107,6 @@ public class Timer : MonoBehaviour
     {
         timerRunning = true;
     }
-
     /// <summary>
     /// Reset the timers values to it's starting values
     /// </summary>
@@ -145,6 +128,4 @@ public class Timer : MonoBehaviour
     {
         get { return remainingTime; }
     }
-
-
 }
