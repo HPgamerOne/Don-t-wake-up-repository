@@ -1,4 +1,3 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -36,8 +35,14 @@ public class InteractManager : MonoBehaviour
     {
         interactableMask = LayerMask.GetMask("Interactable");
 
-        // grabHand = GameObject.Find("GrabHand"); 
-        // grabbingHand = GameObject.Find("GrabbingHand");
+        if (grabHand  == null)
+        {
+            grabHand = GameObject.Find("GrabHand");
+        }
+        if (grabbingHand == null)
+        {
+            grabbingHand = GameObject.Find("GrabbingHand");
+        }
     }
 
     void Update()

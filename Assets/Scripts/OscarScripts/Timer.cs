@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ public class Timer : MonoBehaviour
 
     [Header("Text")]
     [SerializeField] TextMeshProUGUI timeText;
+    FadeManager fadeManager;
 
     float remainingTime;
     float multiplier = 1;
@@ -28,37 +30,48 @@ public class Timer : MonoBehaviour
         closedEye.gameObject.SetActive(true);
         halfOpenEye1.gameObject.SetActive(false);
         openEye.gameObject.SetActive(false);
+
+        fadeManager = GameObject.Find("FadeManagerObject").GetComponent<FadeManager>();
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (timerRunning)
         {
             DecreaseTime();
-            if (remainingTime % 2 < 1)
-            {
-                FadeManager.FadeToBlackScreen(1f);
-            }
 
-            if(remainingTime <= startTime/2 && !threshold1)
+            //if(Mathf.RoundToInt(remainingTime) == 175)
+            //{
+            //    StartCoroutine(fadeManager.FadeToBlack(2f));
+            //}
+
+            //if (Mathf.RoundToInt(remainingTime) == 165)
+            //{
+            //    StartCoroutine(fadeManager.FadeFromBlack(1.0f));
+            //}
+
+            if (remainingTime <= startTime / 2 && !threshold1)
             {
                 threshold1 = true;
                 closedEye.gameObject.SetActive(false);
                 halfOpenEye1.gameObject.SetActive(true);
 
             }
-            else if(remainingTime <= 60 && !threshold2)
+            else if (remainingTime <= 60 && !threshold2)
             {
                 threshold2 = true;
                 halfOpenEye1.gameObject.SetActive(false);
                 halfOpenEye2.gameObject.SetActive(true);
             }
-            else if(remainingTime <= 30 && !threshold3)
+            else if (remainingTime <= 30 && !threshold3)
             {
                 threshold3 = true;
                 halfOpenEye2.gameObject.SetActive(false);
-                openEye.gameObject.SetActive (true);
+                openEye.gameObject.SetActive(true);
             }
 
             if (remainingTime <= 0)
@@ -133,5 +146,5 @@ public class Timer : MonoBehaviour
         get { return remainingTime; }
     }
 
-    
+
 }
