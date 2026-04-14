@@ -11,6 +11,7 @@ public class DoorTrigger : MonoBehaviour
     [SerializeField] private bool openTrigger = false;
     [SerializeField] private bool midwayTrigger = false;
     [SerializeField] private bool closeTrigger = false;
+    [SerializeField] private Timer timer;
 
     float duration = 2f;
     // float time = 0f;
@@ -44,6 +45,8 @@ public class DoorTrigger : MonoBehaviour
                     whiteroomRoom.SetActive(false);
                 }
 
+                timer.StartTimer();
+
                 gameObject.SetActive(false);
             }
         }
@@ -69,8 +72,8 @@ public class DoorTrigger : MonoBehaviour
 
         whiteroomDoorPlane.SetActive(false);
     
-        float startValue = 3f;
-        float endValue = 0f;
+        float startValue = 1.5f;
+        float endValue = -1.5f;
 
         float time = 0f;
 

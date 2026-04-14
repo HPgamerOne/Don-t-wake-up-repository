@@ -2147,8 +2147,8 @@
     "m_Color": {
         "color": {
             "r": 1.0,
-            "g": 0.7189844846725464,
-            "b": 0.0,
+            "g": 1.0,
+            "b": 1.0,
             "a": 0.0
         },
         "mode": 0
@@ -3763,7 +3763,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 2,
+    "m_Space": 0,
     "m_PositionSource": 0
 }
 
