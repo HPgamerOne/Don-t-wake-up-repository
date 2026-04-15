@@ -14,6 +14,7 @@ public class Timer : MonoBehaviour
     [SerializeField] GameObject halfOpenEye1;
     [SerializeField] GameObject halfOpenEye2;
     [SerializeField] GameObject closedEye;
+    [SerializeField] GameObject bar;
 
     [Header("Text")]
     [SerializeField] TextMeshProUGUI timeText;
@@ -24,15 +25,15 @@ public class Timer : MonoBehaviour
     float multiplier = 1;
     [SerializeField] float startTime;
 
-    bool timerRunning = true;
+    bool timerRunning = false;
     bool threshold1, threshold2, threshold3 = false;
     void Start()
     {
         remainingTime = startTime;
-        closedEye.gameObject.SetActive(true);
+        // closedEye.gameObject.SetActive(true);
         halfOpenEye1.gameObject.SetActive(false);
         openEye.gameObject.SetActive(false);
-
+        timeText.gameObject.SetActive(false);
         fadeManager = GameObject.Find("FadeManagerObject").GetComponent<FadeManager>();
     }
     void Update()
@@ -106,6 +107,11 @@ public class Timer : MonoBehaviour
     public void StartTimer()
     {
         timerRunning = true;
+
+        bar.gameObject.SetActive(true);
+        closedEye.gameObject.SetActive(true);
+        fillImage.gameObject.SetActive(true);
+        timeText.gameObject.SetActive(true);
     }
     /// <summary>
     /// Reset the timers values to it's starting values
