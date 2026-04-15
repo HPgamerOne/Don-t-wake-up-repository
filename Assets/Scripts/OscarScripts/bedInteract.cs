@@ -28,6 +28,7 @@ public class BedInteract : MonoBehaviour
         doneThing = true;
 
         FadeManager.Instance.FadeToBlack(fadeDuration);
+        //Timer.Instance.ResetTimer();
         yield return new WaitForSeconds(fadeDuration);
 
         GameManager.Instance.NextScene();
