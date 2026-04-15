@@ -5,14 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class TestScript : MonoBehaviour
 {
-    [SerializeField] InputActionReference something;
-
     private void Update()
     {
-        if (something.action.IsPressed())
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            print("Pressed");
-            SceneManager.LoadScene(1);
+            Debug.Log("Go to next scene");
+            GameManager.Instance.NextScene();
         }
     }
 }
