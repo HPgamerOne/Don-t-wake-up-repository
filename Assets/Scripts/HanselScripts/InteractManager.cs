@@ -23,7 +23,7 @@ public class InteractManager : MonoBehaviour
     private LayerMask interactableMask;
 
     [Header("Camera Info")]
-    [SerializeField] private Transform cameraTransform;
+    private Transform cameraTransform;
     [SerializeField] private float rayDistance = 3f;
     private Vector3 cameraPosition;
     private Vector3 cameraDirection;
@@ -59,6 +59,10 @@ public class InteractManager : MonoBehaviour
 
     void Update()
     {
+        if (cameraTransform == null)
+        {
+            cameraTransform = GameObject.Find("Camera").transform;
+        }
         cameraPosition = cameraTransform.position;
         cameraDirection = cameraTransform.TransformDirection(Vector3.forward);
         RaycastHit hit;
