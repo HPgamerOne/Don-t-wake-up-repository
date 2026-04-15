@@ -22,12 +22,20 @@ public class Timer : MonoBehaviour
     [Header("Values")]
     float remainingTime;
     float multiplier = 1;
-    [SerializeField] float startTime;
+    public float startTime;
 
     bool timerRunning = false;
     bool threshold1, threshold2, threshold3 = false;
     private void Awake()
     {
+        // start of new code
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        // end of new code
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
@@ -70,7 +78,7 @@ public class Timer : MonoBehaviour
                 //Debug.Log("u lose lmao");
                 StopTimer();
                 fillImage.fillAmount = 0;
-                FadeManager.instance.FadeToBlack(2f);
+                FadeManager.Instance.FadeToBlack(2f);
                 //lose scene
             }
         }

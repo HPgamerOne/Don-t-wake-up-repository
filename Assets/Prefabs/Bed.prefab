@@ -81,6 +81,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a2b9a84f72f8b2342b5323e4a45b9845, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3530317037141396330}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a2b9a84f72f8b2342b5323e4a45b9845, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5673242483419629501}
   m_SourcePrefab: {fileID: 100100000, guid: a2b9a84f72f8b2342b5323e4a45b9845, type: 3}
 --- !u!1 &8234602211651459837 stripped
 GameObject:
@@ -142,3 +145,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f3a03a3be0a15441832227c498e9a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectHighlight
+--- !u!114 &5673242483419629501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234602211651459837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae03811d49dee649ac8ad1e8e6e479b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BedInteract
+  fadeDuration: 0.3
