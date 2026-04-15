@@ -10,14 +10,20 @@ public class disappearScript : MonoBehaviour
     {
         timer = GameObject.Find("Timer").GetComponent<Timer>();
         fadeManager = GameObject.Find("FadeManagerObject").GetComponent<FadeManager>();
+        timer.StartTimer();
     }
-
-
     private void Update()
     {
         if(Mathf.RoundToInt(timer.CurrentTime) == 175)
         {
             fadeManager.FadeOutObject(gameObject, 2f);
+        }
+
+
+        if(Mathf.RoundToInt(timer.CurrentTime) == 165)
+        {
+
+            fadeManager.FadeInObject(gameObject, 2f);
         }
     }
 }
