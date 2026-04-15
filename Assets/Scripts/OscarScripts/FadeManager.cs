@@ -8,13 +8,13 @@ public class FadeManager : MonoBehaviour
 {
     [SerializeField] Image fadeScreen;
 
-    public static FadeManager instance;
+    public static FadeManager Instance;
     private Coroutine currentFade;
 
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
         DontDestroyOnLoad(gameObject);
     }
 

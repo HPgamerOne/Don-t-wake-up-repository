@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
     [Header("Values")]
     float remainingTime;
     float multiplier = 1;
-    [SerializeField] float startTime;
+    public float startTime;
 
     bool timerRunning = false;
     bool threshold1, threshold2, threshold3 = false;
@@ -70,7 +70,7 @@ public class Timer : MonoBehaviour
                 //Debug.Log("u lose lmao");
                 StopTimer();
                 fillImage.fillAmount = 0;
-                FadeManager.instance.FadeToBlack(2f);
+                FadeManager.Instance.FadeToBlack(2f);
                 //lose scene
             }
         }
