@@ -16,6 +16,7 @@ public class InteractManager : MonoBehaviour
     [SerializeField] private InputActionReference interactAction;
 
     private IHighlightable currentObject; // Nino
+    [SerializeField] private float highlightStrength = 0.2f; // Nino
 
     private LayerMask interactableMask;
 
@@ -68,7 +69,7 @@ public class InteractManager : MonoBehaviour
 
                     if (currentObject != null)
                     {
-                        currentObject.SetHighlight(0.3f); // Highlight på
+                        currentObject.SetHighlight(highlightStrength); // Highlight på
                     }
                 }
 
