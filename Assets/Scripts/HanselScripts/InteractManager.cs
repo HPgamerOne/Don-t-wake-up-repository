@@ -13,6 +13,8 @@ TLDR: Skicka raycast, säg till objekt att de är upp plockade/interagerade med
 
 public class InteractManager : MonoBehaviour
 {
+    public static InteractManager Instance;
+
     [SerializeField] private InputActionReference interactAction;
 
     private IHighlightable currentObject; // Nino
@@ -32,11 +34,20 @@ public class InteractManager : MonoBehaviour
     [SerializeField] private GameObject grabHand;
     [SerializeField] private GameObject grabbingHand;
 
-    void Start()
+    private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
         interactableMask = LayerMask.GetMask("Interactable");
 
-        if (grabHand  == null)
+        if (grabHand == null)
         {
             grabHand = GameObject.Find("GrabHand");
         }
