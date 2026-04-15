@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    
+    public static Timer Instance;
 
     [Header("Images")]
     [SerializeField] Image fillImage;
@@ -18,7 +18,6 @@ public class Timer : MonoBehaviour
 
     [Header("Text")]
     [SerializeField] TextMeshProUGUI timeText;
-    FadeManager fadeManager;
 
     [Header("Values")]
     float remainingTime;
@@ -27,6 +26,12 @@ public class Timer : MonoBehaviour
 
     bool timerRunning = false;
     bool threshold1, threshold2, threshold3 = false;
+    private void Awake()
+    {
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     void Start()
     {
         remainingTime = startTime;
@@ -34,7 +39,6 @@ public class Timer : MonoBehaviour
         halfOpenEye1.gameObject.SetActive(false);
         openEye.gameObject.SetActive(false);
         timeText.gameObject.SetActive(false);
-        fadeManager = GameObject.Find("FadeManagerObject").GetComponent<FadeManager>();
     }
     void Update()
     {
@@ -66,6 +70,7 @@ public class Timer : MonoBehaviour
                 //Debug.Log("u lose lmao");
                 StopTimer();
                 fillImage.fillAmount = 0;
+                FadeManager.instance.FadeToBlack(2f);
                 //lose scene
             }
         }

@@ -7,7 +7,16 @@ using UnityEngine.UI;
 public class FadeManager : MonoBehaviour
 {
     [SerializeField] Image fadeScreen;
+
+    public static FadeManager instance;
     private Coroutine currentFade;
+
+
+    private void Awake()
+    {
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     /// <summary>
     /// Fade out an object
@@ -16,7 +25,7 @@ public class FadeManager : MonoBehaviour
     /// <param name="duration">Time it takes to fade in the object</param>
     public void FadeOutObject(GameObject gameObject, float duration)
     {
-        StartCoroutine(FadeOutAndDisable(gameObject, duration));
+        StartCoroutine(FadeOut(gameObject, duration));
     }
     /// <summary>
     /// Fade in an object 
@@ -25,7 +34,7 @@ public class FadeManager : MonoBehaviour
     /// <param name="duration">Time it takes to fade out the object</param>
     public void FadeInObject(GameObject gameObject, float duration)
     {
-        gameObject.SetActive(true);
+        gameObject.GetComponent<Renderer>().enabled = true;
         StartFade(duration, gameObject,1f);
     }
     /// <summary>
@@ -94,11 +103,11 @@ public class FadeManager : MonoBehaviour
         yield return currentFade;
     }
 
-    IEnumerator FadeOutAndDisable(GameObject gameObject, float duration)
+    IEnumerator FadeOut(GameObject gameObject, float duration)
     {
         StartFade(duration, gameObject, 0f);
         yield return currentFade;
-        gameObject.SetActive(false);
+        gameObject.GetComponent<Renderer>().enabled = false;
     }
     //Dis shit actually does the fading shit
     IEnumerator Fade(float duration, Color startColor, Color endColor)

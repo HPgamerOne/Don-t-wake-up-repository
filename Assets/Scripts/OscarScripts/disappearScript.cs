@@ -10,6 +10,7 @@ public class disappearScript : MonoBehaviour
     {
         timer = GameObject.Find("Timer").GetComponent<Timer>();
         fadeManager = GameObject.Find("FadeManagerObject").GetComponent<FadeManager>();
+        timer.StartTimer();
     }
     private void Update()
     {
