@@ -13,7 +13,13 @@ public class GameManager : MonoBehaviour
     public int finalSceneIndex = 0;
     private void Awake()
     {
-        Instance = this; 
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
