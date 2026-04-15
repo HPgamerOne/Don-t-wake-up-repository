@@ -339,6 +339,10 @@ PrefabInstance:
       propertyPath: bar
       value: 
       objectReference: {fileID: 726254700}
+    - target: {fileID: 402533469504892357, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
+      propertyPath: outlineBar
+      value: 
+      objectReference: {fileID: 726254700}
     - target: {fileID: 3023137666019028752, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
       propertyPath: m_IsActive
       value: 0
