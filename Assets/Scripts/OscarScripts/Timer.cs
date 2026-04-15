@@ -14,7 +14,7 @@ public class Timer : MonoBehaviour
     [SerializeField] GameObject halfOpenEye1;
     [SerializeField] GameObject halfOpenEye2;
     [SerializeField] GameObject closedEye;
-    [SerializeField] GameObject bar;
+    [SerializeField] GameObject outlineBar;
 
     [Header("Text")]
     [SerializeField] TextMeshProUGUI timeText;
@@ -121,7 +121,7 @@ public class Timer : MonoBehaviour
     {
         timerRunning = true;
 
-        bar.gameObject.SetActive(true);
+        outlineBar.gameObject.SetActive(true);
         closedEye.gameObject.SetActive(true);
         fillImage.gameObject.SetActive(true);
         timeText.gameObject.SetActive(true);
@@ -135,9 +135,14 @@ public class Timer : MonoBehaviour
         timerRunning = false;
         threshold1 = false;
         threshold2 = false;
+        threshold3 = false;
+
         openEye.gameObject.SetActive(false);
+        //outlineBar.gameObject.SetActive(false);
+        //fillImage.gameObject.SetActive(false);
         halfOpenEye1.gameObject.SetActive(false);
-        closedEye.gameObject.SetActive(true);
+        closedEye.gameObject.SetActive(false);
+        timeText.gameObject.SetActive(false);
         remainingTime = startTime;
     }
     /// <summary>
