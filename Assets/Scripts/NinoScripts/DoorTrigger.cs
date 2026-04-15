@@ -40,12 +40,16 @@ public class DoorTrigger : MonoBehaviour
                 {
                     whiteroomDoorPlane.SetActive(true);
                 }
+
                 if (whiteroomRoom != null)
                 {
                     whiteroomRoom.SetActive(false);
                 }
 
-                timer.StartTimer();
+                if (timer != null)
+                {
+                    timer.StartTimer();
+                }
 
                 gameObject.SetActive(false);
             }
