@@ -83,13 +83,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c07aeae2d109b14fb3640411d7907ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timer
-  startTime: 180
   fillImage: {fileID: 1596550371210016325}
   openEye: {fileID: 8456337544975266763}
   halfOpenEye1: {fileID: 7325338356043260405}
   halfOpenEye2: {fileID: 6014604072389776181}
   closedEye: {fileID: 3244048318807434580}
+  bar: {fileID: 3023137666019028752}
   timeText: {fileID: 5401393547717823991}
+  startTime: 180
 --- !u!1 &3023137666019028752
 GameObject:
   m_ObjectHideFlags: 0
