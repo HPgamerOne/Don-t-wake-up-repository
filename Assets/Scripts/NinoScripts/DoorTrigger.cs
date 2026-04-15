@@ -18,6 +18,13 @@ public class DoorTrigger : MonoBehaviour
 
     // private IDissolvable doorDissolve;
 
+    private void Start()
+    {
+        if (timer == null)
+        {
+            timer = FindAnyObjectByType(typeof(Timer)) as Timer;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

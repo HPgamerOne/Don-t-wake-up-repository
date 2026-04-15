@@ -37,16 +37,16 @@ public class Timer : MonoBehaviour
         // end of new code
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject.transform.root);
     }
 
     void Start()
     {
         remainingTime = startTime;
         // closedEye.gameObject.SetActive(true);
-        halfOpenEye1.gameObject.SetActive(false);
-        openEye.gameObject.SetActive(false);
-        timeText.gameObject.SetActive(false);
+        // halfOpenEye1.gameObject.SetActive(false);
+        // openEye.gameObject.SetActive(false);
+        // timeText.gameObject.SetActive(false);
     }
     void Update()
     {
