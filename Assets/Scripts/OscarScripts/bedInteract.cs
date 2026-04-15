@@ -26,13 +26,13 @@ public class BedInteract : MonoBehaviour
     private IEnumerator LoadNextScene()
     {
         doneThing = true;
-
+        Timer.Instance.ResetTimer();
         FadeManager.Instance.FadeToBlack(fadeDuration);
         //Timer.Instance.ResetTimer();
         yield return new WaitForSeconds(fadeDuration);
 
         GameManager.Instance.NextScene();
-
+        
         FadeManager.Instance.FadeFromBlack(fadeDuration);
         yield return null;
     }

@@ -11,7 +11,6 @@ public class FadeManager : MonoBehaviour
     public static FadeManager Instance;
     private Coroutine currentFade;
 
-
     private void Awake()
     {
         // start of new code

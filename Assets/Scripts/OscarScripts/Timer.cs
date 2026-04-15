@@ -50,15 +50,18 @@ public class Timer : MonoBehaviour
     }
     void Update()
     {
+        timerRunning = true;
         if (timerRunning)
         {
             DecreaseTime();
+
+
             if (remainingTime <= startTime / 2 && !threshold1)
             {
                 threshold1 = true;
                 closedEye.gameObject.SetActive(false);
                 halfOpenEye1.gameObject.SetActive(true);
-
+                
             }
             else if (remainingTime <= 60 && !threshold2)
             {
@@ -119,12 +122,11 @@ public class Timer : MonoBehaviour
     /// </summary>
     public void StartTimer()
     {
-        timerRunning = true;
-
         outlineBar.gameObject.SetActive(true);
         closedEye.gameObject.SetActive(true);
         fillImage.gameObject.SetActive(true);
         timeText.gameObject.SetActive(true);
+        timerRunning = true;
     }
     /// <summary>
     /// Reset the timers values to it's starting values
@@ -138,8 +140,8 @@ public class Timer : MonoBehaviour
         threshold3 = false;
 
         openEye.gameObject.SetActive(false);
-        //outlineBar.gameObject.SetActive(false);
-        //fillImage.gameObject.SetActive(false);
+        outlineBar.gameObject.SetActive(false);
+        fillImage.gameObject.SetActive(false);
         halfOpenEye1.gameObject.SetActive(false);
         closedEye.gameObject.SetActive(false);
         timeText.gameObject.SetActive(false);
