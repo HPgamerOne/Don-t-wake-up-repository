@@ -50,7 +50,6 @@ public class Timer : MonoBehaviour
     }
     void Update()
     {
-        timerRunning = true;
         if (timerRunning)
         {
             DecreaseTime();

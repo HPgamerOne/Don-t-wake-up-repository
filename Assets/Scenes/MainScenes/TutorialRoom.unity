@@ -340,6 +340,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 726254700}
     - target: {fileID: 402533469504892357, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
+      propertyPath: startTime
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 402533469504892357, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
       propertyPath: outlineBar
       value: 
       objectReference: {fileID: 726254700}
