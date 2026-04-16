@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public int currentScene = 0;
 
-    public List<int> doneScenes = new List<int> {1};
-    public List<int> uncompletedScenes = new List<int> {2, 3, 4};
-    public int finalSceneIndex = 0;
+    public List<int> doneScenes = new List<int> {0};
+    public List<int> uncompletedScenes = new List<int> {1, 2, 3};
+    public int finalSceneIndex = 4;
     private void Awake()
     {
         if (Instance != null)

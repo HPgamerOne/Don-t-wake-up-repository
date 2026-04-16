@@ -770,9 +770,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   currentScene: 0
-  doneScenes: 01000000
-  uncompletedScenes: 020000000300000004000000
-  finalSceneIndex: 0
+  doneScenes: 00000000
+  uncompletedScenes: 010000000200000003000000
+  finalSceneIndex: 4
 --- !u!4 &1606973079
 Transform:
   m_ObjectHideFlags: 0

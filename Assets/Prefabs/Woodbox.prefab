@@ -1,5 +1,58 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &764139813941934624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3359537723551618829}
+  - component: {fileID: 7560371362844148046}
+  m_Layer: 3
+  m_Name: InteractCollision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3359537723551618829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764139813941934624}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.009, y: 0.009, z: 0.009}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 6994942979194113325}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7560371362844148046
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764139813941934624}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7393150172655987398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58,7 +111,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6459a88326eada74c9558a945d560435, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3359537723551618829}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6459a88326eada74c9558a945d560435, type: 3}
       insertIndex: -1
@@ -69,7 +125,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6459a88326eada74c9558a945d560435, type: 3}
       insertIndex: -1
       addedObject: {fileID: 494899409064204556}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6459a88326eada74c9558a945d560435, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6299534970884480731}
   m_SourcePrefab: {fileID: 100100000, guid: 6459a88326eada74c9558a945d560435, type: 3}
+--- !u!4 &6994942979194113325 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6459a88326eada74c9558a945d560435, type: 3}
+  m_PrefabInstance: {fileID: 7393150172655987398}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7663111404446685079 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6459a88326eada74c9558a945d560435, type: 3}
@@ -135,11 +199,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff74b9a0f5dd6bb4e898cec59fb1bde2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Buoyancy
-  rb: {fileID: 5769268427772933256}
+  rigidBody: {fileID: 0}
   water: {fileID: 0}
+  interactObject: {fileID: 0}
   upforce: 200
-  airLinearDrag: 0
-  airAngularDrag: 0.05
-  waterLinearDrag: 3
-  waterAngularDrag: 1
-  difference: 0
+  airLinearDamping: 0
+  airAngularDramping: 0.05
+  waterLinearDamping: 3
+  waterAngularDamping: 1
+--- !u!114 &6299534970884480731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7663111404446685079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9ef81b3ea12f0545bf6a558706cd627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractObject
+  interactable: 1
+  dynamic: 1
+  attractForceActive: 0
+  interacted: 0
+  pickedUpForce: 100
+  pickedUpRotationForce: 25
+  pickedUpLinearDamping: 10
+  pickedUpAngularDamping: 5
+  defaultLinearDamping: 0
+  defaultAngularDamping: 0.05
