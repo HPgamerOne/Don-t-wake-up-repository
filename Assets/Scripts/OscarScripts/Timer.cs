@@ -62,13 +62,13 @@ public class Timer : MonoBehaviour
                 halfOpenEye1.gameObject.SetActive(true);
                 
             }
-            else if (remainingTime <= 60 && !threshold2)
+            else if (remainingTime <= startTime / 3 && !threshold2)
             {
                 threshold2 = true;
                 halfOpenEye1.gameObject.SetActive(false);
                 halfOpenEye2.gameObject.SetActive(true);
             }
-            else if (remainingTime <= 30 && !threshold3)
+            else if (remainingTime <= startTime / 4 && !threshold3)
             {
                 threshold3 = true;
                 halfOpenEye2.gameObject.SetActive(false);
