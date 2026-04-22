@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -11,6 +12,7 @@ public class DoorTrigger : MonoBehaviour
     [SerializeField] private bool openTrigger = false;
     [SerializeField] private bool midwayTrigger = false;
     [SerializeField] private bool closeTrigger = false;
+    [SerializeField] private bool shouldDisappear = true;
     [SerializeField] private Timer timer;
 
     float duration = 2f;
@@ -71,7 +73,10 @@ public class DoorTrigger : MonoBehaviour
                 animator.Play("DoorClose", 0, 0);
                 gameObject.GetComponent<Collider>().enabled = false;
 
-                StartCoroutine(Wait());
+                if (shouldDisappear)
+                {
+                    StartCoroutine(Wait());
+                }
             }
         }
     }
