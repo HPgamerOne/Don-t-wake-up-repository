@@ -9,6 +9,7 @@ public class DoorTrigger : MonoBehaviour
     [SerializeField] private GameObject whiteroomRoom;
     [SerializeField] private GameObject whiteroomDoorPlane;
     [SerializeField] private GameObject door;
+    [SerializeField] private GameObject oscarWall;
     [SerializeField] private bool openTrigger = false;
     [SerializeField] private bool midwayTrigger = false;
     [SerializeField] private bool closeTrigger = false;
@@ -55,6 +56,7 @@ public class DoorTrigger : MonoBehaviour
                     whiteroomRoom.SetActive(false);
                 }
 
+                oscarWall.SetActive(true);
                 if (timer != null)
                 {
                     timer.StartTimer();
