@@ -56,7 +56,10 @@ public class DoorTrigger : MonoBehaviour
                     whiteroomRoom.SetActive(false);
                 }
 
-                oscarWall.SetActive(true);
+                if (oscarWall != null)
+                {
+                    oscarWall.SetActive(true);
+                }
                 if (timer != null)
                 {
                     timer.StartTimer();
