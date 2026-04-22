@@ -65,7 +65,7 @@ public class LiquidWobble : MonoBehaviour
         // Linjär rörelse i X-axeln roterar Z-axeln, rörelse i Z-axeln roterar X-axeln
         // Vinkel rotation i X-axeln roterar Z-planet, rotation i Z-axeln roterar X-planet
         float impulseX = -linearLocalVelocity.z * wobbleStrength + angularLocalVelocityDegrees.x * wobbleStrength * 0.01f;
-        float impulseZ = -linearLocalVelocity.x * wobbleStrength + angularLocalVelocityDegrees.z * wobbleStrength * 0.01f; 
+        float impulseZ = linearLocalVelocity.x * wobbleStrength + angularLocalVelocityDegrees.z * wobbleStrength * 0.01f; 
 
         // Wobble går mot 0, ska typ "splasha runt/studsa runt" effekt, dämpningen sänker velocitet
         float springX = -(wobbleFrequency * wobbleFrequency) * wobbleX - wobbleDamping * wobbleVelocityX;

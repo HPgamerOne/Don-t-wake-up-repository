@@ -109,8 +109,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 0.8, z: 1}
-  m_Center: {x: 0, y: 0.4, z: 0}
+  m_Size: {x: 2, y: 0.6, z: 1}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!114 &1110574247665278923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,4 +157,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae03811d49dee649ac8ad1e8e6e479b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BedInteract
-  fadeDuration: 0.3
+  fadeDuration: 1

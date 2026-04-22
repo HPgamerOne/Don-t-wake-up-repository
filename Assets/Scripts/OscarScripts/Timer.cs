@@ -14,15 +14,18 @@ public class Timer : MonoBehaviour
     [SerializeField] GameObject halfOpenEye1;
     [SerializeField] GameObject halfOpenEye2;
     [SerializeField] GameObject closedEye;
-    [SerializeField] GameObject outlineBar;
+    [SerializeField] GameObject timerPanel;
+    [SerializeField] GameObject totalTimePanel;
 
     [Header("Text")]
     [SerializeField] TextMeshProUGUI timeText;
+    [SerializeField] TextMeshProUGUI totalTimeText;
 
     [Header("Values")]
     float remainingTime;
-    float multiplier = 1;
+    // float multiplier = 1;
     public float startTime;
+    private float totalTime = 0;
 
     bool timerRunning = false;
     bool threshold1, threshold2, threshold3 = false;
@@ -43,10 +46,8 @@ public class Timer : MonoBehaviour
     void Start()
     {
         remainingTime = startTime;
-        // closedEye.gameObject.SetActive(true);
-        // halfOpenEye1.gameObject.SetActive(false);
-        // openEye.gameObject.SetActive(false);
-        // timeText.gameObject.SetActive(false);
+        timerPanel.gameObject.SetActive(false);
+        totalTimePanel.gameObject.SetActive(false);
     }
     void Update()
     {
@@ -90,8 +91,11 @@ public class Timer : MonoBehaviour
     /// </summary>
     private void DecreaseTime()
     {
-        remainingTime -= Time.deltaTime * multiplier;
-        timeText.text = Mathf.RoundToInt(remainingTime).ToString();
+        remainingTime -= Time.deltaTime; // * multiplier;
+        totalTime += Time.deltaTime;
+
+        timeText.text = Mathf.Round(remainingTime).ToString();
+        totalTimeText.text = Mathf.Round(totalTime).ToString();
         UpdateProgressValue();
     }
     /// <summary>
@@ -105,10 +109,14 @@ public class Timer : MonoBehaviour
     /// Change how fast the timer runs out
     /// </summary>
     /// <param name="changeRate">The multipler to increase or decrease the rate of change on the timer</param>
+    
+    /*
     public void ChangeTimerRate(float changeRate)
     {
         multiplier = changeRate;
     }
+    */
+
     /// <summary>
     /// Stop the timer
     /// </summary>
@@ -121,10 +129,14 @@ public class Timer : MonoBehaviour
     /// </summary>
     public void StartTimer()
     {
-        outlineBar.gameObject.SetActive(true);
+        timerPanel.gameObject.SetActive(true);
         closedEye.gameObject.SetActive(true);
+        halfOpenEye1.gameObject.SetActive(false);
+        halfOpenEye2.gameObject.SetActive(false);
+        openEye.gameObject.SetActive(false);
         fillImage.gameObject.SetActive(true);
         timeText.gameObject.SetActive(true);
+        totalTimePanel.gameObject.SetActive(true);
         timerRunning = true;
     }
     /// <summary>
@@ -132,18 +144,20 @@ public class Timer : MonoBehaviour
     /// </summary>
     public void ResetTimer()
     {
-        multiplier = 1;
+        // multiplier = 1;
         timerRunning = false;
         threshold1 = false;
         threshold2 = false;
         threshold3 = false;
 
-        openEye.gameObject.SetActive(false);
-        outlineBar.gameObject.SetActive(false);
-        fillImage.gameObject.SetActive(false);
-        halfOpenEye1.gameObject.SetActive(false);
         closedEye.gameObject.SetActive(false);
+        halfOpenEye1.gameObject.SetActive(false);
+        halfOpenEye2.gameObject.SetActive(false);
+        openEye.gameObject.SetActive(false);
+        timerPanel.gameObject.SetActive(false);
+        fillImage.gameObject.SetActive(false);
         timeText.gameObject.SetActive(false);
+        totalTimePanel.gameObject.SetActive(false);
         remainingTime = startTime;
     }
     /// <summary>

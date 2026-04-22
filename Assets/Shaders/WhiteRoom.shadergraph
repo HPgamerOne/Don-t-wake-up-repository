@@ -94,7 +94,7 @@
     "m_ObjectId": "0a9faaecafe84ac2a9b3b56b5d8d490b",
     "m_KeepLightingVariants": false,
     "m_DefaultDecalBlending": true,
-    "m_DefaultSSAO": true
+    "m_DefaultSSAO": false
 }
 
 {

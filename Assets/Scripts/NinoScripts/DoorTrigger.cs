@@ -23,10 +23,12 @@ public class DoorTrigger : MonoBehaviour
 
     private void Start()
     {
+        /*
         if (timer == null)
         {
             timer = FindAnyObjectByType(typeof(Timer)) as Timer;
         }
+        */
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -46,6 +48,11 @@ public class DoorTrigger : MonoBehaviour
             */
             else if (midwayTrigger)
             {
+                if (timer == null)
+                {
+                    timer = FindAnyObjectByType(typeof(Timer)) as Timer;
+                }
+
                 if (whiteroomDoorPlane != null)
                 {
                     whiteroomDoorPlane.SetActive(true);

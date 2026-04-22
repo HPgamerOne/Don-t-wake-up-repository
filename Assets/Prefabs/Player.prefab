@@ -79,7 +79,7 @@ MonoBehaviour:
   jumpAction: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   sprintAction: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   isSprinting: 0
-  baseMoveSpeed: 5
+  baseMoveSpeed: 3
   sprintMultiplier: 1.5
   jumpVelocity: 10
   gravity: -9.82
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObstaclePush
   playerController: {fileID: 7751618679432655673}
-  forceMagnitude: 0.5
+  forceMagnitude: 0.3
   hitNormal: 0.7
 --- !u!54 &562996075036706794
 Rigidbody:
