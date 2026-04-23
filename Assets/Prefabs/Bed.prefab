@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d07f3624dcf270c43bc0a28833e49f53, type: 2}
+    - target: {fileID: -7029948723529949830, guid: a2b9a84f72f8b2342b5323e4a45b9845, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4897732323685117858, guid: a2b9a84f72f8b2342b5323e4a45b9845, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -64,9 +68,25 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d07f3624dcf270c43bc0a28833e49f53, type: 2}
+    - target: {fileID: -3869610054579387764, guid: a2b9a84f72f8b2342b5323e4a45b9845, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3111565609762313623, guid: a2b9a84f72f8b2342b5323e4a45b9845, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a2b9a84f72f8b2342b5323e4a45b9845, type: 3}
       propertyPath: m_Name
       value: Bed
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a2b9a84f72f8b2342b5323e4a45b9845, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587821206314611076, guid: a2b9a84f72f8b2342b5323e4a45b9845, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
