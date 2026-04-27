@@ -11,9 +11,14 @@ public class CarKeyChecker : MonoBehaviour
     {
         if (other.CompareTag("Keys"))
         {
-            Transform keyT = other.gameObject.GetComponent<Transform>();
-            Transform carT = gameObject.GetComponent<Transform>();
-            keyT.position = new Vector3(carT.position.x, carT.position.y + 3, carT.position.z);
+            Transform keyT = other.GetComponent<Transform>();
+            Rigidbody rb = other.GetComponent<Rigidbody>();
+            Transform carT = GetComponent<Transform>();
+            rb.angularVelocity = Vector3.zero;
+            rb.isKinematic = true;
+
+            keyT.position = transform.position + Vector3.up * 3f;
+            keyT.rotation = transform.rotation;
 
             string id = other.GetComponent<Key>().id;
             if(id == requiredKeyId)
@@ -25,8 +30,10 @@ public class CarKeyChecker : MonoBehaviour
             else
             {
                 //play non turning key animation
-                Rigidbody rb = other.GetComponent<Rigidbody>();
-                rb.AddForce(new Vector3(Random.Range(-2,2), Random.Range(-2, 2), Random.Range(-2, 2)), ForceMode.Impulse);
+                rb.isKinematic = false;
+                rb.useGravity = true;
+                Vector3 ejectDir = (other.transform.position - transform.position).normalized;
+                rb.AddForce(ejectDir * 5f + Vector3.up * 2f, ForceMode.Impulse);
             }
         }
     }
@@ -43,9 +50,6 @@ public class CarKeyChecker : MonoBehaviour
                 break;
             case "GreenKey":
                 doorS.GreenCar = true;
-                break;
-            case "key":
-                doorS.test = true;   
                 break;
         }
     }
