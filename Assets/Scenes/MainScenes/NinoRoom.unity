@@ -1984,50 +1984,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4e4d22f13b15ba4585519ab0e56210f, type: 3}
---- !u!1 &311125509
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 311125511}
-  - component: {fileID: 311125510}
-  m_Layer: 0
-  m_Name: SwitchScene
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &311125510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311125509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7a5353ebe1732a4aa0da8d8651c1fb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestScript
---- !u!4 &311125511
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311125509}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.92212, y: -0, z: -7.66008}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &339778581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14674,7 +14630,6 @@ SceneRoots:
   - {fileID: 1244412744}
   - {fileID: 46017618}
   - {fileID: 421957918}
-  - {fileID: 311125511}
   - {fileID: 779646098}
   - {fileID: 1136585174}
   - {fileID: 452172882}

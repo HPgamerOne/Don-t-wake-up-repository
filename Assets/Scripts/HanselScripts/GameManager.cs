@@ -43,4 +43,13 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(finalSceneIndex);
         }
     }
+
+    // Temp code to make it faster to go to next scene, remove for final build
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            NextScene();
+        }
+    }
 }

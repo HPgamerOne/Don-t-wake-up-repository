@@ -81,7 +81,7 @@ public class InteractObject : MonoBehaviour
         {
             rigidBody.excludeLayers = 0;
 
-            if (buoyancy != null) // Nino
+            if (buoyancy == null) // Nino
             {
                 rigidBody.linearDamping = defaultLinearDamping;
                 rigidBody.angularDamping = defaultAngularDamping;
