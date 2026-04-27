@@ -4823,7 +4823,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1670172887}
-  - component: {fileID: 1670172886}
+  - component: {fileID: 1670172888}
   m_Layer: 0
   m_Name: PlayerRespawn
   m_TagString: Untagged
@@ -4831,22 +4831,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1670172886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670172885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfd71432ba338aa47a25eb6e793fd467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
-  respawnY: -50
-  respawnPairs:
-  - CheckPoint: {fileID: 19636096}
-    RespawnPoint: {fileID: 976711940}
 --- !u!4 &1670172887
 Transform:
   m_ObjectHideFlags: 0
@@ -4864,6 +4848,22 @@ Transform:
   - {fileID: 976711941}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1670172888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670172885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd71432ba338aa47a25eb6e793fd467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
+  respawnY: -50
+  respawnPairs:
+  - CheckPoint: {fileID: 19636096}
+    RespawnPoint: {fileID: 976711940}
 --- !u!1 &1694304706
 GameObject:
   m_ObjectHideFlags: 0

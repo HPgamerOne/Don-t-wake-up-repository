@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ public class PlayerRespawn : MonoBehaviour
     private CharacterController characterController;
 
     private RespawnPair lastTouchedRespawnPair;
-
+    private bool isRespawning = false;
     void Start()
     {
         player = GameObject.Find("Player");
@@ -30,9 +31,10 @@ public class PlayerRespawn : MonoBehaviour
     void Update()
     {
         CheckCheckpointTouch();
-        if (player.transform.position.y < respawnY)
+
+        if (!isRespawning && player.transform.position.y < respawnY)
         {
-            RespawnPlayer();
+            StartCoroutine(RespawnPlayer());
         }
     }
 
@@ -48,10 +50,17 @@ public class PlayerRespawn : MonoBehaviour
             }
         }
     }
-    private void RespawnPlayer()
+
+    IEnumerator RespawnPlayer()
     {
+        isRespawning = true;
+
+        FadeManager.Instance.FadeToBlack(0.5f);
+        yield return new WaitForSeconds(1);
         characterController.enabled = false;
         player.transform.position = lastTouchedRespawnPair.RespawnPoint.transform.position;
         characterController.enabled = true;
+        FadeManager.Instance.FadeFromBlack(0.5f);
+        isRespawning = false;
     }
 }
