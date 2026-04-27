@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BlockChecker : MonoBehaviour
 {
     public string requiredID;
+    public bool isFilled;
+    [SerializeField] GameObject toyBox;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -11,7 +14,9 @@ public class BlockChecker : MonoBehaviour
         {
             if(block.id == requiredID)
             {
-                //turn a boolean on
+                isFilled = true;
+                toyBox.GetComponent<ToyBoxScript>().UpdateCheckers();
+
             }
         }
     }
@@ -23,8 +28,11 @@ public class BlockChecker : MonoBehaviour
         {
             if (block.id == requiredID)
             {
-                //turn a boolean off
+                isFilled = false;
+                toyBox.GetComponent<ToyBoxScript>().UpdateCheckers();
             }
         }
     }
+ 
+   
 }
