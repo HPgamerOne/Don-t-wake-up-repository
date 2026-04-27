@@ -3,9 +3,10 @@ using UnityEngine.UIElements;
 
 public class BlockChecker : MonoBehaviour
 {
-    public string requiredID;
-    public bool isFilled;
+    [SerializeField] string requiredID;
     [SerializeField] GameObject toyBox;
+
+    public bool isFilled;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,6 +15,7 @@ public class BlockChecker : MonoBehaviour
         {
             if(block.id == requiredID)
             {
+                Debug.LogWarning("Collision works");
                 isFilled = true;
                 toyBox.GetComponent<ToyBoxScript>().UpdateCheckers();
 

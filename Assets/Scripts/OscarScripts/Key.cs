@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Key
+public class Key : MonoBehaviour
 {
     public string id;
 }
