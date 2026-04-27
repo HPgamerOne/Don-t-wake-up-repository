@@ -977,7 +977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractManager
   interactAction: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  highlightStrength: 0.1
+  highlightStrength: 0.02
   rayDistance: 3
   grabHand: {fileID: 0}
   grabbingHand: {fileID: 0}
