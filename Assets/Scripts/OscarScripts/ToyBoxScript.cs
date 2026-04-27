@@ -1,35 +1,29 @@
+using Unity.Jobs;
 using UnityEngine;
 
 public class ToyBoxScript : MonoBehaviour
 {
-    BlockChecker[] checkers;
-    int totalCheckers;
-    int totalR, totalC, totalA, totalE;
-
+    private BlockChecker[] checkers;
 
     // Update is called once per frame
-    private void Awake()
+    private void Start()
     {
         checkers = FindObjectsByType<BlockChecker>(FindObjectsSortMode.None);
-    }
-
-    void Update()
-    {
-        
-        
-        foreach (BlockChecker checker in checkers)
-        {
-            
-        }
-
-
     }
 
     public void UpdateCheckers()
     {
         foreach (BlockChecker checker in checkers)
         {
-
+            if (!checker.isFilled)
+            {
+                return;
+            }
         }
+        OpenBox();
+    }
+    private void OpenBox()
+    {
+        Debug.Log("DAT SHI OPENN");
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WoodBlock
+public class WoodBlock : MonoBehaviour 
 {
     public string id;
 }

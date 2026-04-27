@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CarKeyChecker : MonoBehaviour
 {
-    public string requiredKeyId;
+    [SerializeField] string requiredKeyId;
     [SerializeField] GameObject door;
     
 
@@ -14,7 +14,6 @@ public class CarKeyChecker : MonoBehaviour
             Transform keyT = other.gameObject.GetComponent<Transform>();
             Transform carT = gameObject.GetComponent<Transform>();
             keyT.position = new Vector3(carT.position.x, carT.position.y + 3, carT.position.z);
-
 
             string id = other.GetComponent<Key>().id;
             if(id == requiredKeyId)
@@ -44,6 +43,9 @@ public class CarKeyChecker : MonoBehaviour
                 break;
             case "GreenKey":
                 doorS.GreenCar = true;
+                break;
+            case "key":
+                doorS.test = true;   
                 break;
         }
     }
