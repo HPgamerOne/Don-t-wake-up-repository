@@ -15,6 +15,10 @@ public class LanternBoxSystem : MonoBehaviour
 
         [HideInInspector] public Color OriginalBigLanternEmissionColor;
         [HideInInspector] public float OriginalBigLanternPointLightIntensity;
+        [HideInInspector] public Color CurrentBigLanternEmissionColor;
+        [HideInInspector] public Color StartBigLanternEmissionColor;
+        [HideInInspector] public Color TargetBigLanternEmissionColor;
+        [HideInInspector] public float ColorFade;
 
         [HideInInspector] public float Fade;
     }
@@ -83,9 +87,37 @@ public class LanternBoxSystem : MonoBehaviour
                 Time.deltaTime / fadeTime
             );
 
-            Color targetEmissionColor = GetMixedEmissionColor(lanternBoxMixPair, activeLanternNames);
+            if (activeLanternNames.Count > 0)
+            {
+                Color newTargetEmissionColor = GetMixedEmissionColor(lanternBoxMixPair, activeLanternNames);
 
-            SetBigLanternBrightness(lanternBoxMixPair, targetEmissionColor);
+                if (AreColorsDifferent(newTargetEmissionColor, lanternBoxMixPair.TargetBigLanternEmissionColor))
+                {
+                    lanternBoxMixPair.StartBigLanternEmissionColor = lanternBoxMixPair.CurrentBigLanternEmissionColor;
+                    lanternBoxMixPair.TargetBigLanternEmissionColor = newTargetEmissionColor;
+                    lanternBoxMixPair.ColorFade = 0f;
+                }
+            }
+            else
+            {
+                lanternBoxMixPair.StartBigLanternEmissionColor = lanternBoxMixPair.CurrentBigLanternEmissionColor;
+                lanternBoxMixPair.TargetBigLanternEmissionColor = lanternBoxMixPair.CurrentBigLanternEmissionColor;
+                lanternBoxMixPair.ColorFade = 1f;
+            }
+
+            lanternBoxMixPair.ColorFade = Mathf.MoveTowards(
+                lanternBoxMixPair.ColorFade,
+                1f,
+                Time.deltaTime / fadeTime
+            );
+
+            lanternBoxMixPair.CurrentBigLanternEmissionColor = Color.Lerp(
+                lanternBoxMixPair.StartBigLanternEmissionColor,
+                lanternBoxMixPair.TargetBigLanternEmissionColor,
+                lanternBoxMixPair.ColorFade
+            );
+
+            SetBigLanternBrightness(lanternBoxMixPair, lanternBoxMixPair.CurrentBigLanternEmissionColor);
         }
     }
 
@@ -105,6 +137,11 @@ public class LanternBoxSystem : MonoBehaviour
 
                 lanternBoxMixPair.OriginalBigLanternEmissionColor = material.GetColor(EmissionColorId);
                 lanternBoxMixPair.OriginalBigLanternPointLightIntensity = lanternBoxMixPair.BigLanternPointLight.intensity;
+
+                lanternBoxMixPair.CurrentBigLanternEmissionColor = lanternBoxMixPair.OriginalBigLanternEmissionColor;
+                lanternBoxMixPair.StartBigLanternEmissionColor = lanternBoxMixPair.OriginalBigLanternEmissionColor;
+                lanternBoxMixPair.TargetBigLanternEmissionColor = lanternBoxMixPair.OriginalBigLanternEmissionColor;
+                lanternBoxMixPair.ColorFade = 1f;
 
                 SetBigLanternBrightness(lanternBoxMixPair, Color.black);
             }
@@ -183,11 +220,18 @@ public class LanternBoxSystem : MonoBehaviour
         lanternBoxMixPair.BigLanternPointLight.color = GetNormalColorFromEmissionColor(targetEmissionColor);
     }
 
+    private bool AreColorsDifferent(Color colorA, Color colorB)
+    {
+        return Mathf.Abs(colorA.r - colorB.r) > 0.001f ||
+               Mathf.Abs(colorA.g - colorB.g) > 0.001f ||
+               Mathf.Abs(colorA.b - colorB.b) > 0.001f ||
+               Mathf.Abs(colorA.a - colorB.a) > 0.001f;
+    }
     private Color GetMixedEmissionColor(LanternBoxMixPair lanternBoxMixPair, List<string> activeLanternNames)
     {
         if (activeLanternNames.Count == 0)
         {
-            return lanternBoxMixPair.OriginalBigLanternEmissionColor;
+            return lanternBoxMixPair.CurrentBigLanternEmissionColor;
         }
 
         bool hasRed = HasLantern(activeLanternNames, "RedLantern");

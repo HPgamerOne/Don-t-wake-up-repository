@@ -7829,6 +7829,10 @@ MonoBehaviour:
     BigLanternPointLight: {fileID: 0}
     OriginalBigLanternEmissionColor: {r: 0, g: 0, b: 0, a: 0}
     OriginalBigLanternPointLightIntensity: 0
+    CurrentBigLanternEmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    StartBigLanternEmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    TargetBigLanternEmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    ColorFade: 0
     Fade: 0
   - BigLantern: {fileID: 2006068102}
     LanternBoxPairs:
@@ -7850,8 +7854,12 @@ MonoBehaviour:
     BigLanternPointLight: {fileID: 0}
     OriginalBigLanternEmissionColor: {r: 0, g: 0, b: 0, a: 0}
     OriginalBigLanternPointLightIntensity: 0
+    CurrentBigLanternEmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    StartBigLanternEmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    TargetBigLanternEmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    ColorFade: 0
     Fade: 0
-  fadeTime: 2
+  fadeTime: 1
   activatedPointLightIntensity: 5
 --- !u!4 &1708558322
 Transform:
