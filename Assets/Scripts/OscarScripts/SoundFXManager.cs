@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SoundFXManager : MonoBehaviour
 {
-   public static SoundFXManager Instance;
+    public static SoundFXManager Instance;
     [SerializeField] AudioSource soundObject;
     
 
@@ -68,4 +68,5 @@ public class SoundFXManager : MonoBehaviour
     {
         gameObject.GetComponent<AudioSource>().Play();
     }
+
 }

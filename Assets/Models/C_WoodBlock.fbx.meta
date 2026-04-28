@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: trimsheet
-    second: {fileID: 2100000, guid: fcbc77223ca836642b3bd55c721bf743, type: 2}
+    second: {fileID: 2100000, guid: d07f3624dcf270c43bc0a28833e49f53, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
