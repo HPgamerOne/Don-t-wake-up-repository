@@ -25,7 +25,11 @@
             "m_Id": "368083f99777438d94c8509d8fc03ade"
         }
     ],
-    "m_Keywords": [],
+    "m_Keywords": [
+        {
+            "m_Id": "bef739aca5a44059ad6b7855c553096b"
+        }
+    ],
     "m_Dropdowns": [],
     "m_CategoryData": [
         {
@@ -1282,7 +1286,7 @@
     "m_Title": "Water Refraction",
     "m_Position": {
         "x": -2250.0,
-        "y": -734.0
+        "y": -734.0001220703125
     }
 }
 
@@ -1587,6 +1591,9 @@
     "m_ChildObjectList": [
         {
             "m_Id": "368083f99777438d94c8509d8fc03ade"
+        },
+        {
+            "m_Id": "bef739aca5a44059ad6b7855c553096b"
         }
     ]
 }
@@ -2351,8 +2358,8 @@
     "m_ObjectId": "60050a772b9b4cd0a918e9554d42121c",
     "m_Title": "Water Color",
     "m_Position": {
-        "x": -1576.0,
-        "y": 119.99999237060547
+        "x": -1576.0001220703125,
+        "y": 120.00001525878906
     }
 }
 
@@ -3902,6 +3909,34 @@
 }
 
 {
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.ShaderKeyword",
+    "m_ObjectId": "bef739aca5a44059ad6b7855c553096b",
+    "m_Guid": {
+        "m_GuidSerialized": "c56de505-1594-413f-8e91-1e0ffa8bdf6b"
+    },
+    "promotedFromAssetID": "",
+    "promotedFromCategoryName": "",
+    "promotedOrdering": -1,
+    "m_Name": "SpecularHightlightsOff",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "SpecularHightlightsOff",
+    "m_DefaultReferenceName": "_SPECULARHIGHTLIGHTSOFF",
+    "m_OverrideReferenceName": "_SPECULARHIGHLIGHTS_OFF",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_KeywordType": 0,
+    "m_KeywordDefinition": 0,
+    "m_KeywordScope": 0,
+    "m_KeywordStages": 63,
+    "m_Entries": [],
+    "m_Value": 0,
+    "m_IsEditable": true
+}
+
+{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "bf4f712448ef425fb7d6237c08122065",
@@ -4447,8 +4482,8 @@
     "m_ObjectId": "e24947de355049a48b38bf3639927ad4",
     "m_Title": "Old Testing",
     "m_Position": {
-        "x": -3334.999755859375,
-        "y": 672.9998779296875
+        "x": -3335.000244140625,
+        "y": 673.0
     }
 }
 

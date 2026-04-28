@@ -77,7 +77,7 @@ PrefabInstance:
       addedObject: {fileID: 8842040350269603691}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5f254f7fb8816594289c84146d83a541, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3602287223041058331}
+      addedObject: {fileID: 6253636630917839493}
   m_SourcePrefab: {fileID: 100100000, guid: 5f254f7fb8816594289c84146d83a541, type: 3}
 --- !u!1 &6082114128097392410 stripped
 GameObject:
@@ -99,40 +99,6 @@ MonoBehaviour:
   m_MeshFormatVersion: 2
   m_Faces:
   - m_Indexes: 000000000100000002000000
-    m_SmoothingGroup: 5
-    m_Uv:
-      m_UseWorldSpace: 0
-      m_FlipU: 0
-      m_FlipV: 0
-      m_SwapUV: 0
-      m_Fill: 1
-      m_Scale: {x: 1, y: 1}
-      m_Offset: {x: 0, y: 0}
-      m_Rotation: 0
-      m_Anchor: 9
-    m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
-    m_ManualUV: 1
-    elementGroup: -1
-    m_TextureGroup: -1
-  - m_Indexes: 030000000400000005000000
-    m_SmoothingGroup: 5
-    m_Uv:
-      m_UseWorldSpace: 0
-      m_FlipU: 0
-      m_FlipV: 0
-      m_SwapUV: 0
-      m_Fill: 1
-      m_Scale: {x: 1, y: 1}
-      m_Offset: {x: 0, y: 0}
-      m_Rotation: 0
-      m_Anchor: 9
-    m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
-    m_ManualUV: 1
-    elementGroup: -1
-    m_TextureGroup: -1
-  - m_Indexes: 060000000700000008000000
     m_SmoothingGroup: 6
     m_Uv:
       m_UseWorldSpace: 0
@@ -149,7 +115,7 @@ MonoBehaviour:
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
-  - m_Indexes: 090000000a0000000b000000
+  - m_Indexes: 030000000400000005000000
     m_SmoothingGroup: 6
     m_Uv:
       m_UseWorldSpace: 0
@@ -167,22 +133,12 @@ MonoBehaviour:
     elementGroup: -1
     m_TextureGroup: -1
   m_SharedVertices:
-  - m_Vertices: 01000000
-  - m_Vertices: 0000000003000000
-  - m_Vertices: 0b000000
-  - m_Vertices: 080000000a000000
   - m_Vertices: 05000000
-  - m_Vertices: 0600000009000000
   - m_Vertices: 0200000004000000
-  - m_Vertices: 07000000
+  - m_Vertices: 0000000003000000
+  - m_Vertices: 01000000
   m_SharedTextures: []
   m_Positions:
-  - {x: 0, y: 0.06, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: -0.06, y: 0, z: 0}
-  - {x: 0, y: 0.06, z: 0}
-  - {x: -0.06, y: 0, z: 0}
-  - {x: -0.06, y: 0.06, z: 0}
   - {x: -0.06, y: 0.06, z: 0.003}
   - {x: -0.06, y: 0, z: 0.003}
   - {x: 0, y: 0, z: 0.003}
@@ -190,12 +146,6 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0.003}
   - {x: 0, y: 0.06, z: 0.003}
   m_Textures0:
-  - {x: 0.125, y: 0.5}
-  - {x: 0.125, y: 0.75}
-  - {x: 0.375, y: 0.75}
-  - {x: 0.125, y: 0.5}
-  - {x: 0.375, y: 0.75}
-  - {x: 0.375, y: 0.5}
   - {x: 0.625, y: 0.5}
   - {x: 0.625, y: 0.75}
   - {x: 0.875, y: 0.75}
@@ -205,12 +155,6 @@ MonoBehaviour:
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
-  - {x: -1, y: 0, z: 0, w: -1}
-  - {x: -1, y: 0, z: 0, w: -1}
-  - {x: -1, y: 0, z: 0, w: -1}
-  - {x: -1, y: 0, z: 0, w: -1}
-  - {x: -1, y: 0, z: 0, w: -1}
-  - {x: -1, y: 0, z: 0, w: -1}
   - {x: 1, y: 0, z: 0, w: -1}
   - {x: 1, y: 0, z: 0, w: -1}
   - {x: 1, y: 0, z: 0, w: -1}
@@ -226,12 +170,12 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7
+  m_VersionIndex: 10
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!65 &3602287223041058331
+--- !u!65 &6253636630917839493
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,5 +194,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.06, y: 0.060000014, z: 0.0030000007}
-  m_Center: {x: -0.03, y: 0.030000007, z: 0.0015000004}
+  m_Size: {x: 0.06, y: 0.060000014, z: 3.1264825e-16}
+  m_Center: {x: -0.03, y: 0.030000007, z: 0.0030000007}

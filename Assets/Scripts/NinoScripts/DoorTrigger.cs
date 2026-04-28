@@ -23,6 +23,11 @@ public class DoorTrigger : MonoBehaviour
 
     private void Start()
     {
+        if (oscarWall != null)
+        {
+            oscarWall.SetActive(false);
+        }
+
         /*
         if (timer == null)
         {

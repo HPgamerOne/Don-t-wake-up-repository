@@ -19,7 +19,11 @@
             "m_Id": "c77330ac0a93481fa833c6fa62254473"
         }
     ],
-    "m_Keywords": [],
+    "m_Keywords": [
+        {
+            "m_Id": "086bbecbfcca45bb89b7fcc08d0c84b9"
+        }
+    ],
     "m_Dropdowns": [],
     "m_CategoryData": [
         {
@@ -554,6 +558,34 @@
     "m_Property": {
         "m_Id": "c77330ac0a93481fa833c6fa62254473"
     }
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.ShaderKeyword",
+    "m_ObjectId": "086bbecbfcca45bb89b7fcc08d0c84b9",
+    "m_Guid": {
+        "m_GuidSerialized": "33e775a0-f1e6-49e8-a960-4613917fc7cd"
+    },
+    "promotedFromAssetID": "",
+    "promotedFromCategoryName": "",
+    "promotedOrdering": -1,
+    "m_Name": "SpecularHighlightsOff",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "SpecularHighlightsOff",
+    "m_DefaultReferenceName": "_SPECULARHIGHLIGHTSOFF",
+    "m_OverrideReferenceName": "_SPECULARHIGHLIGHTS_OFF",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_KeywordType": 0,
+    "m_KeywordDefinition": 0,
+    "m_KeywordScope": 0,
+    "m_KeywordStages": 63,
+    "m_Entries": [],
+    "m_Value": 0,
+    "m_IsEditable": true
 }
 
 {
@@ -2884,6 +2916,9 @@
         },
         {
             "m_Id": "c77330ac0a93481fa833c6fa62254473"
+        },
+        {
+            "m_Id": "086bbecbfcca45bb89b7fcc08d0c84b9"
         }
     ]
 }
