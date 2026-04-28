@@ -4554,6 +4554,7 @@ GameObject:
   - component: {fileID: 1075657585}
   - component: {fileID: 1075657587}
   - component: {fileID: 1075657586}
+  - component: {fileID: 1075657588}
   m_Layer: 0
   m_Name: PointLight
   m_TagString: Untagged
@@ -4670,6 +4671,18 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1075657588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075657584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2388fe6e10e810e4daf041aa6ae486fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TestRend
 --- !u!1001 &1130948854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7827,13 +7840,14 @@ MonoBehaviour:
       IsActive: 0
     BigLanternEmissionLight: {fileID: 0}
     BigLanternPointLight: {fileID: 0}
+    BigLanternAdditionalLightData: {fileID: 0}
     OriginalBigLanternEmissionColor: {r: 0, g: 0, b: 0, a: 0}
     OriginalBigLanternPointLightIntensity: 0
     CurrentBigLanternEmissionColor: {r: 0, g: 0, b: 0, a: 0}
     StartBigLanternEmissionColor: {r: 0, g: 0, b: 0, a: 0}
     TargetBigLanternEmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    BrightnessFade: 0
     ColorFade: 0
-    Fade: 0
   - BigLantern: {fileID: 2006068102}
     LanternBoxPairs:
     - LanternBox: {fileID: 303842566}
@@ -7852,14 +7866,15 @@ MonoBehaviour:
       IsActive: 0
     BigLanternEmissionLight: {fileID: 0}
     BigLanternPointLight: {fileID: 0}
+    BigLanternAdditionalLightData: {fileID: 0}
     OriginalBigLanternEmissionColor: {r: 0, g: 0, b: 0, a: 0}
     OriginalBigLanternPointLightIntensity: 0
     CurrentBigLanternEmissionColor: {r: 0, g: 0, b: 0, a: 0}
     StartBigLanternEmissionColor: {r: 0, g: 0, b: 0, a: 0}
     TargetBigLanternEmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    BrightnessFade: 0
     ColorFade: 0
-    Fade: 0
-  fadeTime: 1
+  fadeTime: 0.3
   activatedPointLightIntensity: 5
 --- !u!4 &1708558322
 Transform:
