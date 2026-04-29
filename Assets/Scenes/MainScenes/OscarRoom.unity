@@ -2119,74 +2119,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 885d277ca1fb40e4284e712353626f68, type: 3}
   m_PrefabInstance: {fileID: 1473262686}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1169939658
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1169939659}
-  - component: {fileID: 1169939661}
-  - component: {fileID: 1169939660}
-  m_Layer: 0
-  m_Name: TriggerBox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1169939659
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169939658}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.0037, z: -0}
-  m_LocalScale: {x: 0.15147, y: 0.05898545, z: 0.15147}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 915468115}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1169939660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169939658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04f8d4f3a9b43a54b834a61714ded0d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CarKeyChecker
-  requiredKeyId: GreenKey
-  door: {fileID: 1850984781}
---- !u!65 &1169939661
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169939658}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1244412744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2470,6 +2402,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ab488b4c03d097743be04cc5c11b9ef7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ab488b4c03d097743be04cc5c11b9ef7, type: 3}
       propertyPath: m_Name
       value: Key
@@ -2547,6 +2483,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c094b0dd5a9a54448a0a9d52a50295f8, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c094b0dd5a9a54448a0a9d52a50295f8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c094b0dd5a9a54448a0a9d52a50295f8, type: 3}
       propertyPath: m_Name
@@ -2912,7 +2852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 7084c762361dce241bfb4a150cbea0cf, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7084c762361dce241bfb4a150cbea0cf, type: 3}
       propertyPath: m_Name
@@ -4522,12 +4462,55 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4ea291d3b2c4d76459ac1895e8b24613, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1169939659}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4ea291d3b2c4d76459ac1895e8b24613, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1339016810}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4ea291d3b2c4d76459ac1895e8b24613, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1920247313}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4ea291d3b2c4d76459ac1895e8b24613, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1920247312}
   m_SourcePrefab: {fileID: 100100000, guid: 4ea291d3b2c4d76459ac1895e8b24613, type: 3}
+--- !u!1 &1920247311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4ea291d3b2c4d76459ac1895e8b24613, type: 3}
+  m_PrefabInstance: {fileID: 1920247310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1920247312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920247311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04f8d4f3a9b43a54b834a61714ded0d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarKeyChecker
+  requiredKeyId: GreenKey
+  door: {fileID: 1850984781}
+--- !u!65 &1920247313
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920247311}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 0.07, z: 0.1}
+  m_Center: {x: 0.0011689644, y: -0.0005461378, z: 0.00043345802}
 --- !u!1 &1921003918
 GameObject:
   m_ObjectHideFlags: 0

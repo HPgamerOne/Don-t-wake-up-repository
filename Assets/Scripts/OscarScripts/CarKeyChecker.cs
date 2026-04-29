@@ -20,6 +20,7 @@ public class CarKeyChecker : MonoBehaviour
             {
                 //Key turning animation
                 //car driving in circles animation
+                gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
                 
                 DoorCondtions(id);
                 Destroy(other);
