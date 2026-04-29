@@ -14,21 +14,21 @@ public class CarKeyChecker : MonoBehaviour
             Transform keyT = other.gameObject.GetComponent<Transform>();
             Transform carT = gameObject.GetComponent<Transform>();
             Rigidbody rb = other.GetComponent<Rigidbody>();
-            rb.isKinematic = false;
-            keyT.position = new Vector3(carT.position.x, carT.position.y + 0.04f,carT.position.z);
-
-
+            
             string id = other.GetComponent<Key>().id;
             if(id == requiredKeyId)
             {
                 //Key turning animation
                 //car driving in circles animation
+                
                 DoorCondtions(id);
+                Destroy(other);
             }
             else
             {
                 //play non turning key animation
-                rb.AddForce(new Vector3(Random.Range(-2,2), Random.Range(-2, 2), Random.Range(-2, 2)), ForceMode.Impulse);
+                Vector3 ejectDir =   keyT.position - carT.position;
+                rb.AddForce(ejectDir * 10f + Vector3.up*7f, ForceMode.Impulse);
             }
         }
     }
