@@ -10,7 +10,7 @@ public class DoorScript : MonoBehaviour
     {
         if(redCar && greenCar && blueCar)
         {
-            //FadeManager.Instance.FadeOutObject(gameObject, 2f);;
+            FadeManager.Instance.FadeOutObject(gameObject, 1f);;
             gameObject.GetComponent<BoxCollider>().enabled = false;
         }
     }
