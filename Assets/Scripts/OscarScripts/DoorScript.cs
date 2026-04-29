@@ -3,7 +3,6 @@ using UnityEngine;
 public class DoorScript : MonoBehaviour
 {
     private bool redCar, greenCar, blueCar = false;
-    public bool test = false;
 
     // Update is called once per frame
     void Update()
@@ -11,13 +10,8 @@ public class DoorScript : MonoBehaviour
         if(redCar && greenCar && blueCar)
         {
             FadeManager.Instance.FadeOutObject(gameObject, 2f);
-            //Maybe door opening animation
-        }
-        else if (test)
-        {
-            Debug.Log("Shit works");
-            FadeManager.Instance.FadeOutObject(gameObject, 0.5f);
-
+            
+            gameObject.SetActive(false);
         }
     }
 

@@ -15,7 +15,7 @@ public class BlockChecker : MonoBehaviour
         {
             if(block.id == requiredID)
             {
-                Debug.LogWarning("Collision works");
+                //Debug.LogWarning("Collision works");
                 isFilled = true;
                 toyBox.GetComponent<ToyBoxScript>().UpdateCheckers();
 
