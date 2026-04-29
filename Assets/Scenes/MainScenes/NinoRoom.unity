@@ -20272,7 +20272,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1617012136506768019, guid: f4509c2e0c518f1419617fb6583ff8dd, type: 3}
       propertyPath: respawnY
-      value: 5
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1617012136506768019, guid: f4509c2e0c518f1419617fb6583ff8dd, type: 3}
+      propertyPath: fadeDuration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1617012136506768019, guid: f4509c2e0c518f1419617fb6583ff8dd, type: 3}
+      propertyPath: respawnDelay
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4860751319631311238, guid: f4509c2e0c518f1419617fb6583ff8dd, type: 3}
       propertyPath: m_LocalPosition.x

@@ -13,6 +13,8 @@ public class PlayerRespawn : MonoBehaviour
 
     [Header("Respawn")]
     [SerializeField] private float respawnY = -50f;
+    [SerializeField] private float fadeDuration = 0.5f; // Nino
+    [SerializeField] private float respawnDelay = 1f; // Nino
 
     [Header("Checkpoints/Respawns")]
     [SerializeField] private List<RespawnPair> respawnPairs = new List<RespawnPair>();
@@ -55,12 +57,12 @@ public class PlayerRespawn : MonoBehaviour
     {
         isRespawning = true;
 
-        FadeManager.Instance.FadeToBlack(0.5f);
-        yield return new WaitForSeconds(1);
+        FadeManager.Instance.FadeToBlack(fadeDuration);
+        yield return new WaitForSeconds(respawnDelay);
         characterController.enabled = false;
         player.transform.position = lastTouchedRespawnPair.RespawnPoint.transform.position;
         characterController.enabled = true;
-        FadeManager.Instance.FadeFromBlack(0.5f);
+        FadeManager.Instance.FadeFromBlack(fadeDuration);
         isRespawning = false;
     }
 }
