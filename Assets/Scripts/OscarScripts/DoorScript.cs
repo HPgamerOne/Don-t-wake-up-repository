@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class DoorScript : MonoBehaviour
@@ -9,12 +10,15 @@ public class DoorScript : MonoBehaviour
     {
         if(redCar && greenCar && blueCar)
         {
-            FadeManager.Instance.FadeOutObject(gameObject, 2f);
-            
-            gameObject.SetActive(false);
+            FadeManager.Instance.FadeOutObject(gameObject, 1f);;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
         }
     }
 
+    private IEnumerator Wait(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+    }
     public bool RedCar 
     {
         get {  return redCar; }
