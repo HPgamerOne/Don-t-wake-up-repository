@@ -38,7 +38,7 @@ public class Buoyancy : MonoBehaviour
             }
         }
 
-        difference = transform.position.y - water.transform.position.y;
+        difference = transform.position.y - (water.transform.position.y + 0.5f);
 
         if (difference < 0)
         {
@@ -46,6 +46,18 @@ public class Buoyancy : MonoBehaviour
             rigidBody.angularDamping = waterAngularDamping;
 
             rigidBody.AddForceAtPosition(Vector3.up * upforce * Mathf.Abs(difference), transform.position, ForceMode.Force);
+
+            Vector3 currentUp = transform.up;
+
+            float dotUp = Vector3.Dot(currentUp, Vector3.up);
+            float dotDown = Vector3.Dot(currentUp, Vector3.down);
+
+            Vector3 targetUp = (dotUp > dotDown) ? Vector3.up : Vector3.down;
+
+            Vector3 torque = Vector3.Cross(currentUp, targetUp);
+
+            rigidBody.AddTorque(torque * 100);
+            rigidBody.angularVelocity *= 0.99f;
         }
         else
         {
