@@ -16,10 +16,7 @@ public class DoorTrigger : MonoBehaviour
     [SerializeField] private bool shouldDisappear = true;
     [SerializeField] private Timer timer;
 
-    float duration = 2f;
-    // float time = 0f;
-
-    // private IDissolvable doorDissolve;
+    private float duration = 2f;
 
     private void Start()
     {
@@ -27,13 +24,6 @@ public class DoorTrigger : MonoBehaviour
         {
             oscarWall.SetActive(false);
         }
-
-        /*
-        if (timer == null)
-        {
-            timer = FindAnyObjectByType(typeof(Timer)) as Timer;
-        }
-        */
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -44,13 +34,7 @@ public class DoorTrigger : MonoBehaviour
                 animator.Play("DoorOpen", 0, 0);
                 gameObject.SetActive(false);
             }
-            /*
-            else if (closeTrigger)
-            {
-                animator.Play("DoorClose", 0, 0);
-                gameObject.SetActive(false);
-            }
-            */
+
             else if (midwayTrigger)
             {
                 if (timer == null)
@@ -125,18 +109,5 @@ public class DoorTrigger : MonoBehaviour
         door.SetActive(false);
 
         gameObject.SetActive(false);
-        /*
-        IDissolvable doorStuff = door.GetComponent<IDissolvable>();
-
-        if (time < duration)
-        {
-            time += Time.deltaTime;
-            float t = time / duration;
-
-            float value = Mathf.Lerp(3f, 0f, t);
-
-            doorStuff.SetDissolve(t);
-        }
-        */
     }
 }

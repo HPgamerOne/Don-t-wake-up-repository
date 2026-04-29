@@ -4,7 +4,6 @@ using UnityEngine;
 Hantera knuff på objekt med rigidbody ifrån spelare genom kollision.
 */
 
-
 public class ObstaclePush : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
