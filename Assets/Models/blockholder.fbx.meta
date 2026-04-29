@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 255fb282fcb736a44883f7e519ecaa79
+guid: ef25c923b4817354a8daa14f2a5b0145
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: trimsheet
-    second: {fileID: 2100000, guid: d07f3624dcf270c43bc0a28833e49f53, type: 2}
+      name: working.001
+    second: {fileID: -876546973899608171, guid: 2408c466194db1d4393c99a2f2b4dc0f, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

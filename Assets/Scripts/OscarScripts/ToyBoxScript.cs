@@ -24,6 +24,8 @@ public class ToyBoxScript : MonoBehaviour
     }
     private void OpenBox()
     {
-        Debug.Log("DAT SHI OPENN");
+        GameObject lid = GameObject.Find("lid");
+        FadeManager.Instance.FadeOutObject(lid, 1f);
+        lid.SetActive(false);
     }
 }

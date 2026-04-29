@@ -2,17 +2,16 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
-    private bool redCar, greenCar, blueCar, triggered = false;
+    private bool redCar, greenCar, blueCar = false;
 
     // Update is called once per frame
     void Update()
     {
-        if(!triggered && redCar && greenCar && blueCar)
+        if(redCar && greenCar && blueCar)
         {
-            Debug.Log("Shit triggered");
             FadeManager.Instance.FadeOutObject(gameObject, 2f);
-            triggered = true;
-            //Maybe door opening animation
+            
+            gameObject.SetActive(false);
         }
     }
 
