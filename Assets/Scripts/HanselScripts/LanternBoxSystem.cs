@@ -157,6 +157,16 @@ public class LanternBoxSystem : MonoBehaviour
             SetBigLanternBrightness(lanternBoxMixPair, lanternBoxMixPair.CurrentBigLanternEmissionColor);
         }
     }
+    private void SetChildRenderersRenderingLayer(GameObject root, uint layerMask)
+    {
+        if (root == null) return;
+
+        Renderer[] renderers = root.GetComponentsInChildren<Renderer>(true);
+        foreach (Renderer r in renderers)
+        {
+            r.renderingLayerMask = layerMask;
+        }
+    }
     private void SetupLanternBoxMixPairs()
     {
         foreach (LanternBoxMixPair lanternBoxMixPair in lanternBoxMixPairs)
@@ -337,15 +347,21 @@ public class LanternBoxSystem : MonoBehaviour
 
     private void SetBigLanternRenderingLayer(LanternBoxMixPair lanternBoxMixPair, BigLanternColor bigLanternColor)
     {
-        if (lanternBoxMixPair.BigLanternAdditionalLightData == null)
-        {
-            return;
-        }
+        int colorLayerIndex = RenderingLayerByBigLanternColor[bigLanternColor];
+        uint colorLayerMask = 1u << colorLayerIndex;
+
+        lanternBoxMixPair.BigLanternAdditionalLightData.renderingLayers = colorLayerMask;
+        SetChildRenderersRenderingLayer(lanternBoxMixPair.BigLantern, colorLayerMask);
+    }
+
+    /*private void SetBigLanternRenderingLayer(LanternBoxMixPair lanternBoxMixPair, BigLanternColor bigLanternColor)
+    {
         int colorLayerIndex = RenderingLayerByBigLanternColor[bigLanternColor];
         uint defaultLayerMask = 1u << DefaultRenderingLayerIndex;
         uint colorLayerMask = 1u << colorLayerIndex;
-        lanternBoxMixPair.BigLanternAdditionalLightData.renderingLayers = defaultLayerMask | colorLayerMask;
-    }
+        //lanternBoxMixPair.BigLanternAdditionalLightData.renderingLayers = defaultLayerMask | colorLayerMask;
+        lanternBoxMixPair.BigLanternAdditionalLightData.renderingLayers =  colorLayerMask; // Only colormask, not default
+    }*/
 
     private bool AreColorsDifferent(Color colorA, Color colorB)
     {

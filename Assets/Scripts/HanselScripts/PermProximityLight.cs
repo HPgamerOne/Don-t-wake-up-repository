@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.WSA;
 
-public class ProximityLight : MonoBehaviour
+public class PermProximityLight : MonoBehaviour
 {
     [Header("Detection")]
     [SerializeField] private List<Transform> proximityObjects = new List<Transform>();
@@ -19,6 +20,8 @@ public class ProximityLight : MonoBehaviour
     private float fade = 0f;
 
     private static readonly int EmissionColorId = Shader.PropertyToID("_EmissionColor");
+
+    private bool activated = false;
 
     private void Start()
     {
@@ -44,8 +47,15 @@ public class ProximityLight : MonoBehaviour
 
     private void Update()
     {
-        float targetFade = IsAnyProximityObjectClose() ? 1f : 0f;
-        fade = Mathf.MoveTowards(fade, targetFade, Time.deltaTime / fadeTime);
+        if (!activated)
+        {
+            float targetFade = IsAnyProximityObjectClose() ? 1f : 0f;
+            fade = Mathf.MoveTowards(fade, targetFade, Time.deltaTime / fadeTime);
+            if (fade >= 1)
+            {
+                activated = true;
+            }
+        }
         SetLanternBrightness(fade);
     }
 
