@@ -177,7 +177,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -321,6 +321,8 @@ MonoBehaviour:
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
   pickedUpAngularDamping: 5
+  defaultLinearDamping: 0
+  defaultAngularDamping: 0.05
 --- !u!54 &6101376852487940897
 Rigidbody:
   m_ObjectHideFlags: 0
