@@ -16,6 +16,8 @@ public class CameraController : MonoBehaviour
     private float xRotation;
     private Vector2 mouseInput;
 
+    public bool active = true;
+
     /*
     [Header("GizmosRay")]
     [SerializeField] private float gizmosRayLength = 2f;
@@ -34,6 +36,13 @@ public class CameraController : MonoBehaviour
 
     private void HandleLooking()
     {
+        if (!active)
+        {
+            xRotation = 90f;
+            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            return;
+        }
+
         mouseInput = lookAction.action.ReadValue<Vector2>();
         mouseX = mouseInput.x * sensitivity;
         mouseY = mouseInput.y * sensitivity;

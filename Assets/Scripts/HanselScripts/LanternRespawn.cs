@@ -3,29 +3,74 @@ using UnityEngine;
 
 public class LanternRespawn : MonoBehaviour
 {
+    [System.Serializable]
+    public class RespawnPair
+    {
+        public GameObject CheckPoint;
+        public GameObject RespawnPoint;
+    }
+
+    private class LanternInfo
+    {
+        public GameObject Lantern;
+        public Rigidbody Rigidbody;
+        public RespawnPair LastTouchedRespawnPair;
+    }
+
+    [Header("Respawn")]
     [SerializeField] private float respawnY = -50f;
 
-    private List<GameObject> Lanterns = new List<GameObject>();
-    private List<Vector3> originalPositions = new List<Vector3>();
+    [Header("Checkpoints/Respawns")]
+    [SerializeField] private List<RespawnPair> respawnPairs = new List<RespawnPair>();
+
+    private List<LanternInfo> lanterns = new List<LanternInfo>();
 
     void Start()
     {
         foreach (Transform lanternTransform in transform)
         {
-            Lanterns.Add(lanternTransform.gameObject);
-            originalPositions.Add(lanternTransform.position);
+            LanternInfo lanternInfo = new LanternInfo();
+
+            lanternInfo.Lantern = lanternTransform.gameObject;
+            lanternInfo.Rigidbody = lanternTransform.GetComponent<Rigidbody>();
+            lanternInfo.LastTouchedRespawnPair = respawnPairs[0];
+
+            lanterns.Add(lanternInfo);
         }
     }
 
     void Update()
     {
-        for (int i = 0; i < Lanterns.Count; i++)
+        foreach (LanternInfo lanternInfo in lanterns)
         {
-            if (Lanterns[i].transform.position.y < respawnY)
+            CheckCheckpointTouch(lanternInfo);
+
+            if (lanternInfo.Lantern.transform.position.y < respawnY)
             {
-                Lanterns[i].transform.position = originalPositions[i];
-                Lanterns[i].transform.rotation = Quaternion.identity;
+                RespawnLantern(lanternInfo);
             }
         }
+    }
+
+    private void CheckCheckpointTouch(LanternInfo lanternInfo)
+    {
+        foreach (RespawnPair respawnPair in respawnPairs)
+        {
+            BoxCollider checkpointCollider = respawnPair.CheckPoint.GetComponent<BoxCollider>();
+
+            if (checkpointCollider.bounds.Contains(lanternInfo.Lantern.transform.position))
+            {
+                lanternInfo.LastTouchedRespawnPair = respawnPair;
+            }
+        }
+    }
+
+    private void RespawnLantern(LanternInfo lanternInfo)
+    {
+        lanternInfo.Rigidbody.linearVelocity = Vector3.zero;
+        lanternInfo.Rigidbody.angularVelocity = Vector3.zero;
+
+        lanternInfo.Lantern.transform.position = lanternInfo.LastTouchedRespawnPair.RespawnPoint.transform.position;
+        lanternInfo.Lantern.transform.rotation = lanternInfo.LastTouchedRespawnPair.RespawnPoint.transform.rotation;
     }
 }

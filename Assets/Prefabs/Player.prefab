@@ -80,7 +80,7 @@ MonoBehaviour:
   sprintAction: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   isSprinting: 0
   baseMoveSpeed: 3
-  sprintMultiplier: 2
+  sprintMultiplier: 1.67
   jumpVelocity: 10
   gravity: -9.82
   gravityMultiplier: 3

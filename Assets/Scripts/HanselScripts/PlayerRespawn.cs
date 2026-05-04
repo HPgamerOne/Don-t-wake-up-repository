@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
@@ -19,7 +20,11 @@ public class PlayerRespawn : MonoBehaviour
     [Header("Checkpoints/Respawns")]
     [SerializeField] private List<RespawnPair> respawnPairs = new List<RespawnPair>();
 
+    [Header("Extra")]
+    [SerializeField] private bool shouldLookDown = false;
+
     private GameObject player;
+    private GameObject cameraPivot;
     private CharacterController characterController;
 
     private RespawnPair lastTouchedRespawnPair;
@@ -27,6 +32,7 @@ public class PlayerRespawn : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        cameraPivot = GameObject.Find("Camera Pivot");
         characterController = player.GetComponent<CharacterController>();
     }
 
@@ -57,12 +63,27 @@ public class PlayerRespawn : MonoBehaviour
     {
         isRespawning = true;
 
+
         FadeManager.Instance.FadeToBlack(fadeDuration);
         yield return new WaitForSeconds(respawnDelay);
+
+        if (shouldLookDown)
+        {
+            CameraController cameraController = cameraPivot.GetComponent<CameraController>();
+            cameraController.active = false;
+            StartCoroutine(TurnOnCameraController(cameraController, 0.25f));
+        }
+
         characterController.enabled = false;
         player.transform.position = lastTouchedRespawnPair.RespawnPoint.transform.position;
         characterController.enabled = true;
         FadeManager.Instance.FadeFromBlack(fadeDuration);
         isRespawning = false;
+    }
+
+    IEnumerator TurnOnCameraController(CameraController cameraController, float time)
+    {
+        yield return new WaitForSeconds(time);
+        cameraController.active = true;
     }
 }

@@ -19,7 +19,7 @@ public class LanternBoxSystem : MonoBehaviour
 
     private enum BigLanternColor
     {
-        Default, Red, Yellow, Orange, Blue, Magenta, Green, White
+        Default, Red, Yellow, Orange, Blue, Magenta, Green, Cyan, White
     }
 
     [System.Serializable]
@@ -107,9 +107,13 @@ public class LanternBoxSystem : MonoBehaviour
     private static readonly BigLanternColorRule[] BigLanternColorRules =
     {
         new BigLanternColorRule(LanternColorMask.Red | LanternColorMask.Green | LanternColorMask.Blue, BigLanternColor.White),
+
         new BigLanternColorRule(LanternColorMask.Red | LanternColorMask.Yellow, BigLanternColor.Orange),
         new BigLanternColorRule(LanternColorMask.Red | LanternColorMask.Blue, BigLanternColor.Magenta),
         new BigLanternColorRule(LanternColorMask.Yellow | LanternColorMask.Blue, BigLanternColor.Green),
+
+        new BigLanternColorRule(LanternColorMask.Blue | LanternColorMask.Green, BigLanternColor.Cyan),
+        new BigLanternColorRule(LanternColorMask.Red | LanternColorMask.Green, BigLanternColor.Yellow),
 
         new BigLanternColorRule(LanternColorMask.Red, BigLanternColor.Red),
         new BigLanternColorRule(LanternColorMask.Yellow, BigLanternColor.Yellow),
@@ -126,7 +130,8 @@ public class LanternBoxSystem : MonoBehaviour
         { BigLanternColor.Orange, 20f },
         { BigLanternColor.Blue, 230f },
         { BigLanternColor.Magenta, 300f },
-        { BigLanternColor.Green, 120f }
+        { BigLanternColor.Green, 120f },
+        { BigLanternColor.Cyan, 180f }
     };
 
     private static readonly Dictionary<BigLanternColor, int> RenderingLayerByBigLanternColor = new Dictionary<BigLanternColor, int>
@@ -347,6 +352,9 @@ public class LanternBoxSystem : MonoBehaviour
 
     private void SetBigLanternRenderingLayer(LanternBoxMixPair lanternBoxMixPair, BigLanternColor bigLanternColor)
     {
+        if (bigLanternColor == BigLanternColor.Cyan) {
+            return;
+        }
         int colorLayerIndex = RenderingLayerByBigLanternColor[bigLanternColor];
         uint colorLayerMask = 1u << colorLayerIndex;
 
