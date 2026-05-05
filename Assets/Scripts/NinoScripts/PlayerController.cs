@@ -13,10 +13,11 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private bool isSprinting = false;
     [SerializeField] private float baseMoveSpeed = 10;
-
+    [SerializeField] private float baseMoveSpeedMultiplier = 1f;
     [SerializeField] private float sprintMultiplier = 1.5f;
     [SerializeField] private float jumpVelocity = 10f;
     private float moveSpeed;
+    private float moveSpeedMultiplier;
     private float currentHorizontalSpeed;
     private Vector2 moveInput;
     private Vector3 velocity;
@@ -27,17 +28,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float gravityMultiplier = 3;
 
     [Header("Water")]
-    [SerializeField] private GameObject water;
+    [SerializeField] private GameObject buoyancyWater;
     [SerializeField] private float waterDrag = 0.9f;
     [SerializeField] private float upforce = 35;
-    private bool inWater;
+    private bool inBuoyancyWater;
     private float depth;
+
+    [SerializeField] private CameraBob cameraBob;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         characterController.detectCollisions = false;
         moveSpeed = baseMoveSpeed;
+        moveSpeedMultiplier = baseMoveSpeedMultiplier;
     }
 
     void Update()
@@ -52,16 +56,16 @@ public class PlayerController : MonoBehaviour
 
         // Movement Input
         moveInput = moveAction.action.ReadValue<Vector2>();
-        horizontalVelocity = new Vector3(moveInput.x * moveSpeed, 0, moveInput.y * moveSpeed);
+        horizontalVelocity = new Vector3(moveInput.x * moveSpeed * moveSpeedMultiplier, 0, moveInput.y * moveSpeed * moveSpeedMultiplier);
         horizontalVelocity = transform.rotation * horizontalVelocity;
 
         // Buoyancy
 
-        if (water != null)
+        if (buoyancyWater != null)
         {
             InWater();
 
-            if (inWater)
+            if (inBuoyancyWater)
             {
                 Buoyancy();
             }
@@ -76,6 +80,28 @@ public class PlayerController : MonoBehaviour
         currentHorizontalSpeed = horizontalVelocity.magnitude;
 
         characterController.Move(velocity * Time.deltaTime);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Water water = other.GetComponent<Water>();
+
+        if (water != null)
+        {
+            moveSpeedMultiplier = water.speedMultiplier;
+            cameraBob.UpdateBob(moveSpeedMultiplier);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        Water water = other.GetComponent<Water>();
+
+        if (water != null)
+        {
+            moveSpeedMultiplier = baseMoveSpeedMultiplier;
+            cameraBob.UpdateBob(moveSpeedMultiplier);
+        }
     }
 
     private void OnSprint()
@@ -94,7 +120,7 @@ public class PlayerController : MonoBehaviour
 
     private void Gravity()
     {
-        if (inWater == true)
+        if (inBuoyancyWater == true)
         {
             if (jumpAction.action.IsPressed())
             {
@@ -128,15 +154,15 @@ public class PlayerController : MonoBehaviour
 
     private void InWater()
     {
-        depth = transform.position.y - water.transform.position.y;
+        depth = transform.position.y - buoyancyWater.transform.position.y;
 
         if (depth < 0)
         {
-            inWater = true;
+            inBuoyancyWater = true;
         }
         else
         {
-            inWater = false;
+            inBuoyancyWater = false;
         }
     }
 

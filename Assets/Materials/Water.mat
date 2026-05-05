@@ -127,7 +127,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RefractionScale: 20.56
+    - _RefractionScale: 9.4
     - _RefractionSpeed: 0.01
     - _RefractionStrength: 2.31
     - _SPECULARHIGHLIGHTS_OFF: 1
