@@ -3746,6 +3746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundFXManager
   soundObject: {fileID: 4145228309041011948, guid: 8eb321de3e6dd8644a3dec2d0e3ad8d3, type: 3}
+  library: {fileID: 11400000, guid: 069c1fb80095b6c4e85846d85c13cec9, type: 2}
 --- !u!4 &1544439567
 Transform:
   m_ObjectHideFlags: 0
@@ -3772,7 +3773,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 4036c226561667946ab787b4392fc592, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -3914,6 +3915,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6600603682377271510, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 2281628600101143747}
     - target: {fileID: 7751618679432655673, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
       propertyPath: water
       value: 
@@ -5115,6 +5120,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
+--- !u!114 &2281628600101143747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8404614449977641193, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
+  m_PrefabInstance: {fileID: 2281628600101143746}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c07aeae2d109b14fb3640411d7907ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Timer
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
