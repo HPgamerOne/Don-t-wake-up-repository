@@ -56,23 +56,34 @@ public class InteractManager : MonoBehaviour
             grabbingHand = GameObject.Find("GrabbingHand");
         }
     }
-
     void Update()
     {
         if (cameraTransform == null)
         {
             cameraTransform = GameObject.Find("Camera").transform;
         }
+
         cameraPosition = cameraTransform.position;
         cameraDirection = cameraTransform.TransformDirection(Vector3.forward);
         RaycastHit hit;
 
+        bool isPressingInteract = interactAction.action.IsPressed();
 
         if (Physics.Raycast(cameraPosition, cameraDirection, out hit, rayDistance, interactableMask, QueryTriggerInteraction.Collide))
         {
             if (!currentlyHolding)
             {
-                interactObject = hit.collider.gameObject.GetComponentInParent<InteractObject>();
+                InteractObject hitInteractObject = hit.collider.gameObject.GetComponentInParent<InteractObject>();
+
+                if (hitInteractObject != interactObject)
+                {
+                    if (interactObject != null)
+                    {
+                        interactObject.hovering = false;
+                    }
+
+                    interactObject = hitInteractObject;
+                }
 
                 IHighlightable hitObject = hit.collider.GetComponentInParent<IHighlightable>(); // Nino
 
@@ -88,11 +99,22 @@ public class InteractManager : MonoBehaviour
                     }
                 }
 
-                if (interactObject.interactable)
+                if (interactObject != null && interactObject.interactable && !isPressingInteract)
                 {
+                    interactObject.hovering = true;
                     grabHand.SetActive(true);
                 }
+                else
+                {
+                    if (interactObject != null)
+                    {
+                        interactObject.hovering = false;
+                    }
+
+                    grabHand.SetActive(false);
+                }
             }
+
             Debug.DrawRay(cameraPosition, cameraDirection * rayDistance, Color.yellow);
         }
         else
@@ -101,11 +123,13 @@ public class InteractManager : MonoBehaviour
 
             if (interactObject != null && !currentlyHolding)
             {
+                interactObject.hovering = false;
                 interactObject = null;
 
                 grabHand.SetActive(false);
                 grabbingHand.SetActive(false);
             }
+
             if (interactObject == null)
             {
                 grabHand.SetActive(false);
@@ -118,14 +142,17 @@ public class InteractManager : MonoBehaviour
         // If currently holding
         if (interactObject != null)
         {
-            if (interactAction.action.IsPressed() && interactObject.interactable)
+            if (isPressingInteract && interactObject.interactable)
             {
                 ClearCurrent(); // Nino
+
+                interactObject.hovering = false;
 
                 grabHand.SetActive(false);
                 grabbingHand.SetActive(true);
 
                 interactObject.interacted = true;
+
                 if (interactObject.dynamic)
                 {
                     interactObject.attractForceActive = true;
@@ -142,13 +169,20 @@ public class InteractManager : MonoBehaviour
             }
         }
     }
-
     void ClearCurrent() // Nino
     {
         if (currentObject != null)
         {
             currentObject.SetHighlight(0f); // Highlight av
             currentObject = null;
+        }
+    }
+
+    void ClearHoveringInteractObject()
+    {
+        if (interactObject != null)
+        {
+            interactObject.hovering = false; // Not hovering this object anymore
         }
     }
 }
