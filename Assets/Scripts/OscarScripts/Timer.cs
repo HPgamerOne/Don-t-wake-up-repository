@@ -1,3 +1,4 @@
+using Mono.Cecil.Cil;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -164,5 +165,9 @@ public class Timer : MonoBehaviour
     public float CurrentTime 
     {
         get { return remainingTime; }
+    }
+    public float TotalTime 
+    {
+        get { return totalTime; }  
     }
 }
