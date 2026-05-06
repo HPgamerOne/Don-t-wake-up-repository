@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
-    private bool redCar, greenCar, blueCar = false;
-    Animator animator;
+    private bool redCar, greenCar, blueCar, triggered = false;
+    [SerializeField] Animator animator;
 
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
     void Update()
     {
-        if(redCar && greenCar && blueCar)
+        //Debug.LogWarning(redCar + " " + blueCar + " " + greenCar);
+        if(redCar && greenCar && blueCar && !triggered)
         {
+            //Debug.Log("Entered statement");
+            triggered = true;
             animator.Play("DoorOpen", 0, 0);
+            //Debug.Log("Finished animation");
         }
     }
 
