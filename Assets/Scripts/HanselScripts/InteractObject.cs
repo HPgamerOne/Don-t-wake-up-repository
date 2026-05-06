@@ -10,6 +10,7 @@ public class InteractObject : MonoBehaviour
     public bool dynamic = true;
     public bool attractForceActive = false;
     public bool interacted = false;
+    public bool hovering = false;
 
     Transform targetPositionTransform;
     Vector3 targetPosition;
