@@ -143,7 +143,8 @@ public class LanternBoxSystem : MonoBehaviour
         { BigLanternColor.Blue, 4 },
         { BigLanternColor.Magenta, 5 },
         { BigLanternColor.Green, 6 },
-        { BigLanternColor.White, 7 }
+        { BigLanternColor.White, 7 },
+        { BigLanternColor.Cyan, 1 }
     };
 
     private void Start()
@@ -352,9 +353,6 @@ public class LanternBoxSystem : MonoBehaviour
 
     private void SetBigLanternRenderingLayer(LanternBoxMixPair lanternBoxMixPair, BigLanternColor bigLanternColor)
     {
-        if (bigLanternColor == BigLanternColor.Cyan) {
-            return;
-        }
         int colorLayerIndex = RenderingLayerByBigLanternColor[bigLanternColor];
         uint colorLayerMask = 1u << colorLayerIndex;
 
