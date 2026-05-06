@@ -2214,6 +2214,7 @@ MonoBehaviour:
   dynamic: 1
   attractForceActive: 0
   interacted: 0
+  hovering: 0
   pickedUpForce: 100
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
@@ -4814,6 +4815,7 @@ MonoBehaviour:
   dynamic: 1
   attractForceActive: 0
   interacted: 0
+  hovering: 0
   pickedUpForce: 100
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
@@ -5058,6 +5060,7 @@ MonoBehaviour:
   dynamic: 1
   attractForceActive: 0
   interacted: 0
+  hovering: 0
   pickedUpForce: 100
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
@@ -5264,6 +5267,7 @@ MonoBehaviour:
   dynamic: 1
   attractForceActive: 0
   interacted: 0
+  hovering: 0
   pickedUpForce: 100
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
@@ -5357,6 +5361,7 @@ MonoBehaviour:
   dynamic: 1
   attractForceActive: 0
   interacted: 0
+  hovering: 0
   pickedUpForce: 100
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
@@ -6217,6 +6222,7 @@ MonoBehaviour:
   dynamic: 1
   attractForceActive: 0
   interacted: 0
+  hovering: 0
   pickedUpForce: 100
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
@@ -6373,6 +6379,7 @@ MonoBehaviour:
   dynamic: 1
   attractForceActive: 0
   interacted: 0
+  hovering: 0
   pickedUpForce: 100
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
@@ -6457,6 +6464,7 @@ MonoBehaviour:
   dynamic: 1
   attractForceActive: 0
   interacted: 0
+  hovering: 0
   pickedUpForce: 100
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
@@ -6731,6 +6739,7 @@ MonoBehaviour:
   dynamic: 1
   attractForceActive: 0
   interacted: 0
+  hovering: 0
   pickedUpForce: 100
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
@@ -6989,6 +6998,7 @@ MonoBehaviour:
   dynamic: 1
   attractForceActive: 0
   interacted: 0
+  hovering: 0
   pickedUpForce: 100
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
@@ -7029,6 +7039,7 @@ MonoBehaviour:
   dynamic: 1
   attractForceActive: 0
   interacted: 0
+  hovering: 0
   pickedUpForce: 100
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
