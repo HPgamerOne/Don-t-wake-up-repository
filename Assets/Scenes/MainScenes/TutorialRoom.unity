@@ -426,7 +426,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: ab09877e2e707104187f6f83e2f62510, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 18bd67cdb0556a8409c48a5fd3daba2b, type: 2}
 --- !u!4 &977331728
 Transform:
   m_ObjectHideFlags: 0
@@ -562,6 +562,10 @@ PrefabInstance:
     - target: {fileID: 1350895939070263129, guid: 415297c77c179e5499363e98ca766260, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238076936072614833, guid: 415297c77c179e5499363e98ca766260, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8220632979005163336, guid: 415297c77c179e5499363e98ca766260, type: 3}
       propertyPath: m_LocalPosition.x
@@ -934,7 +938,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8404614449977641193, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
       propertyPath: startTime
-      value: 300
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
