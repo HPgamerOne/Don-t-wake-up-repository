@@ -24,8 +24,9 @@ public class ToyBoxScript : MonoBehaviour
     }
     private void OpenBox()
     {
-        GameObject lid = GameObject.Find("lid");
-        
-        lid.SetActive(false);
+        GameObject lid = GameObject.Find("LidHolder");
+
+        lid.GetComponent<Transform>().Rotate(new Vector3());
+
     }
 }
