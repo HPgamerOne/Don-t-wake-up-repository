@@ -3919,6 +3919,10 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 2281628600101143747}
+    - target: {fileID: 6600603682377271510, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
+      propertyPath: moveAction
+      value: 
+      objectReference: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     - target: {fileID: 7751618679432655673, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
       propertyPath: water
       value: 
