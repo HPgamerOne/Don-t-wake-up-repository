@@ -31,12 +31,12 @@ public class OpenGateValve : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
-        playerCamera.enabled = false;
+        //playerCamera.enabled = false;
         animatorPoolWater.Play("PoolWater", 0, 0);
 
         yield return new WaitForSeconds(4f);
 
-        playerCamera.enabled = true;
+        //playerCamera.enabled = true;
         animatorGarage.Play("GarageOpen", 0, 0);
 
         wall.gameObject.GetComponent<BoxCollider>().enabled = false;

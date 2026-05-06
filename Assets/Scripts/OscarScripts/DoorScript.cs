@@ -4,21 +4,20 @@ using UnityEngine;
 public class DoorScript : MonoBehaviour
 {
     private bool redCar, greenCar, blueCar = false;
+    Animator animator;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     void Update()
     {
         if(redCar && greenCar && blueCar)
         {
-            FadeManager.Instance.FadeOutObject(gameObject, 1f);;
-            gameObject.GetComponent<BoxCollider>().enabled = false;
+            animator.Play("DoorOpen", 0, 0);
         }
     }
 
-    private IEnumerator Wait(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-    }
     public bool RedCar 
     {
         get {  return redCar; }

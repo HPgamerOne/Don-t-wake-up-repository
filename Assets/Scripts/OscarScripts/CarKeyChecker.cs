@@ -5,7 +5,9 @@ public class CarKeyChecker : MonoBehaviour
 {
     [SerializeField] string requiredKeyId;
     [SerializeField] GameObject door;
-    
+    [SerializeField] private GameObject keyPosition;
+
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,12 +20,21 @@ public class CarKeyChecker : MonoBehaviour
             string id = other.GetComponent<Key>().id;
             if(id == requiredKeyId)
             {
-                //Key turning animation
-                //car driving in circles animation
-                transform.Find("Key").GetComponent<MeshRenderer>().enabled = true;
                 
+                Animator animator = other.gameObject.GetComponent<Animator>();
+                Rigidbody rigidbody = other.gameObject.GetComponent<Rigidbody>();
+
+                rigidbody.isKinematic = true;
+                rigidbody.useGravity = false;
+
+                other.gameObject.layer = 0;
+                animator.Play("KeySuccess", 0, 0);
+                other.transform.position = keyPosition.transform.position;
+                other.transform.localRotation = keyPosition.transform.localRotation;
                 DoorCondtions(id);
-                Destroy(other);
+                //gameObject.SetActive(false);
+                
+
             }
             else
             {
