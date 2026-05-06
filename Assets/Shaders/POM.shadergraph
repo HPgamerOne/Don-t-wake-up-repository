@@ -480,20 +480,6 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "7a5e121389714b28b2c4ec8176eeab41"
-                },
-                "m_SlotId": 3
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "46ea936231b447468cf113934f39560c"
-                },
-                "m_SlotId": 7
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
                     "m_Id": "850454a34345441d98b74bd90d026aa8"
                 },
                 "m_SlotId": 3
@@ -559,20 +545,6 @@
                     "m_Id": "46ea936231b447468cf113934f39560c"
                 },
                 "m_SlotId": 2
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
-                    "m_Id": "93a8f1f097c244d798b4e357f712ade5"
-                },
-                "m_SlotId": 1
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "46ea936231b447468cf113934f39560c"
-                },
-                "m_SlotId": 5
             }
         },
         {
@@ -5754,7 +5726,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Steps",
     "m_StageCapability": 2,
-    "m_Value": 5.0,
+    "m_Value": 85.80999755859375,
     "m_DefaultValue": 5.0,
     "m_Labels": [],
     "m_LiteralMode": false
