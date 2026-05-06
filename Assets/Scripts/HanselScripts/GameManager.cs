@@ -10,7 +10,14 @@ public class GameManager : MonoBehaviour
 
     public List<int> doneScenes = new List<int> {0};
     public List<int> uncompletedScenes = new List<int> {1, 2, 3};
+    public List<int> noTimerScenes = new List<int> {0, 4};
     public int finalSceneIndex = 4;
+
+    public GameObject mainCanvasObject;
+    public GameObject timerManagerObject;
+    Timer timer;
+    public GameObject timerPanels;
+
     private void Awake()
     {
         if (Instance != null)
@@ -22,9 +29,18 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+    private void Start()
+    {
+        mainCanvasObject = GameObject.Find("MainCanvas");
+        timerManagerObject = GameObject.Find("TimerManager");
+        timer = timerManagerObject.GetComponent<Timer>();
+        timerPanels = GameObject.Find("TimerPanels");
+
+        timerPanels.SetActive(false);
+    }
 
     public void NextScene()
-    {   
+    {
         if (uncompletedScenes.Count > 0)
         {
             int randomIndex = Random.Range(0, uncompletedScenes.Count);
@@ -41,6 +57,18 @@ public class GameManager : MonoBehaviour
         else
         {
             SceneManager.LoadScene(finalSceneIndex);
+        }
+
+        if (noTimerScenes.Contains(currentScene))
+        {
+            timerPanels.SetActive(false);
+            timer.StopTimer();
+            Debug.Log("Timer panel false");
+        }
+        else
+        {
+            Debug.Log("Timer panel true");
+            timerPanels.SetActive(true);
         }
     }
 
