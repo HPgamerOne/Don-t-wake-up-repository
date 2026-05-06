@@ -8,6 +8,7 @@ public class OpenGateValve : MonoBehaviour
     [SerializeField] private Animator animatorPoolWater;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private GameObject poolWater;
+    [SerializeField] private GameObject wall;
 
     private OpenGateValve openGateValve;
 
@@ -37,6 +38,8 @@ public class OpenGateValve : MonoBehaviour
 
         playerCamera.enabled = true;
         animatorGarage.Play("GarageOpen", 0, 0);
+
+        wall.gameObject.GetComponent<BoxCollider>().enabled = false;
 
         yield return null;
     }
