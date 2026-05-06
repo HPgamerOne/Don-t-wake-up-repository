@@ -5,7 +5,7 @@ public class ToyBoxScript : MonoBehaviour
 {
     private BlockChecker[] checkers;
     GameObject lid;
-    Transform transform;
+    Transform lidTransform;
     bool rotating = false;
     Vector3 rotation = new Vector3(10, 0, 0);
     // Update is called once per frame
@@ -28,15 +28,20 @@ public class ToyBoxScript : MonoBehaviour
     private void OpenBox()
     {
         lid = GameObject.Find("LidHolder");
-        transform = lid.GetComponent<Transform>();
+        lidTransform = lid.GetComponent<Transform>();
         rotating = true;
 
     }
     private void Update()
     {
-        if (rotating && transform.rotation.x < 1 && transform.rotation.x > -75)
+        if (rotating)
         {
-            transform.Rotate(-rotation * Time.deltaTime);
+            transform.RotateAround(transform.position, Vector3.forward, 10f*Time.deltaTime);
+            print(transform.rotation.x);
+            if(transform.rotation.x <= -0.40)
+            {
+                rotating = false;
+            }
 
         }
     }
