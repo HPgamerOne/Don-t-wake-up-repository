@@ -63,6 +63,12 @@ public class PlayerRespawn : MonoBehaviour
     {
         isRespawning = true;
 
+        if (lastTouchedRespawnPair == null)
+        {
+            Debug.LogWarning("No checkpoint has been touched yet.");
+            isRespawning = false;
+            yield break;
+        }
 
         FadeManager.Instance.FadeToBlack(fadeDuration);
         yield return new WaitForSeconds(respawnDelay);
@@ -77,6 +83,7 @@ public class PlayerRespawn : MonoBehaviour
         characterController.enabled = false;
         player.transform.position = lastTouchedRespawnPair.RespawnPoint.transform.position;
         characterController.enabled = true;
+
         FadeManager.Instance.FadeFromBlack(fadeDuration);
         isRespawning = false;
     }

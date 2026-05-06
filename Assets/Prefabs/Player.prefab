@@ -334,7 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   playerController: {fileID: 7751618679432655673}
   baseBobSpeed: 10
-  sprintBobSpeedMultiplier: 1.5
+  sprintBobSpeedMultiplier: 2
   bobAmount: 0.05
 --- !u!1 &7788263513628259897
 GameObject:

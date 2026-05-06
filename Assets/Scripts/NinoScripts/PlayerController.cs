@@ -51,6 +51,12 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
+        if (characterController == null || characterController.enabled == false)
+        {
+            return;
+        }
+
+
         // Sprint
         OnSprint();
 
