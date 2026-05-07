@@ -6,9 +6,11 @@ public class SoundFXManager : MonoBehaviour
 {
     public static SoundFXManager Instance;
     [SerializeField] AudioSource soundObject;
+    [SerializeField] AudioSource stepsSource;
+    public AudioLibrary library;
     PlayerController playerController;
     float pitchVariance = 0.1f;
-    public AudioLibrary library;
+    bool footStepsPlaying = false;
 
     private void Awake()
     {
@@ -75,77 +77,55 @@ public class SoundFXManager : MonoBehaviour
     {
         gameObject.GetComponent<AudioSource>().Play();
     }
-    public void PlayGrassFootsteps(Transform playerPosition, float volume)
+    public void PlayGrassFootsteps(float volume)
     {
-        if (playerController.CurrentHorizontalSpeed() != 0)
-        {
-            AudioSource source = Instantiate(soundObject, playerPosition.position - Vector3.down*4, Quaternion.identity);
 
-            source.volume = volume;
-            float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
-
-            source.pitch = randPitch;
-            source.clip = library.grassFootsteps;
-            source.Play();
-
-            float audioLength = source.clip.length;
-            Destroy(source.gameObject, audioLength);
-        }
-        
-    }
-    public void PlayConcreteFootsteps(Transform playerPosition, float volume)
-    {
-        if (playerController.CurrentHorizontalSpeed() != 0)
-        {
-            AudioSource source = Instantiate(soundObject, playerPosition.position - Vector3.down * 4, Quaternion.identity);
-
-            source.volume = volume;
-            float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
-
-            source.pitch = randPitch;
-            source.clip = library.concreteFootsteps;
-            source.Play();
-
-            float audioLength = source.clip.length;
-            Destroy(source.gameObject, audioLength);
-        }
-    }
-    public void PlayWoodFootsteps(Transform playerPosition, float volume)
-    {
-        if (playerController.CurrentHorizontalSpeed() != 0)
-        {
-            AudioSource source = Instantiate(soundObject, playerPosition.position - Vector3.down * 4, Quaternion.identity);
-
-            source.volume = volume;
-            float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
-
-            source.pitch = randPitch;
-            source.clip = library.woodFootsteps;
-            source.Play();
-
-            float audioLength = source.clip.length;
-            Destroy(source.gameObject, audioLength);
-        }
-    }
-    public void PlayWaterFootsteps(Transform playerPosition, float volume)
-    {
-        
-        AudioSource source = Instantiate(soundObject, playerPosition.position - Vector3.down * 4, Quaternion.identity);
-        source.clip = library.waterFootsteps;
-        source.volume = volume;
-        source.Play();
+        stepsSource.clip = library.grassFootsteps;
+        stepsSource.volume = volume;
+        stepsSource.Play();
+        footStepsPlaying = true;
         float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
-        source.pitch = randPitch;
+        stepsSource.pitch = randPitch;
+    }
+    public void PlayConcreteFootsteps(float volume)
+    {
+
+        stepsSource.clip = library.concreteFootsteps;
+        stepsSource.volume = volume;
+        stepsSource.Play();
+        footStepsPlaying = true;
+        float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
+        stepsSource.pitch = randPitch;
+    }
+    public void PlayWoodFootsteps(float volume)
+    {
+
+        stepsSource.clip = library.woodFootsteps;
+        stepsSource.volume = volume;
+        stepsSource.Play();
+        footStepsPlaying = true;
+        float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
+        stepsSource.pitch = randPitch;
+    }
+    public void PlayWaterFootsteps(float volume)
+    {
         
-        //if (playerController.CurrentHorizontalSpeed() != 0)
-        //{
-        //    source.loop = true;
-        //}
-        //if(playerController.CurrentHorizontalSpeed() == 0)
-        //{
-        //    source.loop = false;
-        //    Destroy(source);
-        //}
-        source.loop = true;
+        stepsSource.clip = library.waterFootsteps;
+        stepsSource.volume = volume;
+        stepsSource.Play();
+        footStepsPlaying = true;
+        float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
+        stepsSource.pitch = randPitch;
+        
+   
+    }
+    public void StopFootsteps()
+    {
+        stepsSource.Stop();
+        footStepsPlaying = false;
+    }
+    public bool FootStepsPlaying 
+    {
+        get { return footStepsPlaying; }
     }
 }

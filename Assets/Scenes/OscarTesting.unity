@@ -2300,6 +2300,7 @@ MonoBehaviour:
   dynamic: 1
   attractForceActive: 0
   interacted: 0
+  hovering: 0
   pickedUpForce: 100
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
@@ -3746,6 +3747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundFXManager
   soundObject: {fileID: 4145228309041011948, guid: 8eb321de3e6dd8644a3dec2d0e3ad8d3, type: 3}
+  stepsSource: {fileID: 1544439568}
   library: {fileID: 11400000, guid: 069c1fb80095b6c4e85846d85c13cec9, type: 2}
 --- !u!4 &1544439567
 Transform:
@@ -3935,8 +3937,29 @@ PrefabInstance:
     - {fileID: 3984366651009416265, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1966779931291887346, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1660228355}
   m_SourcePrefab: {fileID: 100100000, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
+--- !u!1 &1660228354 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1966779931291887346, guid: 8df6dc3a713ffd34485c32bc1f01c1db, type: 3}
+  m_PrefabInstance: {fileID: 1603796705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1660228355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660228354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b14b721b08bf194ba3dc5f173c69fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSounds
+  moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!1001 &1707094057
 PrefabInstance:
   m_ObjectHideFlags: 0
