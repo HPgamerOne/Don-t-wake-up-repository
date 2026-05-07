@@ -25,5 +25,6 @@ public class ToyBoxScript : MonoBehaviour
     private void OpenBox()
     {
         animator.Play("ToyboxOpen",0,0);
+
     }
 }
