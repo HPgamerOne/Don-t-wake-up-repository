@@ -2694,8 +2694,8 @@ Transform:
   m_GameObject: {fileID: 596170127}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 72.37069, y: 7.13, z: -3.75914}
-  m_LocalScale: {x: 0.21336, y: 15.815347, z: 19.002907}
+  m_LocalPosition: {x: 73.37, y: 7.13, z: -3.75914}
+  m_LocalScale: {x: 2.1376538, y: 15.815347, z: 19.002907}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1169910348}
@@ -8369,7 +8369,7 @@ GameObject:
   - component: {fileID: 7221875073777837745}
   - component: {fileID: 1824605719}
   - component: {fileID: 7471891951711464044}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: lid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8412,7 +8412,7 @@ GameObject:
   - component: {fileID: 4759477024538663106}
   - component: {fileID: 1824605720}
   - component: {fileID: 7861854472860646479}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}

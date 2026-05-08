@@ -74,6 +74,7 @@ MonoBehaviour:
   dynamic: 0
   attractForceActive: 0
   interacted: 0
+  hovering: 0
   pickedUpForce: 100
   pickedUpRotationForce: 25
   pickedUpLinearDamping: 10
@@ -221,11 +222,11 @@ PrefabInstance:
     - target: {fileID: -7977919203000617358, guid: a2b9a84f72f8b2342b5323e4a45b9845, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: d8b24028aace1a34e8e1e3e3b0ee8b1f, type: 2}
+      objectReference: {fileID: 2100000, guid: 45d8d032690cf064e98c09020bcb1e3b, type: 2}
     - target: {fileID: -7918335002988649766, guid: a2b9a84f72f8b2342b5323e4a45b9845, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: d8b24028aace1a34e8e1e3e3b0ee8b1f, type: 2}
+      objectReference: {fileID: 2100000, guid: 45d8d032690cf064e98c09020bcb1e3b, type: 2}
     - target: {fileID: -7029948723529949830, guid: a2b9a84f72f8b2342b5323e4a45b9845, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -233,11 +234,11 @@ PrefabInstance:
     - target: {fileID: -4897732323685117858, guid: a2b9a84f72f8b2342b5323e4a45b9845, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: d8b24028aace1a34e8e1e3e3b0ee8b1f, type: 2}
+      objectReference: {fileID: 2100000, guid: 45d8d032690cf064e98c09020bcb1e3b, type: 2}
     - target: {fileID: -4814565979510947327, guid: a2b9a84f72f8b2342b5323e4a45b9845, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: d8b24028aace1a34e8e1e3e3b0ee8b1f, type: 2}
+      objectReference: {fileID: 2100000, guid: 45d8d032690cf064e98c09020bcb1e3b, type: 2}
     - target: {fileID: -3869610054579387764, guid: a2b9a84f72f8b2342b5323e4a45b9845, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647

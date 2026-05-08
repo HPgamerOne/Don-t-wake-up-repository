@@ -29,17 +29,17 @@ public class OpenGateValve : MonoBehaviour
 
     private IEnumerator Cutscene()
     {
-        yield return new WaitForSeconds(3f);
+        // yield return new WaitForSeconds(3f);
 
-        //playerCamera.enabled = false;
-        animatorPoolWater.Play("PoolWater", 0, 0);
+        // playerCamera.enabled = false;
+        // animatorPoolWater.Play("PoolWater", 0, 0);
 
-        yield return new WaitForSeconds(4f);
+        // yield return new WaitForSeconds(4f);
 
         //playerCamera.enabled = true;
         animatorGarage.Play("GarageOpen", 0, 0);
 
-        wall.gameObject.GetComponent<BoxCollider>().enabled = false;
+        // wall.gameObject.GetComponent<BoxCollider>().enabled = false;
 
         yield return null;
     }

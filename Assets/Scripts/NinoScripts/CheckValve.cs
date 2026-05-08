@@ -4,6 +4,7 @@ public class CheckValve : MonoBehaviour
 {
     [SerializeField] private GameObject valvePosition;
     [SerializeField] private bool valveInPlace = false;
+    [SerializeField] private bool tutorial = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,6 +28,11 @@ public class CheckValve : MonoBehaviour
             valveInPlace = true;
 
             gameObject.SetActive(false);
+
+            if (!tutorial)
+            {
+                ValvePuzzleManager.Instance.ValvePlaced();
+            }
         }
     }
 
