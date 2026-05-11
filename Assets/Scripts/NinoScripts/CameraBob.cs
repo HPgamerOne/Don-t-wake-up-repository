@@ -9,7 +9,8 @@ public class CameraBob : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     [SerializeField] private float baseBobSpeed = 10f;
     private float bobSpeed;
-    [SerializeField] private float sprintBobSpeedMultiplier = 1.5f;
+    [SerializeField] private float baseSprintBobSpeedMultiplier = 4f;
+    private float sprintBobSpeedMultiplier = 1;
     [SerializeField] private float bobAmount = 0.05f;
     private float moveBobSpeedMultiplier = 1;
     private float newPosition;
@@ -34,7 +35,7 @@ public class CameraBob : MonoBehaviour
     {
         if (playerController.IsSprinting())
         {
-            sprintBobSpeedMultiplier = 1.5f;
+            sprintBobSpeedMultiplier = baseSprintBobSpeedMultiplier;
         }
         else
         {
@@ -42,7 +43,7 @@ public class CameraBob : MonoBehaviour
         }
 
 
-        timer += Time.deltaTime * bobSpeed;
+        timer += Time.deltaTime * bobSpeed * sprintBobSpeedMultiplier * moveBobSpeedMultiplier;
         newPosition = originalPosition + Mathf.Sin(timer) * bobAmount;
 
         if (playerController.CurrentHorizontalSpeed() > 0.1f)
@@ -52,7 +53,7 @@ public class CameraBob : MonoBehaviour
         else
         {
             timer = 0;
-            localPosition = new Vector3(localPosition.x, Mathf.Lerp(localPosition.y, originalPosition, Time.deltaTime * bobSpeed * sprintBobSpeedMultiplier * moveBobSpeedMultiplier), localPosition.z);
+            localPosition = new Vector3(localPosition.x, Mathf.Lerp(localPosition.y, originalPosition, Time.deltaTime * bobSpeed), localPosition.z);
         }
 
         transform.localPosition = localPosition;

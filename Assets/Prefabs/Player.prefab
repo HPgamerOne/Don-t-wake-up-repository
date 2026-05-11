@@ -79,9 +79,9 @@ MonoBehaviour:
   jumpAction: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   sprintAction: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   isSprinting: 0
-  baseMoveSpeed: 3
+  baseMoveSpeed: 4
   baseMoveSpeedMultiplier: 1
-  sprintMultiplier: 1.67
+  sprintMultiplier: 1.7
   jumpVelocity: 10
   gravity: -9.82
   gravityMultiplier: 3
@@ -320,6 +320,7 @@ MonoBehaviour:
   lookAction: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   sensitivity: 0.2
   active: 1
+  lockCamera: 0
 --- !u!114 &2419626868448890251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   playerController: {fileID: 7751618679432655673}
   baseBobSpeed: 10
-  sprintBobSpeedMultiplier: 2
+  baseSprintBobSpeedMultiplier: 1.7
   bobAmount: 0.05
 --- !u!1 &7788263513628259897
 GameObject:
