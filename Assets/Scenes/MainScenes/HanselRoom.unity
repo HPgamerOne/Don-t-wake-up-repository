@@ -1986,7 +1986,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 0.33333337, g: 0.44444436, b: 1, a: 1}
-  m_Intensity: 0.09
+  m_Intensity: 1
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2406,7 +2406,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 0.33333337, g: 0.44444436, b: 1, a: 1}
-  m_Intensity: 0.09
+  m_Intensity: 1
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -3095,8 +3095,8 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 0.33333337, b: 1, a: 1}
-  m_Intensity: 30
-  m_Range: 100
+  m_Intensity: 150
+  m_Range: 200
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 0.5, y: 0.5}
@@ -3633,7 +3633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 842ff6f7d33b55141923fe8123d30443, type: 3}
       propertyPath: m_RenderingLayerMask
-      value: 33
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 842ff6f7d33b55141923fe8123d30443, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -6414,7 +6414,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 0.33333337, g: 1, b: 0.33333337, a: 1}
-  m_Intensity: 0.09
+  m_Intensity: 1
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -7040,7 +7040,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 842ff6f7d33b55141923fe8123d30443, type: 3}
       propertyPath: m_RenderingLayerMask
-      value: 33
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 842ff6f7d33b55141923fe8123d30443, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -7374,7 +7374,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 0.33333337, g: 0.44444436, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 2
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -7905,7 +7905,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 0.33333337, b: 0.33333337, a: 1}
-  m_Intensity: 0.09
+  m_Intensity: 1
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -8143,7 +8143,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 0.33333337, b: 0.33333337, a: 1}
-  m_Intensity: 0.09
+  m_Intensity: 1
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -9162,7 +9162,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 0.33333337, a: 1}
-  m_Intensity: 0.09
+  m_Intensity: 1
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -9708,7 +9708,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 0.33333337, b: 0.33333337, a: 1}
-  m_Intensity: 0
+  m_Intensity: 2
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -10992,7 +10992,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 0.33333337, g: 1, b: 0.33333337, a: 1}
-  m_Intensity: 0
+  m_Intensity: 2
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -11912,8 +11912,8 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 0.33333337, b: 0.33333337, a: 1}
-  m_Intensity: 30
-  m_Range: 100
+  m_Intensity: 150
+  m_Range: 200
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 0.5, y: 0.5}
@@ -12051,8 +12051,8 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 0.33333337, g: 1, b: 0.33333337, a: 1}
-  m_Intensity: 30
-  m_Range: 100
+  m_Intensity: 150
+  m_Range: 200
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 0.5, y: 0.5}
@@ -12306,7 +12306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 842ff6f7d33b55141923fe8123d30443, type: 3}
       propertyPath: m_RenderingLayerMask
-      value: 33
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 842ff6f7d33b55141923fe8123d30443, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -12506,8 +12506,8 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 0.33333337, a: 1}
-  m_Intensity: 30
-  m_Range: 100
+  m_Intensity: 150
+  m_Range: 200
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 0.5, y: 0.5}
@@ -13483,7 +13483,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 0.33333337, a: 1}
-  m_Intensity: 0
+  m_Intensity: 2
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -16110,7 +16110,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 0.33333337, g: 0.44444436, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 2
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -16618,7 +16618,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 0.33333337, b: 0.33333337, a: 1}
-  m_Intensity: 0.09
+  m_Intensity: 1
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -16765,7 +16765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 842ff6f7d33b55141923fe8123d30443, type: 3}
       propertyPath: m_RenderingLayerMask
-      value: 33
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 842ff6f7d33b55141923fe8123d30443, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -17081,7 +17081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 842ff6f7d33b55141923fe8123d30443, type: 3}
       propertyPath: m_RenderingLayerMask
-      value: 33
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 842ff6f7d33b55141923fe8123d30443, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -17203,7 +17203,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 0.33333337, b: 0.33333337, a: 1}
-  m_Intensity: 0
+  m_Intensity: 2
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -17319,7 +17319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 842ff6f7d33b55141923fe8123d30443, type: 3}
       propertyPath: m_RenderingLayerMask
-      value: 33
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 842ff6f7d33b55141923fe8123d30443, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -17544,7 +17544,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 0.33333337, b: 0.33333337, a: 1}
-  m_Intensity: 0.09
+  m_Intensity: 1
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -18540,7 +18540,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 0.33333337, b: 0.33333337, a: 1}
-  m_Intensity: 0
+  m_Intensity: 2
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -18857,7 +18857,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 0.33333337, b: 0.33333337, a: 1}
-  m_Intensity: 0
+  m_Intensity: 2
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -19980,8 +19980,8 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 0.33333337, b: 1, a: 1}
-  m_Intensity: 30
-  m_Range: 100
+  m_Intensity: 150
+  m_Range: 200
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 0.5, y: 0.5}
@@ -20583,7 +20583,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 0.33333337, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 2
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -24383,7 +24383,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 0.33333337, b: 1, a: 1}
-  m_Intensity: 0.09
+  m_Intensity: 1
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
