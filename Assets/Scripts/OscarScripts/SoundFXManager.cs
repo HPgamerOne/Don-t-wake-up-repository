@@ -49,6 +49,8 @@ public class SoundFXManager : MonoBehaviour
         int rand = Random.Range(0, audio.Length);
 
         source.volume = volume;
+        float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
+        source.pitch = randPitch;
         source.clip = audio[rand];
         source.Play();
 

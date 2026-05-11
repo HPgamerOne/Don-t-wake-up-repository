@@ -18,7 +18,6 @@ public class BedInteract : MonoBehaviour
         {
             doneThing = true;
 
-
             StartCoroutine(LoadNextScene());
         }
     }

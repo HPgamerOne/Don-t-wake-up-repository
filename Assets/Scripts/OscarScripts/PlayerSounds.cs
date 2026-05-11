@@ -6,21 +6,21 @@ public class PlayerSounds : MonoBehaviour
 
     //[SerializeField] Timer timer;
     [SerializeField] InputActionReference moveAction;
-    // Update is called once per frame
+
+    float stepInterval = 0.2f;
+    float stepTimer = 0f;
     void Update()
     {
         
         if (ActiveMovementCheck())
         {
-            //Lowk fixed? Gotta create tags tho and expand audio library
-            //Need to check floor etc n shit
-            //Shoot ray downward, get tag/layer/any identifcator of what kind of floor it is
-            //Play steps sounds corresponding to the type of floor
-            RaycastHit hit;
-            if(Physics.Raycast(transform.position, Vector3.down, out hit))
+            stepTimer += Time.deltaTime;
+            if (stepTimer > stepInterval)
             {
-                PlaySteps(hit);
+                stepTimer = 0f;
+                TryPlayFootsteps();
             }
+            
         }
         else
         {
@@ -30,6 +30,18 @@ public class PlayerSounds : MonoBehaviour
             }
         }
 
+    }
+    private void TryPlayFootsteps()
+    {
+        if (SoundFXManager.Instance.FootStepsPlaying)
+        {
+            return;
+        }
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.5f))
+        {
+            PlaySteps(hit);
+        }
     }
     private bool ActiveMovementCheck()
     {
@@ -41,36 +53,13 @@ public class PlayerSounds : MonoBehaviour
 
     private void PlaySteps(RaycastHit hit)
     {
-        if (hit.collider.CompareTag("Wood"))
+        switch (hit.collider.tag)
         {
-            if (!SoundFXManager.Instance.FootStepsPlaying)
-            {
-                SoundFXManager.Instance.PlayWoodFootsteps(1f);
-            }
-        }
-        else if (hit.collider.CompareTag("Concrete"))
-        {
-            if (!SoundFXManager.Instance.FootStepsPlaying)
-            {
-                SoundFXManager.Instance.PlayConcreteFootsteps(1f);
-
-            }
-        }
-        else if (hit.collider.CompareTag("Water"))
-        {
-            if (!SoundFXManager.Instance.FootStepsPlaying)
-            {
-                SoundFXManager.Instance.PlayWaterFootsteps(1f);
-
-            }
-        }
-        else if (hit.collider.CompareTag("Grass"))
-        {
-            if (!SoundFXManager.Instance.FootStepsPlaying)
-            {
-                SoundFXManager.Instance.PlayGrassFootsteps(1f);
-
-            }
+            case "Wood": SoundFXManager.Instance.PlayWoodFootsteps(1f); break;
+            case "Concrete": SoundFXManager.Instance.PlayConcreteFootsteps(1f); break;
+            case "Water": SoundFXManager.Instance.PlayWaterFootsteps(1f); break;
+            case "Grass": SoundFXManager.Instance.PlayGrassFootsteps(1f); break;
+            default: SoundFXManager.Instance.PlayConcreteFootsteps(1f); break;
         }
     }
 }

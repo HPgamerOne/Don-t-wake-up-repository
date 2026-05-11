@@ -1012,10 +1012,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7663111404446685079, guid: 0eda1ff47fefb2445983f8fdca044858, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 635252939}
-    - targetCorrespondingSourceObject: {fileID: 7663111404446685079, guid: 0eda1ff47fefb2445983f8fdca044858, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 635252940}
+      addedObject: {fileID: 635252934}
   m_SourcePrefab: {fileID: 100100000, guid: 0eda1ff47fefb2445983f8fdca044858, type: 3}
 --- !u!4 &347666540 stripped
 Transform:
@@ -1454,7 +1451,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7663111404446685079, guid: 0eda1ff47fefb2445983f8fdca044858, type: 3}
   m_PrefabInstance: {fileID: 347666539}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &635252939
+--- !u!114 &635252934
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1463,21 +1460,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 635252933}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4bed9204450d4044b2281b98778fea2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7148a3a252b6e1648be3164a7edd6114, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
---- !u!114 &635252940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635252933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6600f320021678042b948fa4870517ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::AudioTestScript
+  library: {fileID: 11400000, guid: 069c1fb80095b6c4e85846d85c13cec9, type: 2}
 --- !u!1001 &647178251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3954,7 +3940,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1660228354}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b14b721b08bf194ba3dc5f173c69fff, type: 3}
   m_Name: 
