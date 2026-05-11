@@ -11,34 +11,46 @@ public class CarKeyChecker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Collided");
+
         if (other.CompareTag("Keys"))
         {
+            Debug.Log("Matched Tag");
+
             Transform keyT = other.gameObject.GetComponent<Transform>();
             Transform carT = gameObject.GetComponent<Transform>();
-            Rigidbody rb = other.GetComponent<Rigidbody>();
-            
+            Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+            Debug.Log("Collected Transforms & RB");
+
             string id = other.GetComponent<Key>().id;
             if(id == requiredKeyId)
             {
                 
                 Animator animator = other.gameObject.GetComponent<Animator>();
-                Rigidbody rigidbody = other.gameObject.GetComponent<Rigidbody>();
+                Debug.Log("Animator");
 
-                rigidbody.isKinematic = true;
-                rigidbody.useGravity = false;
+                rb.isKinematic = true;
+                rb.useGravity = false;
 
                 other.gameObject.layer = 0;
+                Debug.Log("Accepting Key");
+
+                
                 animator.Play("KeySuccess", 0, 0);
                 other.transform.position = keyPosition.transform.position;
                 other.transform.localRotation = keyPosition.transform.localRotation;
+
                 DoorCondtions(id);
+                Debug.Log("Activated door");
+
                 //gameObject.SetActive(false);
-                
+
 
             }
             else
             {
                 //play non turning key animation
+                Debug.Log("Ejecting");
                 Vector3 ejectDir =   keyT.position - carT.position;
                 rb.AddForce(ejectDir * 10f + Vector3.up*7f, ForceMode.Impulse);
             }

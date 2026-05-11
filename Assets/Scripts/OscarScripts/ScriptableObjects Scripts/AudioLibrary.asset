@@ -19,3 +19,4 @@ MonoBehaviour:
   jump: {fileID: 8300000, guid: c7b8d1239aee2a544864af7703e1716a, type: 3}
   success: {fileID: 8300000, guid: 543a19ca4d83c724788727bd334e491c, type: 3}
   warning: {fileID: 8300000, guid: 3d3e83e7def25fe418d7e01c67b017f2, type: 3}
+  doorCreak: {fileID: 8300000, guid: e2448c49da5ce9343a7c32bba608633a, type: 3}

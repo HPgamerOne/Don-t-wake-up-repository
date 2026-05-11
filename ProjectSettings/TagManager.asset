@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Keys
+  - Wood
+  - Concrete
+  - Water
+  - Grass
   layers:
   - Default
   - TransparentFX

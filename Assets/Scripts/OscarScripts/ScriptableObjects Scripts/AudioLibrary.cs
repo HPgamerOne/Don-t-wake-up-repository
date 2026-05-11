@@ -10,4 +10,5 @@ public class AudioLibrary : ScriptableObject
     public AudioClip jump;
     public AudioClip success;
     public AudioClip warning;
+    public AudioClip doorCreak;
 }
