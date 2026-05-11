@@ -6,6 +6,11 @@ public class PlayerSounds : MonoBehaviour
 
     //[SerializeField] Timer timer;
     [SerializeField] InputActionReference moveAction;
+    /// <summary>
+    /// Vi kör one clips istället för en looping clip för ljud filer.
+    /// Fixas imorn
+    /// </summary>
+
 
     float stepInterval = 0.2f;
     float stepTimer = 0f;
