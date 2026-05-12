@@ -26,7 +26,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7905b8d3c02da594cbb54841966af57a, type: 3}
   - {fileID: 8300000, guid: d1ec7c5b96f09bd4bbf0bc8f4276518f, type: 3}
   - {fileID: 8300000, guid: 87993a94e129dfa4f9cc1e86df6c7537, type: 3}
+  music:
+  - {fileID: 8300000, guid: a83b4f7ed01993842956da58ffaaabcb, type: 3}
   jump: {fileID: 8300000, guid: c7b8d1239aee2a544864af7703e1716a, type: 3}
   success: {fileID: 8300000, guid: 543a19ca4d83c724788727bd334e491c, type: 3}
   warning: {fileID: 8300000, guid: 3d3e83e7def25fe418d7e01c67b017f2, type: 3}
   doorCreak: {fileID: 8300000, guid: e2448c49da5ce9343a7c32bba608633a, type: 3}
+  others: []
