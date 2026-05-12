@@ -1,7 +1,5 @@
-using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,23 +13,11 @@ public class GameManager : MonoBehaviour
     public List<int> noTimerScenes = new List<int> {0, 4};
     public int finalSceneIndex = 4;
 
-    public GameObject mainCanvasObject;
-    public GameObject timerManagerObject;
     Timer timer;
-    public GameObject timerPanels;
 
-    public GameObject cameraPivotObject;
     CameraController cameraController;
-    GameObject cameraObject;
-    Camera ssaoCamera;
 
-    GameObject dontWakeUpObject;
-    GameObject startButtonObject;
-    GameObject quitButtonObject;
-    TMP_Text dontWakeUpText;
-    Image startButtonImage;
-    Image quitButtonImage;
-
+    private bool inMainMenu = true;
     private bool currentlyPaused = false;
 
     private void Awake()
@@ -48,65 +34,103 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        mainCanvasObject = GameObject.Find("MainCanvas");
-        timerManagerObject = GameObject.Find("TimerManager");
-        timer = timerManagerObject.GetComponent<Timer>();
-        timerPanels = GameObject.Find("TimerPanels");
-        dontWakeUpObject = GameObject.Find("Don't wake up");
-        startButtonObject = GameObject.Find("StartButton");
-        quitButtonObject = GameObject.Find("QuitButton");
-        dontWakeUpText = dontWakeUpObject.GetComponent<TMP_Text>();
-        startButtonImage = startButtonObject.GetComponent<Image>();
-        quitButtonImage = quitButtonObject.GetComponent<Image>();
+        currentScene = SceneManager.GetActiveScene().buildIndex;
+        BindSceneReferences();
 
-        timerPanels.SetActive(false);
-        StartMainMenu();
+        if (currentScene == 0)
+        {
+            EnterMainMenu();
+        }
+    }
+
+    private void BindSceneReferences()
+    {
+        timer = GameObject.Find("TimerManager").GetComponent<Timer>();
+        cameraController = GameObject.Find("Camera Pivot").GetComponent<CameraController>();
+    }
+
+    private void EnterMainMenu()
+    {
+        StopAllCoroutines();
+
+        inMainMenu = true;
+        currentlyPaused = false;
+
+        Time.timeScale = 0;
+        cameraController.lockCamera = true;
+
+        timer.StopTimer();
+        CanvasManager.Instance.ResetForMainMenu();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Scene loaded");
+        currentScene = scene.buildIndex;
 
-        cameraPivotObject = GameObject.Find("Camera Pivot");
-        cameraController = cameraPivotObject.GetComponent<CameraController>();
-        cameraObject = GameObject.Find("SSAO Camera");
-        ssaoCamera = cameraObject.GetComponent<Camera>();
+        BindSceneReferences();
+
+        currentlyPaused = false;
+        CanvasManager.Instance.ShowPauseMenu(false);
 
         if (currentScene == 0)
         {
-            cameraController.lockCamera = true;
-        }
-    }
-    public void PauseGame(bool shouldPause)
-    {
-        if (shouldPause)
-        {
-            currentlyPaused = true;
-            cameraController.lockCamera = shouldPause;
-            Time.timeScale = 0;
+            EnterMainMenu();
         }
         else
         {
-            currentlyPaused = false;
-            cameraController.lockCamera = shouldPause;
+            inMainMenu = false;
             Time.timeScale = 1;
+            cameraController.lockCamera = false;
+
+            if (noTimerScenes.Contains(currentScene))
+            {
+                CanvasManager.Instance.ShowTimerPanels(false);
+                timer.StopTimer();
+            }
+            else
+            {
+                CanvasManager.Instance.ShowTimerPanels(true);
+            }
         }
+    }
+
+
+    public void PauseGame(bool shouldPause)
+    {
+        if (inMainMenu)
+        {
+            return;
+        }
+
+        currentlyPaused = shouldPause;
+        CanvasManager.Instance.ShowPauseMenu(shouldPause);
+        cameraController.lockCamera = shouldPause;
+        Time.timeScale = shouldPause ? 0 : 1;
     }
 
     public void StartMainMenu()
     {
-        Debug.Log("Started Main Menu");
-        SceneManager.LoadScene(0);
+        SoundFXManager.Instance.StopBackgroundMusic();
+        StopAllCoroutines();
 
-        doneScenes = new List<int> {0};
-        uncompletedScenes = new List<int> {1, 2, 3};
+        Time.timeScale = 1;
+
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        Instance = null;
+
+        Destroy(gameObject);
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
     public void StartGame()
     {
+        StopAllCoroutines();
+
+        inMainMenu = false;
+        Time.timeScale = 1;
         cameraController.lockCamera = false;
 
-        StartCoroutine(TweenMainMenuElements(70, 60, 1.5f));
+        StartCoroutine(FadeMainMenu(1.5f));
     }
 
     public void QuitGame()
@@ -115,36 +139,22 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    private IEnumerator TweenMainMenuElements(float startValue, float endValue, float tweenTime)
+    private IEnumerator FadeMainMenu(float fadeTime)
     {
         float elapsedTime = 0f;
+        CanvasGroup mainMenuGroup = CanvasManager.Instance.mainMenuGroup;
 
-        Color dontWakeUpStartColor = dontWakeUpText.color;
-        Color startButtonStartColor = startButtonImage.color;
-        Color quitButtonStartColor = quitButtonImage.color;
+        mainMenuGroup.interactable = false;
+        mainMenuGroup.blocksRaycasts = false;
 
-        while (elapsedTime < tweenTime)
+        while (elapsedTime < fadeTime)
         {
             elapsedTime += Time.deltaTime;
-
-            float t = elapsedTime / tweenTime;
-
-            ssaoCamera.fieldOfView = Mathf.Lerp(startValue, endValue, t);
-
-            float alpha = Mathf.Lerp(1f, 0f, t);
-
-            dontWakeUpText.color = new Color(dontWakeUpStartColor.r, dontWakeUpStartColor.g, dontWakeUpStartColor.b, alpha);
-            startButtonImage.color = new Color(startButtonStartColor.r, startButtonStartColor.g, startButtonStartColor.b, alpha);
-            quitButtonImage.color = new Color(quitButtonStartColor.r, quitButtonStartColor.g, quitButtonStartColor.b, alpha);
-
+            mainMenuGroup.alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeTime);
             yield return null;
         }
 
-        ssaoCamera.fieldOfView = endValue;
-
-        dontWakeUpText.color = new Color(dontWakeUpStartColor.r, dontWakeUpStartColor.g, dontWakeUpStartColor.b, 0f);
-        startButtonImage.color = new Color(startButtonStartColor.r, startButtonStartColor.g, startButtonStartColor.b, 0f);
-        quitButtonImage.color = new Color(quitButtonStartColor.r, quitButtonStartColor.g, quitButtonStartColor.b, 0f);
+        CanvasManager.Instance.ShowMainMenu(false);
     }
 
     public void NextScene()
@@ -167,17 +177,9 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(finalSceneIndex);
         }
 
-        if (noTimerScenes.Contains(currentScene))
-        {
-            timerPanels.SetActive(false);
-            timer.StopTimer();
-            Debug.Log("Timer panel false");
-        }
-        else
-        {
-            Debug.Log("Timer panel true");
-            timerPanels.SetActive(true);
-        }
+        Time.timeScale = 1;
+        currentlyPaused = false;
+        inMainMenu = false;
     }
 
     // Temp code to make it faster to go to next scene, remove for final build
@@ -188,16 +190,9 @@ public class GameManager : MonoBehaviour
             NextScene();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !inMainMenu)
         {
-            if (currentlyPaused)
-            {
-                PauseGame(false);
-            }
-            else
-            {
-                PauseGame(true);
-            }
+            PauseGame(!currentlyPaused);
         }
     }
 }
