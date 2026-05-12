@@ -12,10 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fd7cfeb6e85714eb0f6e59ff51378c, type: 3}
   m_Name: AudioLibrary
   m_EditorClassIdentifier: Assembly-CSharp::AudioLibrary
-  waterFootsteps: {fileID: 8300000, guid: 6e06811c95879af45958c6bc542557d8, type: 3}
-  woodFootsteps: {fileID: 8300000, guid: 9a1c42f83417f184db5077dda121b17a, type: 3}
-  grassFootsteps: {fileID: 8300000, guid: 90408630fbdd1e748992ce997cdb5c77, type: 3}
-  concreteFootsteps: {fileID: 8300000, guid: 0e1f02c34f8f33d49a68cd5f637aad93, type: 3}
+  waterFootsteps:
+  - {fileID: 0}
+  woodFootsteps:
+  - {fileID: 8300000, guid: aa5e5ed8230eb784eb53db7ff2f6b826, type: 3}
+  - {fileID: 8300000, guid: 0359bc7e4103cf940ae36d2ee79ec084, type: 3}
+  - {fileID: 8300000, guid: c4fed4d598890ef45bf758c035b032c2, type: 3}
+  grassFootsteps:
+  - {fileID: 8300000, guid: ae9dd57d7d9204a47a6b61a11071490e, type: 3}
+  - {fileID: 8300000, guid: 49568af061e483a4e89ce6b42e4ee4b9, type: 3}
+  - {fileID: 8300000, guid: abafdd96b98d65e4482d0dc587832f95, type: 3}
+  concreteFootsteps:
+  - {fileID: 8300000, guid: 7905b8d3c02da594cbb54841966af57a, type: 3}
+  - {fileID: 8300000, guid: d1ec7c5b96f09bd4bbf0bc8f4276518f, type: 3}
+  - {fileID: 8300000, guid: 87993a94e129dfa4f9cc1e86df6c7537, type: 3}
   jump: {fileID: 8300000, guid: c7b8d1239aee2a544864af7703e1716a, type: 3}
   success: {fileID: 8300000, guid: 543a19ca4d83c724788727bd334e491c, type: 3}
   warning: {fileID: 8300000, guid: 3d3e83e7def25fe418d7e01c67b017f2, type: 3}

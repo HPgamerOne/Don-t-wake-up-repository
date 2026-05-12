@@ -12,7 +12,7 @@ public class PlayerSounds : MonoBehaviour
     /// </summary>
 
 
-    float stepInterval = 0.2f;
+    float stepInterval = 0.7f;
     float stepTimer = 0f;
     void Update()
     {
@@ -24,26 +24,13 @@ public class PlayerSounds : MonoBehaviour
             {
                 stepTimer = 0f;
                 TryPlayFootsteps();
-            }
-            
+            }     
         }
-        else
-        {
-            if (SoundFXManager.Instance.FootStepsPlaying)
-            {
-                SoundFXManager.Instance.StopFootsteps();
-            }
-        }
-
     }
     private void TryPlayFootsteps()
     {
-        if (SoundFXManager.Instance.FootStepsPlaying)
-        {
-            return;
-        }
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.5f))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.2f))
         {
             PlaySteps(hit);
         }

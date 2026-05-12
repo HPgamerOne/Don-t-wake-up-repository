@@ -5,6 +5,7 @@ public class DoorScript : MonoBehaviour
 {
     private bool redCar, greenCar, blueCar, triggered = false;
     [SerializeField] Animator animator;
+    [SerializeField] AudioLibrary library;
 
     void Update()
     {
@@ -14,6 +15,7 @@ public class DoorScript : MonoBehaviour
             //Debug.Log("Entered statement");
             triggered = true;
             animator.Play("DoorOpen", 0, 0);
+            SoundFXManager.Instance.PlaySoundEffectAtPosition(library.doorCreak,transform, 1f);
             //Debug.Log("Finished animation");
         }
     }

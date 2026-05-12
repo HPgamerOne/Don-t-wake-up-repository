@@ -26,6 +26,6 @@ public class ToyBoxScript : MonoBehaviour
     private void OpenBox()
     {
         animator.Play("ToyboxOpen",0,0);
-        SoundFXManager.Instance.PlaySoundEffect(library.doorCreak, transform, 1f);
+        SoundFXManager.Instance.PlaySoundEffectAtPosition(library.doorCreak, transform, 1f);
     }
 }
