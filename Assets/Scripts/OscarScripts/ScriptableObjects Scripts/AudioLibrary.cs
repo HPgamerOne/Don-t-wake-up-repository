@@ -7,6 +7,7 @@ public class AudioLibrary : ScriptableObject
     public AudioClip[] woodFootsteps;
     public AudioClip[] grassFootsteps;
     public AudioClip[] concreteFootsteps;
+    public AudioClip[] music;
     public AudioClip jump;
     public AudioClip success;
     public AudioClip warning;

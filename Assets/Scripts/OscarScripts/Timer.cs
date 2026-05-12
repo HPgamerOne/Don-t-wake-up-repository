@@ -9,6 +9,8 @@ public class Timer : MonoBehaviour
 {
     public static Timer Instance;
 
+    [Header("Libraries")]
+    [SerializeField] AudioLibrary library;
     [Header("Images")]
     [SerializeField] Image fillImage;
     [SerializeField] GameObject openEye;
@@ -73,6 +75,7 @@ public class Timer : MonoBehaviour
                 threshold3 = true;
                 halfOpenEye2.gameObject.SetActive(false);
                 openEye.gameObject.SetActive(true);
+                SoundFXManager.Instance.PlaySoundEffect(library.warning, 1f);
             }
 
             if (remainingTime <= 0)
