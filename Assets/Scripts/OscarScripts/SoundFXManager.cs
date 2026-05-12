@@ -7,10 +7,9 @@ public class SoundFXManager : MonoBehaviour
     public static SoundFXManager Instance;
     [SerializeField] AudioSource soundObject;
     [SerializeField] AudioSource stepsSource;
+    [SerializeField] AudioSource source;
     public AudioLibrary library;
-    PlayerController playerController;
-    float pitchVariance = 0.1f;
-    bool footStepsPlaying = false;
+    float pitchVariance = 0.15f;
 
     private void Awake()
     {
@@ -24,14 +23,9 @@ public class SoundFXManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        if (playerController != null)
-        {
-            playerController = GameObject.FindAnyObjectByType<PlayerController>();
-
-        }
     }
 
-    public void PlaySoundEffect(AudioClip audio, Transform spawnLocation, float volume)
+    public void PlaySoundEffectAtPosition(AudioClip audio, Transform spawnLocation, float volume)
     {
         AudioSource source = Instantiate(soundObject, spawnLocation.position, Quaternion.identity);
 
@@ -43,9 +37,32 @@ public class SoundFXManager : MonoBehaviour
 
         Destroy(source.gameObject, audioLength);
     }
-    public void PlayRandomSoundEffect(AudioClip[] audio, Transform spawnLocation, float volume)
+    public void PlaySoundEffect(AudioClip audio, float volume)
+    {
+        source.volume = volume;
+        source.clip = audio;
+        source.Play();
+
+        float audioLength = source.clip.length;
+
+        Destroy(source.gameObject, audioLength);
+    }
+    public void PlayRandomSoundEffectAtPosition(AudioClip[] audio, Transform spawnLocation, float volume)
     {
         AudioSource source = Instantiate(soundObject, spawnLocation.position, Quaternion.identity);
+        int rand = Random.Range(0, audio.Length);
+
+        source.volume = volume;
+        float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
+        source.pitch = randPitch;
+        source.clip = audio[rand];
+        source.Play();
+
+        float audioLength = source.clip.length;
+        Destroy(source.gameObject, audioLength);
+    }
+    public void PlayRandomSoundEffect(AudioClip[] audio, float volume)
+    {
         int rand = Random.Range(0, audio.Length);
 
         source.volume = volume;
@@ -81,53 +98,41 @@ public class SoundFXManager : MonoBehaviour
     }
     public void PlayGrassFootsteps(float volume)
     {
-
-        stepsSource.clip = library.grassFootsteps;
+        int index = Random.Range(0, 3);
+        stepsSource.clip = library.grassFootsteps[index];
         stepsSource.volume = volume;
-        stepsSource.Play();
-        footStepsPlaying = true;
         float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
         stepsSource.pitch = randPitch;
+        stepsSource.Play();
+        
     }
     public void PlayConcreteFootsteps(float volume)
     {
-
-        stepsSource.clip = library.concreteFootsteps;
+        int index = Random.Range(0, 3);
+        stepsSource.clip = library.concreteFootsteps[index];
         stepsSource.volume = volume;
-        stepsSource.Play();
-        footStepsPlaying = true;
         float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
         stepsSource.pitch = randPitch;
+        stepsSource.Play();
+        
     }
     public void PlayWoodFootsteps(float volume)
     {
-
-        stepsSource.clip = library.woodFootsteps;
+        int index = Random.Range(0,3);
+        stepsSource.clip = library.woodFootsteps[index];
         stepsSource.volume = volume;
-        stepsSource.Play();
-        footStepsPlaying = true;
         float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
         stepsSource.pitch = randPitch;
+        stepsSource.Play();
+        
     }
     public void PlayWaterFootsteps(float volume)
     {
-        
-        stepsSource.clip = library.waterFootsteps;
+        int index = Random.Range(0,3);
+        stepsSource.clip = library.waterFootsteps[index];
         stepsSource.volume = volume;
-        stepsSource.Play();
-        footStepsPlaying = true;
         float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
         stepsSource.pitch = randPitch;
-        
-   
-    }
-    public void StopFootsteps()
-    {
-        stepsSource.Stop();
-        footStepsPlaying = false;
-    }
-    public bool FootStepsPlaying 
-    {
-        get { return footStepsPlaying; }
+        stepsSource.Play();
     }
 }
