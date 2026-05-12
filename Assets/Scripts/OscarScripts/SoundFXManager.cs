@@ -78,23 +78,24 @@ public class SoundFXManager : MonoBehaviour
     /// Change the background music and start playing it
     /// </summary>
     /// <param name="music">Audio file of the new background music</param>
-    public void ChangeBackgroundMusic(AudioClip music)
+    public void ChangeBackgroundMusic(AudioClip music, float volume)
     {
-        gameObject.GetComponent<AudioSource>().clip = music;
+        source.clip = music;
+        source.volume = volume;
     }
     /// <summary>
     /// Stops background music
     /// </summary>
     public void StopBackgroundMusic()
     {
-        gameObject.GetComponent<AudioSource>().Stop();
+        source.Stop();
     }
     /// <summary>
     /// Plays background music
     /// </summary>
     public void PlayBackgroundMusic()
     {
-        gameObject.GetComponent<AudioSource>().Play();
+        source.Play();
     }
     public void PlayGrassFootsteps(float volume)
     {
@@ -124,7 +125,6 @@ public class SoundFXManager : MonoBehaviour
         float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
         stepsSource.pitch = randPitch;
         stepsSource.Play();
-        
     }
     public void PlayWaterFootsteps(float volume)
     {
@@ -134,5 +134,13 @@ public class SoundFXManager : MonoBehaviour
         float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
         stepsSource.pitch = randPitch;
         stepsSource.Play();
+    }
+    public void EnableMusicLoop()
+    {
+        source.loop = true;
+    }
+    public void DisableMusicLoop()
+    {
+        source.loop = false;
     }
 }
