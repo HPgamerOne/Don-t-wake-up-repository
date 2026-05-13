@@ -6,17 +6,29 @@ public class PlayerSounds : MonoBehaviour
 
     //[SerializeField] Timer timer;
     [SerializeField] InputActionReference moveAction;
+    PlayerController pc;
     /// <summary>
     /// Vi kör one clips istället för en looping clip för ljud filer.
     /// Fixas imorn
     /// </summary>
 
 
-    public float stepInterval = 0.5f;
+    public float stepInterval = 0.4f;
     float stepTimer = 0f;
+    private void Start()
+    {
+            pc = GetComponent<PlayerController>();
+    }
     void Update()
     {
-        
+        if(pc.IsSprinting())
+        {
+            stepInterval = 0.2f;
+        }
+        else
+        {
+            stepInterval = 0.4f;
+        }
         if (ActiveMovementCheck())
         {
             stepTimer += Time.deltaTime;
@@ -24,7 +36,7 @@ public class PlayerSounds : MonoBehaviour
             {
                 stepTimer = 0f;
                 TryPlayFootsteps();
-            }     
+            }
         }
     }
     private void TryPlayFootsteps()
