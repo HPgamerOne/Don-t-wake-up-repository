@@ -83,6 +83,7 @@ public class Timer : MonoBehaviour
                 StopTimer();
                 fillImage.fillAmount = 0;
                 FadeManager.Instance.FadeToBlack(2f);
+                GameManager.Instance.StartLose();
                 //lose scene
             }
         }
