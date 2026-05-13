@@ -82,7 +82,7 @@ public class Timer : MonoBehaviour
                 //Debug.Log("u lose lmao");
                 StopTimer();
                 fillImage.fillAmount = 0;
-                FadeManager.Instance.FadeToBlack(2f);
+                //FadeManager.Instance.FadeToBlack(2f);
                 GameManager.Instance.StartLose();
                 //lose scene
             }
