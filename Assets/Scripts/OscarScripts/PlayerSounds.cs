@@ -25,8 +25,8 @@ public class PlayerSounds : MonoBehaviour
         {
             if (pc.IsSprinting())
             {
-                stepInterval = 1f;
-                SoundFXManager.Instance.SpeedUpClip(0.4f);
+                stepInterval = 0.6f;
+                SoundFXManager.Instance.SpeedUpClip(0.5f);
             }
             else
             {
@@ -76,11 +76,11 @@ public class PlayerSounds : MonoBehaviour
     {
         switch (hit.collider.tag)
         {
-            case "Wood": SoundFXManager.Instance.PlayWoodFootsteps(0.4f); break;
-            case "Concrete": SoundFXManager.Instance.PlayConcreteFootsteps(0.5f); break;
+            case "Wood": SoundFXManager.Instance.PlayWoodFootsteps(0.6f); break;
+            case "Concrete": SoundFXManager.Instance.PlayConcreteFootsteps(0.6f); break;
             case "Water": SoundFXManager.Instance.PlayWaterFootsteps(0.6f); break;
-            case "Grass": SoundFXManager.Instance.PlayGrassFootsteps(0.5f); break;
-            default: SoundFXManager.Instance.PlayConcreteFootsteps(0.4f); break;
+            case "Grass": SoundFXManager.Instance.PlayGrassFootsteps(0.6f); break;
+            default: SoundFXManager.Instance.PlayConcreteFootsteps(0.6f); break;
         }
     }
 }

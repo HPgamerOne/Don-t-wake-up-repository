@@ -124,7 +124,7 @@ public class SoundFXManager : MonoBehaviour
         int index = Random.Range(0,3);
         stepsSource.clip = library.woodFootsteps[index];
         stepsSource.volume = volume;
-        float randPitch = Random.Range(1f - pitchVariance + pitch, 1f + pitchVariance + pitch);
+        float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
         stepsSource.pitch = randPitch;
         stepsSource.Play();
     }
@@ -133,7 +133,7 @@ public class SoundFXManager : MonoBehaviour
         int index = Random.Range(0,3);
         stepsSource.clip = library.waterFootsteps[index];
         stepsSource.volume = volume;
-        float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
+        float randPitch = Random.Range(1f - pitchVariance + pitch, 1f + pitchVariance + pitch);
         stepsSource.pitch = randPitch;
         stepsSource.Play();
     }
