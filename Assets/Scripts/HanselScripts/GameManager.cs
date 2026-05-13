@@ -157,6 +157,17 @@ public class GameManager : MonoBehaviour
         CanvasManager.Instance.ShowMainMenu(false);
     }
 
+    public void StartLose()
+    {
+        CanvasManager.Instance.ShowLoseMenu(true);
+        cameraController.lockCamera = true;
+    }
+
+    public void StartWin()
+    {
+        CanvasManager.Instance.ShowWinMenu(true);
+        cameraController.lockCamera = true;
+    }
     public void NextScene()
     {
         if (uncompletedScenes.Count > 0)
