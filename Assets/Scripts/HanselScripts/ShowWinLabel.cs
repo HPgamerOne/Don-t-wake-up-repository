@@ -6,6 +6,7 @@ public class ShowWinLabel : MonoBehaviour
     InteractObject interactObject;
     public TMP_Text winLabel;
 
+    bool hasWon = false;
     private void Start()
     {
         interactObject = GetComponent<InteractObject>();
@@ -13,12 +14,18 @@ public class ShowWinLabel : MonoBehaviour
 
     private void Update()
     {
-        if (interactObject.hovering)
+        if (interactObject.hovering && !hasWon)
         {
-            winLabel.text = "Win";
+            winLabel.text = "Don't wake up";
         } else
         {
             winLabel.text = "";
+        }
+
+        if (interactObject.interacted && !hasWon)
+        {
+            hasWon = true;
+            GameManager.Instance.StartWin();
         }
     }
 }

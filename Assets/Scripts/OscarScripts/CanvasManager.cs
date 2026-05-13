@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CanvasManager : MonoBehaviour
@@ -7,6 +8,8 @@ public class CanvasManager : MonoBehaviour
     public CanvasGroup mainMenuGroup;
     public CanvasGroup pauseMenuGroup;
     public CanvasGroup timerPanelsGroup;
+    public CanvasGroup WinMenuGroup;
+    public CanvasGroup LoseMenuGroup;
 
     private void Awake()
     {
@@ -25,6 +28,15 @@ public class CanvasManager : MonoBehaviour
         group.alpha = shouldShow ? 1f : 0f;
         group.interactable = shouldShow;
         group.blocksRaycasts = shouldShow;
+    }
+
+    public void ShowWinMenu(bool shouldShow)
+    {
+        ShowGroup(WinMenuGroup, shouldShow);
+    }
+    public void ShowLoseMenu(bool shouldShow)
+    {
+        ShowGroup(LoseMenuGroup, shouldShow);
     }
 
     public void ShowMainMenu(bool shouldShow)
@@ -47,5 +59,7 @@ public class CanvasManager : MonoBehaviour
         ShowMainMenu(true);
         ShowPauseMenu(false);
         ShowTimerPanels(false);
+        ShowWinMenu(false);
+        ShowLoseMenu(false);
     }
 }
