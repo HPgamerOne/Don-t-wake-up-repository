@@ -112778,6 +112778,7 @@ MonoBehaviour:
   animatorPoolWater: {fileID: 1136585175}
   playerCamera: {fileID: 1244412745}
   wall: {fileID: 1743322841}
+  library: {fileID: 11400000, guid: 069c1fb80095b6c4e85846d85c13cec9, type: 2}
 --- !u!4 &866435632
 Transform:
   m_ObjectHideFlags: 0
@@ -270497,6 +270498,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1244412745}
   poolWater: {fileID: 1136585170}
   wall: {fileID: 1743322841}
+  library: {fileID: 11400000, guid: 069c1fb80095b6c4e85846d85c13cec9, type: 2}
 --- !u!114 &7726605467907159385 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8322464790569665186, guid: 0219fa6a129da4e44afa8a22c4cb201f, type: 3}
