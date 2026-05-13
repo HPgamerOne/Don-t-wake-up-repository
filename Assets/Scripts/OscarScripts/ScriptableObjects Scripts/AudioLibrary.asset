@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: AudioLibrary
   m_EditorClassIdentifier: Assembly-CSharp::AudioLibrary
   waterFootsteps:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 5659cb063871d584b8c159f55af9f029, type: 3}
+  - {fileID: 8300000, guid: 731e7fdabc7410d43a7f4b8220a5c823, type: 3}
+  - {fileID: 8300000, guid: 268710f200ea75843a0ae6542e8a46c2, type: 3}
+  - {fileID: 8300000, guid: 06a090a7c04dd1f4b83f17e20ddf1750, type: 3}
+  - {fileID: 8300000, guid: 78086c8881aa1d949a52539d36c1dc1e, type: 3}
+  - {fileID: 8300000, guid: 3e0f5c75cf11b0e44812710f70e8c711, type: 3}
+  - {fileID: 8300000, guid: e4bfde06785c1804a96ffd0686f16a04, type: 3}
   woodFootsteps:
   - {fileID: 8300000, guid: aa5e5ed8230eb784eb53db7ff2f6b826, type: 3}
   - {fileID: 8300000, guid: 0359bc7e4103cf940ae36d2ee79ec084, type: 3}
