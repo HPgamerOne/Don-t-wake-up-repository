@@ -9,6 +9,7 @@ public class OpenGateValve : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     [SerializeField] private GameObject poolWater;
     [SerializeField] private GameObject wall;
+    [SerializeField] private AudioLibrary library;
 
     private OpenGateValve openGateValve;
 
@@ -38,7 +39,7 @@ public class OpenGateValve : MonoBehaviour
 
         //playerCamera.enabled = true;
         animatorGarage.Play("GarageOpen", 0, 0);
-
+        SoundFXManager.Instance.PlaySoundEffectAtPosition(library.others[0], animatorGarage.transform, 1f);
         // wall.gameObject.GetComponent<BoxCollider>().enabled = false;
 
         yield return null;

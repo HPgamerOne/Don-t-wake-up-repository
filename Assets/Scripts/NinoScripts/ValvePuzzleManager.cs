@@ -8,6 +8,7 @@ public class ValvePuzzleManager : MonoBehaviour
     [SerializeField] private Animator animatorPoolWater;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private GameObject wall;
+    [SerializeField] private AudioLibrary library;
 
     private int valvesPlaced = 0;
 
@@ -33,6 +34,7 @@ public class ValvePuzzleManager : MonoBehaviour
     void TriggerLabyrinth()
     {
         animatorGarage.Play("GarageOpen", 0, 0);
+        SoundFXManager.Instance.PlaySoundEffectAtPosition(library.others[0], animatorGarage.transform, 1f);
     }
 
     void TriggerWater()

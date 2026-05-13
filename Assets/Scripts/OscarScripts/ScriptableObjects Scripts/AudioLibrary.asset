@@ -40,4 +40,5 @@ MonoBehaviour:
   success: {fileID: 8300000, guid: 543a19ca4d83c724788727bd334e491c, type: 3}
   warning: {fileID: 8300000, guid: 3d3e83e7def25fe418d7e01c67b017f2, type: 3}
   doorCreak: {fileID: 8300000, guid: e2448c49da5ce9343a7c32bba608633a, type: 3}
-  others: []
+  others:
+  - {fileID: 8300000, guid: 55f9fe8f9731eb446b66884e5b6f12d1, type: 3}
