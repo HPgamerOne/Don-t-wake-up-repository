@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float upforce = 35;
     private bool inBuoyancyWater;
     private float depth;
+    public bool inWater;
 
     [SerializeField] private CameraBob cameraBob;
 
@@ -96,6 +97,7 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeedMultiplier = water.speedMultiplier;
             cameraBob.UpdateBob(moveSpeedMultiplier);
+            inWater = true;
         }
     }
 
@@ -107,6 +109,7 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeedMultiplier = baseMoveSpeedMultiplier;
             cameraBob.UpdateBob(moveSpeedMultiplier);
+            inWater = false;
         }
     }
 

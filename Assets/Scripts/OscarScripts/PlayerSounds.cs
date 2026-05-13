@@ -21,14 +21,29 @@ public class PlayerSounds : MonoBehaviour
     }
     void Update()
     {
-        if(pc.IsSprinting())
+        if (pc.inWater)
         {
-            stepInterval = 0.2f;
+            if (pc.IsSprinting())
+            {
+                stepInterval = 1f;
+            }
+            else
+            {
+                stepInterval = 1.1f;
+            }
         }
         else
         {
-            stepInterval = 0.4f;
+            if (pc.IsSprinting())
+            {
+                stepInterval = 0.2f;
+            }
+            else
+            {
+                stepInterval = 0.4f;
+            }
         }
+
         if (ActiveMovementCheck())
         {
             stepTimer += Time.deltaTime;
