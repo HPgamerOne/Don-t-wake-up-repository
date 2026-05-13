@@ -25,6 +25,7 @@ public class BedInteract : MonoBehaviour
     private IEnumerator LoadNextScene()
     {
         doneThing = true;
+        SoundFXManager.Instance.StopBackgroundMusic();
         FadeManager.Instance.FadeToBlack(fadeDuration);
 
         Timer.Instance.StopTimer();

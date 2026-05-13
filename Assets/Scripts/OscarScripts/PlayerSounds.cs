@@ -59,11 +59,11 @@ public class PlayerSounds : MonoBehaviour
     {
         switch (hit.collider.tag)
         {
-            case "Wood": SoundFXManager.Instance.PlayWoodFootsteps(1f); break;
-            case "Concrete": SoundFXManager.Instance.PlayConcreteFootsteps(1f); break;
-            case "Water": SoundFXManager.Instance.PlayWaterFootsteps(1f); break;
-            case "Grass": SoundFXManager.Instance.PlayGrassFootsteps(1f); break;
-            default: SoundFXManager.Instance.PlayConcreteFootsteps(1f); break;
+            case "Wood": SoundFXManager.Instance.PlayWoodFootsteps(0.4f); break;
+            case "Concrete": SoundFXManager.Instance.PlayConcreteFootsteps(0.5f); break;
+            case "Water": SoundFXManager.Instance.PlayWaterFootsteps(0.6f); break;
+            case "Grass": SoundFXManager.Instance.PlayGrassFootsteps(0.5f); break;
+            default: SoundFXManager.Instance.PlayConcreteFootsteps(0.4f); break;
         }
     }
 }
