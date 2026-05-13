@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LiquidCut
+  m_Name: LiquidCut Bottle
   m_Shader: {fileID: -6465566751694194690, guid: 85e40fb87f81ead4786c4d65124e6c90, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -97,12 +97,13 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _Fill: 0.05
+    - _Fill: 0.23
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
+    - _Offset: 3.61
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -122,8 +123,8 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0, g: 0.9717827, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _InsideColor: {r: 0, g: 28.291128, b: 51.37787, a: 1}
-    - _OutsideColor: {r: 0, g: 4.289058, b: 6.4222336, a: 1}
+    - _InsideColor: {r: 25.688929, g: 0.26899403, b: 0, a: 1}
+    - _OutsideColor: {r: 6.422233, g: 0.12577213, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
