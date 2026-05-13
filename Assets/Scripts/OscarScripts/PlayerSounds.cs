@@ -26,10 +26,12 @@ public class PlayerSounds : MonoBehaviour
             if (pc.IsSprinting())
             {
                 stepInterval = 1f;
+                SoundFXManager.Instance.SpeedUpClip(0.4f);
             }
             else
             {
                 stepInterval = 1.1f;
+                SoundFXManager.Instance.ReturnClipSpeed();
             }
         }
         else

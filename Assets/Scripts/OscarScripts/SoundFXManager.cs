@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Rendering;
 
 
@@ -10,6 +11,7 @@ public class SoundFXManager : MonoBehaviour
     [SerializeField] AudioSource source;
     public AudioLibrary library;
     float pitchVariance = 0.15f;
+    private float pitch = 0f;
 
     private void Awake()
     {
@@ -122,7 +124,7 @@ public class SoundFXManager : MonoBehaviour
         int index = Random.Range(0,3);
         stepsSource.clip = library.woodFootsteps[index];
         stepsSource.volume = volume;
-        float randPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
+        float randPitch = Random.Range(1f - pitchVariance + pitch, 1f + pitchVariance + pitch);
         stepsSource.pitch = randPitch;
         stepsSource.Play();
     }
@@ -142,5 +144,13 @@ public class SoundFXManager : MonoBehaviour
     public void DisableMusicLoop()
     {
         source.loop = false;
+    }
+    public void SpeedUpClip(float speed)
+    {
+        pitch = speed;
+    }
+    public void ReturnClipSpeed()
+    {
+        pitch = 0f;
     }
 }
