@@ -12,7 +12,7 @@ public class PlayerSounds : MonoBehaviour
     /// </summary>
 
 
-    float stepInterval = 0.7f;
+    public float stepInterval = 0.5f;
     float stepTimer = 0f;
     void Update()
     {
