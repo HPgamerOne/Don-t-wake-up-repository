@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -126,6 +127,7 @@ public class GameManager : MonoBehaviour
     {
         StopAllCoroutines();
 
+        Timer.Instance.ResetTimer();
         inMainMenu = false;
         Time.timeScale = 1;
         cameraController.lockCamera = false;
@@ -167,6 +169,9 @@ public class GameManager : MonoBehaviour
     {
         CanvasManager.Instance.ShowWinMenu(true);
         cameraController.lockCamera = true;
+        GameObject totalTimeTextObject = GameObject.Find("TotalTimeText");
+        TMP_Text totalTimeText = totalTimeTextObject.GetComponent<TMP_Text>();
+        totalTimeText.text = $"Total Time: {Mathf.Floor(Timer.Instance.TotalTime)} seconds"; 
     }
     public void NextScene()
     {
