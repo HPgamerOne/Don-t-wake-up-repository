@@ -161,6 +161,7 @@ public class Timer : MonoBehaviour
         timeText.gameObject.SetActive(false);
         totalTimePanel.gameObject.SetActive(false);
         remainingTime = startTime;
+        totalTime = 0;
     }
     /// <summary>
     /// Get the remaining time on the timer

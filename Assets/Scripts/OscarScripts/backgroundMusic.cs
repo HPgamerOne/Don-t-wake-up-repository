@@ -9,7 +9,16 @@ public class backgroundMusic : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             int index = GameManager.Instance.currentScene;
-            SoundFXManager.Instance.ChangeBackgroundMusic(library.music[index-1], 0.2f);
+            if(index == 4)
+            {
+                SoundFXManager.Instance.ChangeBackgroundMusic(library.music[index - 1], 0.15f);
+
+            }
+            else
+            {
+                SoundFXManager.Instance.ChangeBackgroundMusic(library.music[index - 1], 0.2f);
+
+            }
             SoundFXManager.Instance.EnableMusicLoop();
             SoundFXManager.Instance.PlayBackgroundMusic();
             Destroy(gameObject);
