@@ -125,9 +125,9 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        Timer.Instance.ResetTotalTime();
         StopAllCoroutines();
 
-        Timer.Instance.ResetTimer();
         inMainMenu = false;
         Time.timeScale = 1;
         cameraController.lockCamera = false;
@@ -171,7 +171,7 @@ public class GameManager : MonoBehaviour
         cameraController.lockCamera = true;
         GameObject totalTimeTextObject = GameObject.Find("TotalTimeText");
         TMP_Text totalTimeText = totalTimeTextObject.GetComponent<TMP_Text>();
-        totalTimeText.text = $"Total Time: {Mathf.Floor(Timer.Instance.TotalTime)} seconds"; 
+        totalTimeText.text = $"Total Time: {Mathf.Floor(Timer.Instance.TotalTime)} seconds";
     }
     public void NextScene()
     {
