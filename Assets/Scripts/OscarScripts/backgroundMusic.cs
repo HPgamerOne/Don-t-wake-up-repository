@@ -11,7 +11,7 @@ public class backgroundMusic : MonoBehaviour
             int index = GameManager.Instance.currentScene;
             if(index == 4)
             {
-                SoundFXManager.Instance.ChangeBackgroundMusic(library.music[index - 1], 0.15f);
+                SoundFXManager.Instance.ChangeBackgroundMusic(library.music[index - 1], 0.0167f);
 
             }
             else
