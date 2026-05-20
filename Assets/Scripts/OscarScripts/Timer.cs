@@ -54,8 +54,6 @@ public class Timer : MonoBehaviour
         if (timerRunning)
         {
             DecreaseTime();
-
-
             if (remainingTime <= startTime / 2 && !threshold1)
             {
                 threshold1 = true;
