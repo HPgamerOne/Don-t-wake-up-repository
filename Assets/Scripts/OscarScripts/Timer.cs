@@ -46,8 +46,6 @@ public class Timer : MonoBehaviour
     void Start()
     {
         remainingTime = startTime;
-        timerPanel.gameObject.SetActive(false);
-        totalTimePanel.gameObject.SetActive(false);
     }
     void Update()
     {
@@ -57,21 +55,17 @@ public class Timer : MonoBehaviour
             if (remainingTime <= startTime / 2 && !threshold1)
             {
                 threshold1 = true;
-                closedEye.gameObject.SetActive(false);
-                halfOpenEye1.gameObject.SetActive(true);
                 
             }
             else if (remainingTime <= startTime / 3 && !threshold2)
             {
                 threshold2 = true;
-                halfOpenEye1.gameObject.SetActive(false);
-                halfOpenEye2.gameObject.SetActive(true);
+
             }
             else if (remainingTime <= startTime / 4 && !threshold3)
             {
                 threshold3 = true;
-                halfOpenEye2.gameObject.SetActive(false);
-                openEye.gameObject.SetActive(true);
+
                 SoundFXManager.Instance.PlaySoundEffect(library.warning, 1f);
             }
 
@@ -123,20 +117,14 @@ public class Timer : MonoBehaviour
     public void StopTimer()
     {
         timerRunning = false;
+
     }
     /// <summary>
     /// Start the timer
     /// </summary>
     public void StartTimer()
     {
-        timerPanel.gameObject.SetActive(true);
-        closedEye.gameObject.SetActive(true);
-        halfOpenEye1.gameObject.SetActive(false);
-        halfOpenEye2.gameObject.SetActive(false);
-        openEye.gameObject.SetActive(false);
-        fillImage.gameObject.SetActive(true);
-        timeText.gameObject.SetActive(true);
-        totalTimePanel.gameObject.SetActive(true);
+        CanvasManager.Instance.ShowTimerPanels(true);
         timerRunning = true;
     }
     /// <summary>
@@ -150,20 +138,10 @@ public class Timer : MonoBehaviour
         threshold2 = false;
         threshold3 = false;
         remainingTime = startTime;
-    }
-    public void ResetTimerUI()
-    {
-        
+        CanvasManager.Instance.ShowTimerPanels(false);
 
-        closedEye.gameObject.SetActive(false);
-        halfOpenEye1.gameObject.SetActive(false);
-        halfOpenEye2.gameObject.SetActive(false);
-        openEye.gameObject.SetActive(false);
-        timerPanel.gameObject.SetActive(false);
-        fillImage.gameObject.SetActive(false);
-        timeText.gameObject.SetActive(false);
-        totalTimePanel.gameObject.SetActive(false);
     }
+
 
     public void ResetTotalTime()
     {

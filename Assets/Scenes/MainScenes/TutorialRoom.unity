@@ -1225,6 +1225,10 @@ PrefabInstance:
       propertyPath: library
       value: 
       objectReference: {fileID: 11400000, guid: 069c1fb80095b6c4e85846d85c13cec9, type: 2}
+    - target: {fileID: 8404614449977641193, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
+      propertyPath: startTime
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8564451952745556834, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
