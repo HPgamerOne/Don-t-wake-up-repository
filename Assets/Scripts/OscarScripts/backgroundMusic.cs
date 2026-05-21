@@ -21,7 +21,6 @@ public class backgroundMusic : MonoBehaviour
             }
             SoundFXManager.Instance.EnableMusicLoop();
             SoundFXManager.Instance.PlayBackgroundMusic();
-            Destroy(gameObject);
         }
     }
 }
