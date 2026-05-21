@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/*
+Kollar om valv är på plats
+*/
 public class CheckValve : MonoBehaviour
 {
     [SerializeField] private GameObject valvePosition;

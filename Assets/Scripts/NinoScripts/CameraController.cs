@@ -19,11 +19,6 @@ public class CameraController : MonoBehaviour
     public bool active = true; // when false forces player to look down
     public bool lockCamera = false;
 
-    /*
-    [Header("GizmosRay")]
-    [SerializeField] private float gizmosRayLength = 2f;
-    */
-
     void Start()
     {
         
@@ -63,13 +58,4 @@ public class CameraController : MonoBehaviour
             Cursor.visible = true;
         }
     }
-
-    /*
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-
-        Gizmos.DrawRay(transform.position, transform.forward * gizmosRayLength);
-    }
-    */
 }

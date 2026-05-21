@@ -1,6 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
+/*
+Lampa slocknar och lyser i intervall
+*/
+
 public class LampFlicker : MonoBehaviour
 {
     [SerializeField] private Light lampLight;

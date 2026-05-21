@@ -1,6 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
+/*
+Hantera pussel, öppnar dörr till labyrint och spelar cutscene
+*/
+
 public class ValvePuzzleManager : MonoBehaviour
 {
     public static ValvePuzzleManager Instance;
@@ -40,7 +44,6 @@ public class ValvePuzzleManager : MonoBehaviour
     void TriggerWater()
     {
         StartCoroutine(Cutscene());
-        //animatorPoolWater.Play("PoolWater", 0, 0);
     }
 
     private IEnumerator Cutscene()

@@ -1,6 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
+/*
+Öppnar dörr och spelar ljud
+*/
+
 public class OpenGateValve : MonoBehaviour
 {
     [SerializeField] private CheckValve checkValve;
@@ -30,17 +34,8 @@ public class OpenGateValve : MonoBehaviour
 
     private IEnumerator Cutscene()
     {
-        // yield return new WaitForSeconds(3f);
-
-        // playerCamera.enabled = false;
-        // animatorPoolWater.Play("PoolWater", 0, 0);
-
-        // yield return new WaitForSeconds(4f);
-
-        //playerCamera.enabled = true;
         animatorGarage.Play("GarageOpen", 0, 0);
         SoundFXManager.Instance.PlaySoundEffectAtPosition(library.others[0], animatorGarage.transform, 1f);
-        // wall.gameObject.GetComponent<BoxCollider>().enabled = false;
 
         yield return null;
     }
