@@ -46,6 +46,8 @@ public class Timer : MonoBehaviour
     void Start()
     {
         remainingTime = startTime;
+        ResetEyeUI();
+
     }
     void Update()
     {
@@ -55,17 +57,21 @@ public class Timer : MonoBehaviour
             if (remainingTime <= startTime / 2 && !threshold1)
             {
                 threshold1 = true;
+                closedEye.gameObject.SetActive(false);
+                halfOpenEye1.gameObject.SetActive(true);
                 
             }
             else if (remainingTime <= startTime / 3 && !threshold2)
             {
                 threshold2 = true;
-
+                halfOpenEye1.gameObject.SetActive(false);
+                halfOpenEye2.gameObject.SetActive(true);
             }
             else if (remainingTime <= startTime / 4 && !threshold3)
             {
                 threshold3 = true;
-
+                halfOpenEye2.gameObject.SetActive(false);
+                openEye.gameObject.SetActive(true);
                 SoundFXManager.Instance.PlaySoundEffect(library.warning, 1f);
             }
 
@@ -99,24 +105,17 @@ public class Timer : MonoBehaviour
     {
         fillImage.fillAmount = remainingTime / startTime;
     }
-    /// <summary>
-    /// Change how fast the timer runs out
-    /// </summary>
-    /// <param name="changeRate">The multipler to increase or decrease the rate of change on the timer</param>
-    
-    /*
-    public void ChangeTimerRate(float changeRate)
+    private void ResetEyeUI()
     {
-        multiplier = changeRate;
+        closedEye.gameObject.SetActive(true);
+        halfOpenEye1.gameObject.SetActive(false);
+        halfOpenEye2.gameObject.SetActive(false);
+        openEye.gameObject.SetActive(false);
     }
-    */
-
-    /// <summary>
-    /// Stop the timer
-    /// </summary>
     public void StopTimer()
     {
         timerRunning = false;
+        CanvasManager.Instance.ShowTimerPanels(false);
 
     }
     /// <summary>
@@ -138,8 +137,7 @@ public class Timer : MonoBehaviour
         threshold2 = false;
         threshold3 = false;
         remainingTime = startTime;
-        CanvasManager.Instance.ShowTimerPanels(false);
-
+        ResetEyeUI();
     }
 
 
