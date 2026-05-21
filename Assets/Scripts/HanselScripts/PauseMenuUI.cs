@@ -9,6 +9,7 @@ public class PauseMenuUI : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        Debug.Log("Returning to main menu");
         GameManager.Instance.StartMainMenu();
     }
 }

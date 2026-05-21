@@ -630,6 +630,11 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &915579730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7249266044797177971, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
+  m_PrefabInstance: {fileID: 1446656897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &977331726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,6 +1140,14 @@ PrefabInstance:
     - target: {fileID: 2774019134508342061, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2949840892752094079, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 915579730}
+    - target: {fileID: 2949840892752094079, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2992861308249524349, guid: 217ae2511566ac34f8c01693b6210019, type: 3}
       propertyPath: m_StaticEditorFlags

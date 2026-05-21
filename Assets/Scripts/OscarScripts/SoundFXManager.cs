@@ -88,6 +88,10 @@ public class SoundFXManager : MonoBehaviour
     /// </summary>
     public void StopBackgroundMusic()
     {
+        if (source != null)
+        {
+            source.Stop();
+        }
         source.Stop();
     }
     /// <summary>
