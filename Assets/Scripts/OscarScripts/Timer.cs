@@ -149,6 +149,11 @@ public class Timer : MonoBehaviour
         threshold1 = false;
         threshold2 = false;
         threshold3 = false;
+        remainingTime = startTime;
+    }
+    public void ResetTimerUI()
+    {
+        
 
         closedEye.gameObject.SetActive(false);
         halfOpenEye1.gameObject.SetActive(false);
@@ -158,7 +163,6 @@ public class Timer : MonoBehaviour
         fillImage.gameObject.SetActive(false);
         timeText.gameObject.SetActive(false);
         totalTimePanel.gameObject.SetActive(false);
-        remainingTime = startTime;
     }
 
     public void ResetTotalTime()

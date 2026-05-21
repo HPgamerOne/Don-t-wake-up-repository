@@ -47,7 +47,6 @@ public class SoundFXManager : MonoBehaviour
 
         float audioLength = source.clip.length;
 
-        Destroy(source.gameObject, audioLength);
     }
     public void PlayRandomSoundEffectAtPosition(AudioClip[] audio, Transform spawnLocation, float volume)
     {
@@ -74,7 +73,6 @@ public class SoundFXManager : MonoBehaviour
         source.Play();
 
         float audioLength = source.clip.length;
-        Destroy(source.gameObject, audioLength);
     }
     /// <summary>
     /// Change the background music and start playing it
