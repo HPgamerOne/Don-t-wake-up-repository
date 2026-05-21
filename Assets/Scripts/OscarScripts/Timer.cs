@@ -123,20 +123,14 @@ public class Timer : MonoBehaviour
     public void StopTimer()
     {
         timerRunning = false;
+
     }
     /// <summary>
     /// Start the timer
     /// </summary>
     public void StartTimer()
     {
-        timerPanel.gameObject.SetActive(true);
-        closedEye.gameObject.SetActive(true);
-        halfOpenEye1.gameObject.SetActive(false);
-        halfOpenEye2.gameObject.SetActive(false);
-        openEye.gameObject.SetActive(false);
-        fillImage.gameObject.SetActive(true);
-        timeText.gameObject.SetActive(true);
-        totalTimePanel.gameObject.SetActive(true);
+        CanvasManager.Instance.ShowTimerPanels(true);
         timerRunning = true;
     }
     /// <summary>
@@ -150,20 +144,10 @@ public class Timer : MonoBehaviour
         threshold2 = false;
         threshold3 = false;
         remainingTime = startTime;
-    }
-    public void ResetTimerUI()
-    {
-        
+        CanvasManager.Instance.ShowTimerPanels(false);
 
-        closedEye.gameObject.SetActive(false);
-        halfOpenEye1.gameObject.SetActive(false);
-        halfOpenEye2.gameObject.SetActive(false);
-        openEye.gameObject.SetActive(false);
-        timerPanel.gameObject.SetActive(false);
-        fillImage.gameObject.SetActive(false);
-        timeText.gameObject.SetActive(false);
-        totalTimePanel.gameObject.SetActive(false);
     }
+
 
     public void ResetTotalTime()
     {
