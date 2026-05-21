@@ -85,12 +85,12 @@ public class GameManager : MonoBehaviour
 
             if (noTimerScenes.Contains(currentScene))
             {
-                CanvasManager.Instance.ShowTimerPanels(false);
+                //CanvasManager.Instance.ShowTimerPanels(false);
                 timer.StopTimer();
             }
             else
             {
-                CanvasManager.Instance.ShowTimerPanels(true);
+                //CanvasManager.Instance.ShowTimerPanels(true);
             }
         }
     }
@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        Timer.Instance.ResetTotalTime();
+        Timer.Instance.ResetTimer();
         StopAllCoroutines();
 
         inMainMenu = false;
