@@ -159,6 +159,10 @@ public class Timer : MonoBehaviour
         timeText.gameObject.SetActive(false);
         totalTimePanel.gameObject.SetActive(false);
         remainingTime = startTime;
+    }
+
+    public void ResetTotalTime()
+    {
         totalTime = 0;
     }
     /// <summary>
