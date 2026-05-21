@@ -126,6 +126,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Timer.Instance.ResetTimer();
+        Timer.Instance.ResetTotalTime();
         StopAllCoroutines();
 
         inMainMenu = false;
