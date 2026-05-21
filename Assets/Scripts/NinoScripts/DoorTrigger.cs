@@ -1,6 +1,9 @@
 using System.Collections;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
+
+/*
+När spelaren kolliderar med trigger box
+*/
 
 public class DoorTrigger : MonoBehaviour
 {

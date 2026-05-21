@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/*
+Hantera dissolve shader
+*/
 public class ObjectDissolve : MonoBehaviour, IDissolvable
 {
     private Renderer[] renderers;

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/*
+Hantera highlight shader
+*/
 public class ObjectHighlight : MonoBehaviour, IHighlightable
 {
     private Renderer[] renderers;

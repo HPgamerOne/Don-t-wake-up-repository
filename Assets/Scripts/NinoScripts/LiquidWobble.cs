@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/*
+För vatten i objekt klipping
+*/
+
 public class LiquidWobble : MonoBehaviour
 {
     [SerializeField] private Renderer rend;

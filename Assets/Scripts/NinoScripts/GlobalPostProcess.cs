@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/*
+Global post-process
+*/
+
 public class GlobalPostProcess : MonoBehaviour
 {
     private static GlobalPostProcess instance;
